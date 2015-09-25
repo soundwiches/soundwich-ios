@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */; };
+		65464D931BB5ECCF00FB4B55 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */; };
+		65464D951BB5ECCF00FB4B55 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */; };
+		65464D981BB5ECCF00FB4B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65464D961BB5ECCF00FB4B55 /* Main.storyboard */; };
+		65464D9A1BB5ECCF00FB4B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65464D991BB5ECCF00FB4B55 /* Assets.xcassets */; };
+		65464D9D1BB5ECCF00FB4B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */; };
+		65464DA81BB5ECCF00FB4B55 /* soundwichTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464DA71BB5ECCF00FB4B55 /* soundwichTests.swift */; };
+		65464DB31BB5ECCF00FB4B55 /* soundwichUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464DB21BB5ECCF00FB4B55 /* soundwichUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65464DA41BB5ECCF00FB4B55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65464D851BB5ECCF00FB4B55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65464D8C1BB5ECCF00FB4B55;
+			remoteInfo = soundwich;
+		};
+		65464DAF1BB5ECCF00FB4B55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65464D851BB5ECCF00FB4B55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65464D8C1BB5ECCF00FB4B55;
+			remoteInfo = soundwich;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65464D8D1BB5ECCF00FB4B55 /* soundwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		65464D971BB5ECCF00FB4B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65464D991BB5ECCF00FB4B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65464D9C1BB5ECCF00FB4B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65464D9E1BB5ECCF00FB4B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65464DA31BB5ECCF00FB4B55 /* soundwichTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = soundwichTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65464DA71BB5ECCF00FB4B55 /* soundwichTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundwichTests.swift; sourceTree = "<group>"; };
+		65464DA91BB5ECCF00FB4B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65464DAE1BB5ECCF00FB4B55 /* soundwichUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = soundwichUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65464DB21BB5ECCF00FB4B55 /* soundwichUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundwichUITests.swift; sourceTree = "<group>"; };
+		65464DB41BB5ECCF00FB4B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65464D8A1BB5ECCF00FB4B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464DA01BB5ECCF00FB4B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464DAB1BB5ECCF00FB4B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65464D841BB5ECCF00FB4B55 = {
+			isa = PBXGroup;
+			children = (
+				65464D8F1BB5ECCF00FB4B55 /* soundwich */,
+				65464DA61BB5ECCF00FB4B55 /* soundwichTests */,
+				65464DB11BB5ECCF00FB4B55 /* soundwichUITests */,
+				65464D8E1BB5ECCF00FB4B55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65464D8E1BB5ECCF00FB4B55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65464D8D1BB5ECCF00FB4B55 /* soundwich.app */,
+				65464DA31BB5ECCF00FB4B55 /* soundwichTests.xctest */,
+				65464DAE1BB5ECCF00FB4B55 /* soundwichUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65464D8F1BB5ECCF00FB4B55 /* soundwich */ = {
+			isa = PBXGroup;
+			children = (
+				65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */,
+				65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */,
+				65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */,
+				65464D961BB5ECCF00FB4B55 /* Main.storyboard */,
+				65464D991BB5ECCF00FB4B55 /* Assets.xcassets */,
+				65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */,
+				65464D9E1BB5ECCF00FB4B55 /* Info.plist */,
+			);
+			path = soundwich;
+			sourceTree = "<group>";
+		};
+		65464DA61BB5ECCF00FB4B55 /* soundwichTests */ = {
+			isa = PBXGroup;
+			children = (
+				65464DA71BB5ECCF00FB4B55 /* soundwichTests.swift */,
+				65464DA91BB5ECCF00FB4B55 /* Info.plist */,
+			);
+			path = soundwichTests;
+			sourceTree = "<group>";
+		};
+		65464DB11BB5ECCF00FB4B55 /* soundwichUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65464DB21BB5ECCF00FB4B55 /* soundwichUITests.swift */,
+				65464DB41BB5ECCF00FB4B55 /* Info.plist */,
+			);
+			path = soundwichUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65464D8C1BB5ECCF00FB4B55 /* soundwich */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65464DB71BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwich" */;
+			buildPhases = (
+				65464D891BB5ECCF00FB4B55 /* Sources */,
+				65464D8A1BB5ECCF00FB4B55 /* Frameworks */,
+				65464D8B1BB5ECCF00FB4B55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = soundwich;
+			productName = soundwich;
+			productReference = 65464D8D1BB5ECCF00FB4B55 /* soundwich.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65464DA21BB5ECCF00FB4B55 /* soundwichTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65464DBA1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichTests" */;
+			buildPhases = (
+				65464D9F1BB5ECCF00FB4B55 /* Sources */,
+				65464DA01BB5ECCF00FB4B55 /* Frameworks */,
+				65464DA11BB5ECCF00FB4B55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65464DA51BB5ECCF00FB4B55 /* PBXTargetDependency */,
+			);
+			name = soundwichTests;
+			productName = soundwichTests;
+			productReference = 65464DA31BB5ECCF00FB4B55 /* soundwichTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65464DAD1BB5ECCF00FB4B55 /* soundwichUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65464DBD1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichUITests" */;
+			buildPhases = (
+				65464DAA1BB5ECCF00FB4B55 /* Sources */,
+				65464DAB1BB5ECCF00FB4B55 /* Frameworks */,
+				65464DAC1BB5ECCF00FB4B55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65464DB01BB5ECCF00FB4B55 /* PBXTargetDependency */,
+			);
+			name = soundwichUITests;
+			productName = soundwichUITests;
+			productReference = 65464DAE1BB5ECCF00FB4B55 /* soundwichUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65464D851BB5ECCF00FB4B55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Tommy Chheng";
+				TargetAttributes = {
+					65464D8C1BB5ECCF00FB4B55 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					65464DA21BB5ECCF00FB4B55 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 65464D8C1BB5ECCF00FB4B55;
+					};
+					65464DAD1BB5ECCF00FB4B55 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 65464D8C1BB5ECCF00FB4B55;
+					};
+				};
+			};
+			buildConfigurationList = 65464D881BB5ECCF00FB4B55 /* Build configuration list for PBXProject "soundwich" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65464D841BB5ECCF00FB4B55;
+			productRefGroup = 65464D8E1BB5ECCF00FB4B55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65464D8C1BB5ECCF00FB4B55 /* soundwich */,
+				65464DA21BB5ECCF00FB4B55 /* soundwichTests */,
+				65464DAD1BB5ECCF00FB4B55 /* soundwichUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65464D8B1BB5ECCF00FB4B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65464D9D1BB5ECCF00FB4B55 /* LaunchScreen.storyboard in Resources */,
+				65464D9A1BB5ECCF00FB4B55 /* Assets.xcassets in Resources */,
+				65464D981BB5ECCF00FB4B55 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464DA11BB5ECCF00FB4B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464DAC1BB5ECCF00FB4B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65464D891BB5ECCF00FB4B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65464D951BB5ECCF00FB4B55 /* SecondViewController.swift in Sources */,
+				65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */,
+				65464D931BB5ECCF00FB4B55 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464D9F1BB5ECCF00FB4B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65464DA81BB5ECCF00FB4B55 /* soundwichTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65464DAA1BB5ECCF00FB4B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65464DB31BB5ECCF00FB4B55 /* soundwichUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65464DA51BB5ECCF00FB4B55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65464D8C1BB5ECCF00FB4B55 /* soundwich */;
+			targetProxy = 65464DA41BB5ECCF00FB4B55 /* PBXContainerItemProxy */;
+		};
+		65464DB01BB5ECCF00FB4B55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65464D8C1BB5ECCF00FB4B55 /* soundwich */;
+			targetProxy = 65464DAF1BB5ECCF00FB4B55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65464D961BB5ECCF00FB4B55 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65464D971BB5ECCF00FB4B55 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65464D9C1BB5ECCF00FB4B55 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65464DB51BB5ECCF00FB4B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65464DB61BB5ECCF00FB4B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65464DB81BB5ECCF00FB4B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = soundwich/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwich;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65464DB91BB5ECCF00FB4B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = soundwich/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwich;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		65464DBB1BB5ECCF00FB4B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = soundwichTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwichTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/soundwich.app/soundwich";
+			};
+			name = Debug;
+		};
+		65464DBC1BB5ECCF00FB4B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = soundwichTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwichTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/soundwich.app/soundwich";
+			};
+			name = Release;
+		};
+		65464DBE1BB5ECCF00FB4B55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = soundwichUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwichUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = soundwich;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		65464DBF1BB5ECCF00FB4B55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = soundwichUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwichUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = soundwich;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65464D881BB5ECCF00FB4B55 /* Build configuration list for PBXProject "soundwich" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65464DB51BB5ECCF00FB4B55 /* Debug */,
+				65464DB61BB5ECCF00FB4B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65464DB71BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwich" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65464DB81BB5ECCF00FB4B55 /* Debug */,
+				65464DB91BB5ECCF00FB4B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65464DBA1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65464DBB1BB5ECCF00FB4B55 /* Debug */,
+				65464DBC1BB5ECCF00FB4B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65464DBD1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65464DBE1BB5ECCF00FB4B55 /* Debug */,
+				65464DBF1BB5ECCF00FB4B55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65464D851BB5ECCF00FB4B55 /* Project object */;
+}
