@@ -30,6 +30,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="second" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="5TW-L5-nik" id="i39-4W-K6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
