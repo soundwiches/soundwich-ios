@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FDA1BB98D0800CE1914 /* Soundwich.swift */; settings = {ASSET_TAGS = (); }; };
+		17A45FDD1BB98FB300CE1914 /* SoundwichEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FDC1BB98FB300CE1914 /* SoundwichEditorController.swift */; settings = {ASSET_TAGS = (); }; };
 		65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */; };
-		65464D931BB5ECCF00FB4B55 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */; };
-		65464D951BB5ECCF00FB4B55 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */; };
+		65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */; };
+		65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D941BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift */; };
 		65464D981BB5ECCF00FB4B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65464D961BB5ECCF00FB4B55 /* Main.storyboard */; };
 		65464D9A1BB5ECCF00FB4B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65464D991BB5ECCF00FB4B55 /* Assets.xcassets */; };
 		65464D9D1BB5ECCF00FB4B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */; };
@@ -35,10 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17A45FDA1BB98D0800CE1914 /* Soundwich.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soundwich.swift; sourceTree = "<group>"; };
+		17A45FDC1BB98FB300CE1914 /* SoundwichEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichEditorController.swift; sourceTree = "<group>"; };
 		65464D8D1BB5ECCF00FB4B55 /* soundwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundwichFeedViewController.swift; sourceTree = "<group>"; };
+		65464D941BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundwichEditorViewController.swift; sourceTree = "<group>"; };
 		65464D971BB5ECCF00FB4B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65464D991BB5ECCF00FB4B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65464D9C1BB5ECCF00FB4B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17A45FD61BB98CB800CE1914 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */,
+				65464D941BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		17A45FD71BB98CBF00CE1914 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17A45FDA1BB98D0800CE1914 /* Soundwich.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		17A45FD81BB98CDB00CE1914 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17A45FDC1BB98FB300CE1914 /* SoundwichEditorController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		17A45FD91BB98CF100CE1914 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		65464D841BB5ECCF00FB4B55 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +135,11 @@
 		65464D8F1BB5ECCF00FB4B55 /* soundwich */ = {
 			isa = PBXGroup;
 			children = (
+				17A45FD61BB98CB800CE1914 /* ViewControllers */,
+				17A45FD81BB98CDB00CE1914 /* Controllers */,
+				17A45FD71BB98CBF00CE1914 /* Models */,
+				17A45FD91BB98CF100CE1914 /* Views */,
 				65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */,
-				65464D921BB5ECCF00FB4B55 /* FirstViewController.swift */,
-				65464D941BB5ECCF00FB4B55 /* SecondViewController.swift */,
 				65464D961BB5ECCF00FB4B55 /* Main.storyboard */,
 				65464D991BB5ECCF00FB4B55 /* Assets.xcassets */,
 				65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */,
@@ -258,9 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65464D951BB5ECCF00FB4B55 /* SecondViewController.swift in Sources */,
+				17A45FDD1BB98FB300CE1914 /* SoundwichEditorController.swift in Sources */,
+				65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */,
 				65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */,
-				65464D931BB5ECCF00FB4B55 /* FirstViewController.swift in Sources */,
+				17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */,
+				65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +527,7 @@
 				65464DB91BB5ECCF00FB4B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65464DBA1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +536,7 @@
 				65464DBC1BB5ECCF00FB4B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65464DBD1BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwichUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +545,7 @@
 				65464DBF1BB5ECCF00FB4B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

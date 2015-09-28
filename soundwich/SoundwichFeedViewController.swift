@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SoundwichFeedViewController.swift
 //  soundwich
 //
 //  Created by Tommy Chheng on 9/25/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SoundwichFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
