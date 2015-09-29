@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     var soundwiches:[Soundwich] = []
@@ -45,11 +45,16 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         return refreshControl
     }
     
+    func onEditTapped(soundwich:Soundwich, sender: AnyObject) {
+        NSLog("soundwich edit clicked")
+    }
+    
     // MARK: - Data
     func loadData() {
         let soundwiches = SoundwichStore.getAll()
         self.soundwiches = soundwiches
         tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     // MARK: - Table Datasource
@@ -60,6 +65,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SoundwichFeedCell", forIndexPath: indexPath) as! SoundwichFeedCell
         
+        cell.delegate = self
         cell.soundwich = self.soundwiches[indexPath.row]
         cell.layoutIfNeeded()
         return cell

@@ -14,9 +14,10 @@ class SoundwichEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        NSLog("viewDidLoad")
         if(soundwich == nil) {
-            soundwich = Soundwich(title: "Test")
+            soundwich = Soundwich(title: "New")
+            add()
         }
     }
 
@@ -26,7 +27,7 @@ class SoundwichEditorViewController: UIViewController {
     }
     
     // MARK: - Data
-    func create() {
+    func add() {
         if let s = soundwich {
             SoundwichStore.add(s)
         }

@@ -12,6 +12,6 @@ class Soundbite {
     var duration:Int?
     
     init(duration:Int) {
-        duration = duration
+        self.duration? = duration
     }
 }

@@ -10,22 +10,29 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kce-O2-r9h" id="ukR-IC-T6c">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Soundwich Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-Fa-pB7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soundwich Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-Fa-pB7">
                         <rect key="frame" x="8" y="8" width="123" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lE-8U-jIw">
-                        <rect key="frame" x="8" y="32" width="41" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccF-po-UGv">
+                        <rect key="frame" x="554" y="4" width="30" height="30"/>
+                        <state key="normal" title="Edit"/>
+                        <connections>
+                            <action selector="onEditTapped:" destination="Kce-O2-r9h" eventType="touchUpInside" id="RmB-Z8-srb"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="RNz-Fa-pB7" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="8" id="2U0-dp-zOH"/>
+                    <constraint firstAttribute="trailing" secondItem="ccF-po-UGv" secondAttribute="trailing" constant="16" id="Acf-xs-CDY"/>
+                    <constraint firstItem="RNz-Fa-pB7" firstAttribute="leading" secondItem="ukR-IC-T6c" secondAttribute="leading" constant="8" id="FPl-j1-X8i"/>
+                    <constraint firstItem="ccF-po-UGv" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="4" id="eXZ-0k-oho"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="titleLabel" destination="RNz-Fa-pB7" id="VST-0u-VMw"/>
