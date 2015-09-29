@@ -24,4 +24,17 @@ class SoundwichEditorViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Data
+    func create() {
+        if let s = soundwich {
+            SoundwichStore.add(s)
+        }
+    }
+    
+    func update() {
+        if let s = soundwich {
+            SoundwichStore.update(s)
+        }
+    }
 }
