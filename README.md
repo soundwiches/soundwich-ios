@@ -9,6 +9,7 @@ Time spent: ``
 ##### Core
 - [ ] Record a sound
 - [ ] Basic soundwich sound editor
+- [ ] Sound editor: Merge channels/soundbite
 - [ ] See a list of your created sounds in a feed
 - [ ] Upload to Tumblr
 - [ ] CRUD operations for soundwiches
@@ -16,12 +17,12 @@ Time spent: ``
 ##### Bonus
 - [ ] Add Photo
 - [ ] Feed autoplays center soundwich
-- [ ] Sound editor: Merge channels/soundbite
 - [ ] Sound editor: Duplicate Channel/soundbite
 - [ ] Sound editor: Duplicate Soundwiches
 - [ ] Upload to Soundcloud
 - [ ] Generate video with waveform
 - [ ] Upload to Tumblr
+- [ ] Export as a ringtone
 
 #### Wireframes
 
