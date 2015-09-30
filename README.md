@@ -13,9 +13,11 @@ Time spent: ``
 - [ ] See a list of your created sounds in a feed
 - [ ] Upload to Tumblr
 - [ ] CRUD operations for soundwiches
+- [ ] Rotate screen orientation
 
 ##### Bonus
 - [ ] Add Photo
+- [ ] Flurry analytics
 - [ ] Feed autoplays center soundwich
 - [ ] Sound editor: Duplicate Channel/soundbite
 - [ ] Sound editor: Duplicate Soundwiches
