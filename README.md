@@ -11,6 +11,7 @@ Time spent: ``
 - [ ] Basic soundwich sound editor
 - [ ] See a list of your created sounds in a feed
 - [ ] Upload to Tumblr
+- [ ] CRUD operations for soundwiches
 
 ##### Bonus
 - [ ] Add Photo
@@ -18,17 +19,15 @@ Time spent: ``
 - [ ] Sound editor: Merge channels/soundbite
 - [ ] Sound editor: Duplicate Channel/soundbite
 - [ ] Sound editor: Duplicate Soundwiches
+- [ ] Upload to Soundcloud
+- [ ] Generate video with waveform
+- [ ] Upload to Tumblr
 
 #### Wireframes
 
 ##### Feed Screen
 
-table view
-_________
-|       |
-|       |
-|       |
-|_______|
+table view, think Vine.
 
 ##### Record Screen
 
