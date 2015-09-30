@@ -11,6 +11,7 @@
 		17A45FDD1BB98FB300CE1914 /* SoundwichEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FDC1BB98FB300CE1914 /* SoundwichEditorController.swift */; settings = {ASSET_TAGS = (); }; };
 		17A45FDF1BB9922C00CE1914 /* SoundwichFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */; settings = {ASSET_TAGS = (); }; };
 		17A45FE11BB994A900CE1914 /* SoundwichFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */; settings = {ASSET_TAGS = (); }; };
+		568840ADED6CB2BECC705E88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C52F13C7A42B4E619FA8C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */; };
 		65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */; };
 		65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D941BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift */; };
@@ -45,6 +46,8 @@
 		17A45FDC1BB98FB300CE1914 /* SoundwichEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichEditorController.swift; sourceTree = "<group>"; };
 		17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundwichFeedCell.xib; sourceTree = "<group>"; };
 		17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichFeedCell.swift; sourceTree = "<group>"; };
+		1A9C52F13C7A42B4E619FA8C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		65464D8D1BB5ECCF00FB4B55 /* soundwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundwichFeedViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		65464DB41BB5ECCF00FB4B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DEE0691BBAF849004B3B7E /* Soundbite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soundbite.swift; sourceTree = "<group>"; };
 		65DEE06C1BBAFADB004B3B7E /* SoundwichStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichStore.swift; sourceTree = "<group>"; };
+		A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568840ADED6CB2BECC705E88 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +135,8 @@
 				65464DA61BB5ECCF00FB4B55 /* soundwichTests */,
 				65464DB11BB5ECCF00FB4B55 /* soundwichUITests */,
 				65464D8E1BB5ECCF00FB4B55 /* Products */,
+				CC4418A9E6396107F75A981A /* Pods */,
+				C7B75810F9E122DCC5808606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +193,23 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
+		C7B75810F9E122DCC5808606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A9C52F13C7A42B4E619FA8C /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC4418A9E6396107F75A981A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */,
+				A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,9 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65464DB71BB5ECCF00FB4B55 /* Build configuration list for PBXNativeTarget "soundwich" */;
 			buildPhases = (
+				70BE523DBD4EF19292141328 /* Check Pods Manifest.lock */,
 				65464D891BB5ECCF00FB4B55 /* Sources */,
 				65464D8A1BB5ECCF00FB4B55 /* Frameworks */,
 				65464D8B1BB5ECCF00FB4B55 /* Resources */,
+				4292858B9C5FDF87A42C2053 /* Embed Pods Frameworks */,
+				F2392002F52FF4B8F2273F2A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,6 +338,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4292858B9C5FDF87A42C2053 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70BE523DBD4EF19292141328 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2392002F52FF4B8F2273F2A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65464D891BB5ECCF00FB4B55 /* Sources */ = {
@@ -464,6 +539,7 @@
 		};
 		65464DB81BB5ECCF00FB4B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = soundwich/Info.plist;
@@ -475,6 +551,7 @@
 		};
 		65464DB91BB5ECCF00FB4B55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = soundwich/Info.plist;
