@@ -17,5 +17,5 @@ Time spent: ``
 
 #### Wireframes
 
-TODO
+![Wireframes](wireframes/record.jpg)
 
