@@ -14,7 +14,6 @@ class SoundwichEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSLog("viewDidLoad")
         if(soundwich == nil) {
             soundwich = Soundwich(title: "New")
             add()

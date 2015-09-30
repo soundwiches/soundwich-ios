@@ -10,6 +10,8 @@ import Foundation
 
 class Soundwich {
     var title:String!
+    var audioUrl:String?
+    var duration:Float?
     
     init(title:String) {
         self.title = title
