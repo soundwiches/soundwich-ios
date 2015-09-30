@@ -57,25 +57,6 @@
             </objects>
             <point key="canvasLocation" x="1356" y="352"/>
         </scene>
-        <!--Record-->
-        <scene sceneID="rQn-x1-7EU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lnc-fM-GAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" image="first" id="cPa-gy-q4n"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jir-Tb-kHv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="cCf-Rd-fqv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zze-1x-KIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="544" y="352"/>
-        </scene>
         <!--Feed-->
         <scene sceneID="k18-Lp-Weu">
             <objects>
@@ -97,7 +78,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
