@@ -12,6 +12,7 @@ class Soundwich {
     var title:String!
     var audioUrl:String?
     var duration:Float?
+    var soundbites:[Soundbite]?
     
     init(title:String) {
         self.title = title

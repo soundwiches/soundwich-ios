@@ -19,6 +19,7 @@ Time spent: ``
 - [ ] Feed autoplays center soundwich
 - [ ] Sound editor: Duplicate Channel/soundbite
 - [ ] Sound editor: Duplicate Soundwiches
+- [ ] Sound editor: Mute channels
 - [ ] Upload to Soundcloud
 - [ ] Generate video with waveform
 - [ ] Upload to Tumblr
