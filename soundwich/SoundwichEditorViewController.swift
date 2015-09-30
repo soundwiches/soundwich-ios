@@ -13,11 +13,8 @@ class SoundwichEditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        if(soundwich == nil) {
-            soundwich = Soundwich(title: "New")
-            add()
-        }
+        // Do any additional setup after loading the view, typically from a nib.        
+        self.title = soundwich?.title
     }
 
     override func didReceiveMemoryWarning() {

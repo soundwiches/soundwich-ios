@@ -16,6 +16,9 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "Soundwich"
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "onAdd:")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,8 +48,15 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         return refreshControl
     }
     
+    func onAdd(sender: AnyObject) {
+        let soundwich = Soundwich(title: "New")
+        SoundwichStore.add(soundwich)
+
+        pushEditor(soundwich)
+    }
+    
     func onEditTapped(soundwich:Soundwich, sender: AnyObject) {
-        NSLog("soundwich edit clicked")
+        pushEditor(soundwich)
     }
     
     // MARK: - Data
@@ -72,5 +82,11 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     // MARK: - Navigation
+    func pushEditor(soundwich:Soundwich) {
+        let identifier = "SoundwichEditorViewController"
+        let vc = navigationController?.storyboard?.instantiateViewControllerWithIdentifier(identifier) as! SoundwichEditorViewController
+        vc.soundwich = soundwich
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

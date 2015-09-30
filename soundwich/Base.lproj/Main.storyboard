@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aYk-Ed-Msy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -17,31 +17,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5TW-L5-nik">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="5TW-L5-nik" secondAttribute="bottom" id="KUm-Iy-1c2"/>
-                            <constraint firstAttribute="trailing" secondItem="5TW-L5-nik" secondAttribute="trailing" id="fXm-dc-moB"/>
-                            <constraint firstItem="5TW-L5-nik" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="20" id="qU1-Lk-REg"/>
-                            <constraint firstItem="5TW-L5-nik" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wf9-1e-x5L"/>
+                            <constraint firstItem="5TW-L5-nik" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="8z3-HQ-gej"/>
+                            <constraint firstAttribute="trailing" secondItem="5TW-L5-nik" secondAttribute="trailing" id="9hX-OH-Hiz"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="5TW-L5-nik" secondAttribute="bottom" id="VNW-1o-8ra"/>
+                            <constraint firstItem="5TW-L5-nik" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="yWX-YA-ohh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="second" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="OsG-Oa-Ku0"/>
                     <connections>
                         <outlet property="tableView" destination="5TW-L5-nik" id="i39-4W-K6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1356" y="-328"/>
         </scene>
         <!--SoundwichEditorViewController-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" userLabel="SoundwichEditorViewController" customClass="SoundwichEditorViewController" customModule="soundwich" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SoundwichEditorViewController" id="8rJ-Kc-sve" userLabel="SoundwichEditorViewController" customClass="SoundwichEditorViewController" customModule="soundwich" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -51,30 +51,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Record" image="first" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="Mz0-l2-fc7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1356" y="352"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yl2-sM-qoP">
+        <!--Record-->
+        <scene sceneID="rQn-x1-7EU">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lnc-fM-GAe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Record" image="first" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jir-Tb-kHv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="cCf-Rd-fqv"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zze-1x-KIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="544" y="352"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="k18-Lp-Weu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYk-Ed-Msy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="second" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="olC-Ri-EAA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="Dqy-F6-ZPc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohF-H4-FJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="-328"/>
         </scene>
     </scenes>
     <resources>
