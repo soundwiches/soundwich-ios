@@ -63,4 +63,6 @@ func createSoundbite(name: String, channelIndex: Int, spec: Timespec) throws
 func deleteSoundbite(name: String) throws
 
 func moveScrubberHairline(timeInSeconds: Float)
+
+func registerDelegate(delegate: Protocol_MessagesFromTimeline)
 ```
