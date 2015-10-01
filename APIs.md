@@ -43,6 +43,7 @@ protocol Protocol_MessagesFromTimeline {
     func soundbiteDeleteRequested(name:String)
     func soundbiteDuplicateRequested(name:String)
     func soundbiteRenameRequested(nameCurrent:String, nameNew:String)
+    func scrubberLocationDidChange(newLocationInSeconds: Float)
 }
 ```
 
