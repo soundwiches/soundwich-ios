@@ -67,6 +67,11 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         self.refreshControl.endRefreshing()
     }
     
+    // MARK: - Table Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     // MARK: - Table Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return soundwiches.count

@@ -8,6 +8,6 @@
 
 import Foundation
 
-class SoundwichRecorderController{
+class SoundwichRecorderController {
     
 }
