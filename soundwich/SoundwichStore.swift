@@ -7,20 +7,41 @@
 //
 
 import Foundation
+import Parse
 //import RealmSwift
 
 class SoundwichStore {
+    static let CLASS_NAME = "Soundwich"
     //let realm = Realm()
 
     static var soundwiches:[Soundwich] = [Soundwich(title: "1"), Soundwich(title: "2")]
-    
-    static func getAll() -> [Soundwich] {
+
+    static func get(id:String, callback:Soundwich -> ()) {
         
-        return soundwiches
+        let query = PFQuery(className: CLASS_NAME)
+        
+        query.getObjectInBackgroundWithId(id) { (obj, error) -> Void in
+            let soundwich = toSoundwich(obj!)
+            callback(soundwich)
+        }
+    }
+
+    
+    static func getAll(callback:[Soundwich] -> ()) {
+        let query = PFQuery(className: CLASS_NAME)
+        
+        query.findObjectsInBackgroundWithBlock({ (objs, error) -> Void in
+            
+            callback([])
+        })
     }
     
-    static func add(soundwich:Soundwich) {
-        soundwiches.append(soundwich)
+    static func add(soundwich:Soundwich, callback: () -> ()) {
+        let obj = toPFObject(soundwich)
+        
+        obj.saveInBackgroundWithBlock { (result, error) -> Void in
+            callback();
+        }
     }
     
     static func remove(soundwich:Soundwich) {
@@ -30,5 +51,28 @@ class SoundwichStore {
 
     static func update(soundwich:Soundwich) {
         // find the soundwich in soundwiches and update it
+    }
+
+    static func toSoundwich(obj:PFObject) -> Soundwich {
+        let title = obj.objectForKey("title") as! String
+        
+        let soundwich = Soundwich(title: title)
+        
+        return soundwich
+    }
+
+    static func toPFObject(soundwich:Soundwich) -> PFObject {
+        let obj = PFObject(className: CLASS_NAME)
+        obj.setObject(soundwich.title, forKey: "title")
+        
+        if let d = soundwich.duration {
+            obj.setObject(d, forKey: "duration")
+        }
+
+        if let a = soundwich.audioUrl {
+            obj.setObject(a, forKey: "audioUrl")
+        }
+        
+        return obj
     }
 }
