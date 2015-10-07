@@ -11,22 +11,19 @@ import XCTest
 
 class SoundwichStoreTests:XCTestCase {
     
-        
     func testSave() {
         let soundwich = generateSoundwich()
         
         let expectation = expectationWithDescription("Save")
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectationsWithTimeout(10) { error in
             
-            SoundwichStore.update(soundwich)
-//            SoundwichStore.add(soundwich) { saved in
-//                XCTAssert(soundwich.id != nil)
-//                
+            SoundwichStore.add(soundwich) { (saved, error) in
+                XCTAssertEqual(error, nil)
+                XCTAssertNotEqual(soundwich.id, nil)
+            
                 expectation.fulfill()
-//            }
-            
+            }
         }
-        
     }
     
     func generateSoundwich() -> Soundwich {

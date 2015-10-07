@@ -79,25 +79,18 @@ class SoundwichStore {
         // find the soundwich in soundwiches and update it
     }
     
-    static func uploadAudioFile() {
-        // data is NSData
-        
-//        let filename = ""
-//        let file = PFFile(name:filename, data:data)
-//        object["audioData"] = file
-//        object.save()
-    }
-
     static func toSoundwich(obj:PFObject) -> Soundwich {
         let id = obj.objectId
         let title = obj.objectForKey("title") as! String
         let duration = obj.objectForKey("duration") as? Float
         let audioUrl = obj.objectForKey("audioUrl") as? String
+        let audioData = obj.objectForKey("audioData") as? NSData
 
         let soundwich = Soundwich(title: title)
         soundwich.id = id
         soundwich.duration = duration
         soundwich.audioUrl = audioUrl
+        soundwich.audioData = audioData
 
         return soundwich
     }
@@ -113,6 +106,12 @@ class SoundwichStore {
 
         if let a = soundwich.audioUrl {
             obj.setObject(a, forKey: "audioUrl")
+        }
+        
+        if let data = soundwich.audioData {
+            let filename = "audioFile"
+            let file = PFFile(name:filename, data:data)
+            obj.setObject(file, forKey: "audioData")
         }
         
         return obj
