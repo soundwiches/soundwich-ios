@@ -50,9 +50,15 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     func onAdd(sender: AnyObject) {
         let soundwich = Soundwich(title: "New")
-        SoundwichStore.add(soundwich)
 
-        pushEditor(soundwich)
+        SoundwichStore.add(soundwich, callback:{(soundwich, error) in
+            NSLog("added")
+            
+            if let s = soundwich {
+                self.pushEditor(s)
+            }
+
+        })
     }
     
     func onEditTapped(soundwich:Soundwich, sender: AnyObject) {
@@ -61,10 +67,14 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     // MARK: - Data
     func loadData() {
-        let soundwiches = SoundwichStore.getAll()
-        self.soundwiches = soundwiches
-        tableView.reloadData()
-        self.refreshControl.endRefreshing()
+        
+        SoundwichStore.getAll({ (soundwiches, error) in
+            if let s = soundwiches {
+                self.soundwiches = s
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        })
     }
     
     // MARK: - Table Delegate

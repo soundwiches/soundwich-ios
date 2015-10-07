@@ -25,22 +25,37 @@ class SoundwichStore {
             callback(soundwich)
         }
     }
-
     
-    static func getAll(callback:[Soundwich] -> ()) {
-        let query = PFQuery(className: CLASS_NAME)
+    static func getAll(callback:([Soundwich]?, NSError?) -> ()) {
         
-        query.findObjectsInBackgroundWithBlock({ (objs, error) -> Void in
+        let query = PFQuery(className: CLASS_NAME)
+
+        query.findObjectsInBackgroundWithBlock {
+            (objects, error) -> Void in
             
-            callback([])
-        })
+            if error != nil {
+                return callback(nil, error)
+            }
+
+            let soundwiches = objects?.map({ (object:PFObject) -> Soundwich in
+                let soundwich = toSoundwich(object)
+                return soundwich
+            })
+
+            callback(soundwiches, error)
+        }
     }
     
-    static func add(soundwich:Soundwich, callback: () -> ()) {
+    static func add(soundwich:Soundwich, callback:(Soundwich?, NSError?) -> ()) {
         let obj = toPFObject(soundwich)
         
         obj.saveInBackgroundWithBlock { (result, error) -> Void in
-            callback();
+            if error != nil {
+                return callback(nil, error)
+            }
+
+            soundwich.id = obj.objectId
+            callback(soundwich, nil)
         }
     }
     

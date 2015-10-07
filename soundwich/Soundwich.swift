@@ -9,6 +9,7 @@
 import Foundation
 
 class Soundwich {
+    var id:String?
     var title:String!
     var audioUrl:String?
     var duration:Float?

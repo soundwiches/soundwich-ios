@@ -21,6 +21,7 @@
 		65464DB31BB5ECCF00FB4B55 /* soundwichUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464DB21BB5ECCF00FB4B55 /* soundwichUITests.swift */; };
 		6550112B1BBCA4C700140719 /* SoundwichPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550112A1BBCA4C700140719 /* SoundwichPlayerController.swift */; settings = {ASSET_TAGS = (); }; };
 		6550112D1BBCA4D100140719 /* SoundwichRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550112C1BBCA4D100140719 /* SoundwichRecorderController.swift */; settings = {ASSET_TAGS = (); }; };
+		655132FD1BC5802A00AA56C0 /* SoundwichStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655132FC1BC5802A00AA56C0 /* SoundwichStoreTests.swift */; settings = {ASSET_TAGS = (); }; };
 		65DEE06A1BBAF849004B3B7E /* Soundbite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEE0691BBAF849004B3B7E /* Soundbite.swift */; settings = {ASSET_TAGS = (); }; };
 		65DEE06D1BBAFADB004B3B7E /* SoundwichStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEE06C1BBAFADB004B3B7E /* SoundwichStore.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		65464DB41BB5ECCF00FB4B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6550112A1BBCA4C700140719 /* SoundwichPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichPlayerController.swift; sourceTree = "<group>"; };
 		6550112C1BBCA4D100140719 /* SoundwichRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichRecorderController.swift; sourceTree = "<group>"; };
+		655132FC1BC5802A00AA56C0 /* SoundwichStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichStoreTests.swift; sourceTree = "<group>"; };
 		65DEE0691BBAF849004B3B7E /* Soundbite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soundbite.swift; sourceTree = "<group>"; };
 		65DEE06C1BBAFADB004B3B7E /* SoundwichStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichStore.swift; sourceTree = "<group>"; };
 		A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				65464DA71BB5ECCF00FB4B55 /* soundwichTests.swift */,
 				65464DA91BB5ECCF00FB4B55 /* Info.plist */,
+				655132FC1BC5802A00AA56C0 /* SoundwichStoreTests.swift */,
 			);
 			path = soundwichTests;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655132FD1BC5802A00AA56C0 /* SoundwichStoreTests.swift in Sources */,
 				65464DA81BB5ECCF00FB4B55 /* soundwichTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,7 +25,9 @@ class SoundwichEditorViewController: UIViewController {
     // MARK: - Data
     func add() {
         if let s = soundwich {
-            SoundwichStore.add(s)
+            SoundwichStore.add(s, callback:{(soundwich, error) in
+                NSLog("added")
+            })
         }
     }
     
