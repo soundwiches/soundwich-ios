@@ -8,21 +8,29 @@
 
 import Foundation
 import Parse
-//import RealmSwift
+import RealmSwift
 
 class SoundwichStore {
     static let CLASS_NAME = "Soundwich"
-    //let realm = Realm()
 
-    static var soundwiches:[Soundwich] = [Soundwich(title: "1"), Soundwich(title: "2")]
+    static var soundwiches:[Soundwich] = []
 
-    static func get(id:String, callback:Soundwich -> ()) {
+    static func get(id:String, callback:(Soundwich?, NSError?) -> ()) {
         
         let query = PFQuery(className: CLASS_NAME)
         
-        query.getObjectInBackgroundWithId(id) { (obj, error) -> Void in
-            let soundwich = toSoundwich(obj!)
-            callback(soundwich)
+        query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
+            
+            if error != nil {
+                return callback(nil, error)
+            }
+            
+            if let o = object {
+                let soundwich = toSoundwich(o)
+                return callback(soundwich, nil)
+            }
+            
+            callback(nil, NSError(domain: "Parse", code: 1, userInfo: nil))
         }
     }
     
@@ -61,23 +69,42 @@ class SoundwichStore {
     
     static func remove(soundwich:Soundwich) {
         // find the soundwich in soundwiches and delete it
-
+        
+        let object = toPFObject(soundwich)
+        
+        object.deleteInBackground()
     }
 
     static func update(soundwich:Soundwich) {
         // find the soundwich in soundwiches and update it
     }
+    
+    static func uploadAudioFile() {
+        // data is NSData
+        
+//        let filename = ""
+//        let file = PFFile(name:filename, data:data)
+//        object["audioData"] = file
+//        object.save()
+    }
 
     static func toSoundwich(obj:PFObject) -> Soundwich {
+        let id = obj.objectId
         let title = obj.objectForKey("title") as! String
-        
+        let duration = obj.objectForKey("duration") as? Float
+        let audioUrl = obj.objectForKey("audioUrl") as? String
+
         let soundwich = Soundwich(title: title)
-        
+        soundwich.id = id
+        soundwich.duration = duration
+        soundwich.audioUrl = audioUrl
+
         return soundwich
     }
 
     static func toPFObject(soundwich:Soundwich) -> PFObject {
         let obj = PFObject(className: CLASS_NAME)
+        
         obj.setObject(soundwich.title, forKey: "title")
         
         if let d = soundwich.duration {
