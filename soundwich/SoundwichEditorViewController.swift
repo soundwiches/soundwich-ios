@@ -23,17 +23,13 @@ class SoundwichEditorViewController: UIViewController {
     }
     
     // MARK: - Data
-    func add() {
-        if let s = soundwich {
-            SoundwichStore.add(s, callback:{(soundwich, error) in
-                NSLog("added")
-            })
-        }
-    }
-    
     func update() {
         if let s = soundwich {
-            SoundwichStore.update(s)
+            SoundwichStore.update(s, callback:{(error) in
+                if (error != nil) {
+                    NSLog("Error Updating.")
+                }
+            })
         }
     }
 }
