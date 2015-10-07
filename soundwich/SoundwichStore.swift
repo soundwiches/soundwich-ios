@@ -18,7 +18,6 @@ class SoundwichStore {
     static func get(id:String, callback:(Soundwich?, NSError?) -> ()) {
         
         let query = PFQuery(className: CLASS_NAME)
-        
         query.getObjectInBackgroundWithId(id) { (object, error) -> Void in
             
             if error != nil {
@@ -67,16 +66,58 @@ class SoundwichStore {
         }
     }
     
-    static func remove(soundwich:Soundwich) {
-        // find the soundwich in soundwiches and delete it
-        
-        let object = toPFObject(soundwich)
-        
-        object.deleteInBackground()
+    static func remove(soundwich:Soundwich, callback:(NSError?) -> ()) {
+
+        let query = PFQuery(className: CLASS_NAME)
+        if let idKey = soundwich.id {
+            query.getObjectInBackgroundWithId(idKey) { (object, error) -> Void in
+                
+                if error != nil {
+                    return callback(error)
+                }
+                
+                if let o = object {
+                    o.deleteInBackground()
+                    return callback(nil)
+                }
+                
+                callback(nil)
+            }
+        }
     }
 
-    static func update(soundwich:Soundwich) {
-        // find the soundwich in soundwiches and update it
+    static func update(soundwich:Soundwich, callback:(NSError?) -> ()) {
+        let query = PFQuery(className: CLASS_NAME)
+        if let idKey = soundwich.id {
+            query.getObjectInBackgroundWithId(idKey) { (object, error) -> Void in
+                
+                if error != nil {
+                    return callback(error)
+                }
+                
+                if let o = object {
+                    o.setObject(soundwich.title, forKey: "title")
+                    
+                    if let d = soundwich.duration {
+                        o.setObject(d, forKey: "duration")
+                    }
+                    
+                    if let a = soundwich.audioUrl {
+                        o.setObject(a, forKey: "audioUrl")
+                    }
+                    
+                    if let ad = soundwich.audioUrl {
+                        o.setObject(ad, forKey: "audioData")
+                    }
+
+                    o.saveInBackground()
+
+                    return callback(nil)
+                }
+                
+                callback(nil)
+            }
+        }
     }
     
     static func toSoundwich(obj:PFObject) -> Soundwich {
