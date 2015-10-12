@@ -26,11 +26,20 @@
                             <action selector="onEditTapped:" destination="Kce-O2-r9h" eventType="touchUpInside" id="RmB-Z8-srb"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJw-HJ-jnh">
+                        <rect key="frame" x="516" y="4" width="30" height="30"/>
+                        <state key="normal" title="Play"/>
+                        <connections>
+                            <action selector="onPlayTapped:" destination="Kce-O2-r9h" eventType="touchUpInside" id="bqe-VR-0OA"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="RNz-Fa-pB7" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="8" id="2U0-dp-zOH"/>
+                    <constraint firstItem="ccF-po-UGv" firstAttribute="leading" secondItem="dJw-HJ-jnh" secondAttribute="trailing" constant="8" id="4OC-Ji-zEH"/>
                     <constraint firstAttribute="trailing" secondItem="ccF-po-UGv" secondAttribute="trailing" constant="16" id="Acf-xs-CDY"/>
                     <constraint firstItem="RNz-Fa-pB7" firstAttribute="leading" secondItem="ukR-IC-T6c" secondAttribute="leading" constant="8" id="FPl-j1-X8i"/>
+                    <constraint firstItem="dJw-HJ-jnh" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="4" id="GrJ-xy-BNI"/>
                     <constraint firstItem="ccF-po-UGv" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="4" id="eXZ-0k-oho"/>
                 </constraints>
             </tableViewCellContentView>

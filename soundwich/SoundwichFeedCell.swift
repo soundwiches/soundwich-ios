@@ -10,6 +10,7 @@ import UIKit
 
 protocol SoundwichFeedCellDelegate {
     func onEditTapped(soundwich:Soundwich, sender: AnyObject);
+    func onPlayTapped(soundwich:Soundwich, sender: AnyObject);
 }
 
 class SoundwichFeedCell: UITableViewCell {
@@ -23,6 +24,10 @@ class SoundwichFeedCell: UITableViewCell {
     }
     
     @IBAction func onEditTapped(sender: AnyObject) {
+        delegate?.onEditTapped(soundwich, sender: sender)
+    }
+    
+    @IBAction func onPlayTapped(sender: AnyObject) {
         delegate?.onEditTapped(soundwich, sender: sender)
     }
     

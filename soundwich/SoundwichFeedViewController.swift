@@ -11,10 +11,15 @@ import UIKit
 class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    var soundwichPlayerController: SoundwichPlayerController?
+    
     var soundwiches:[Soundwich] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        soundwichPlayerController = SoundwichPlayerController()
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Soundwich"
         
@@ -63,6 +68,12 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     func onEditTapped(soundwich:Soundwich, sender: AnyObject) {
         pushEditor(soundwich)
+    }
+
+    func onPlayTapped(soundwich:Soundwich, sender: AnyObject) {
+        if let data = soundwich.audioData {
+            soundwichPlayerController?.playNSData(data)
+        }
     }
     
     // MARK: - Data
