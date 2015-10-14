@@ -8,13 +8,17 @@
 
 import UIKit
 
-class SoundwichEditorViewController: UIViewController {
+class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDelegate
+{
     var soundwich:Soundwich?
+    
+    @IBOutlet weak var timelineView: TimelineView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.        
         self.title = soundwich?.title
+        timelineView.registerDelegate(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +35,25 @@ class SoundwichEditorViewController: UIViewController {
                 }
             })
         }
+    }
+    
+    
+    
+    // Required protocol "MessagesFromTimelineDelegate"
+    
+    func soundbiteTimespecDidChange(name:String, newSpec:Timespec) {
+        
+    }
+    
+    func soundbiteDeleteRequested(name:String) {
+        
+    }
+    
+    func soundbiteDuplicateRequested(name:String) {
+        
+    }
+    
+    func soundbiteRenameRequested(nameCurrent:String, nameNew:String) {
+        
     }
 }

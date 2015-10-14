@@ -49,9 +49,24 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-FB-8Kg" customClass="TimelineView" customModule="soundwich" customModuleProvider="target">
+                                <rect key="frame" x="2" y="22" width="596" height="458"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Gb-FB-8Kg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="2" id="HtH-By-MRt"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="8Gb-FB-8Kg" secondAttribute="bottom" constant="120" id="Tsv-RR-V5L"/>
+                            <constraint firstItem="8Gb-FB-8Kg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="2" id="bQn-1a-rgb"/>
+                            <constraint firstAttribute="trailing" secondItem="8Gb-FB-8Kg" secondAttribute="trailing" constant="2" id="geO-nV-LFR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mz0-l2-fc7"/>
+                    <connections>
+                        <outlet property="timelineView" destination="8Gb-FB-8Kg" id="Z6O-pZ-dUh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
