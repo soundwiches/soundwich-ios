@@ -71,6 +71,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func onPlayTapped(soundwich:Soundwich, sender: AnyObject) {
+        NSLog("Playing \(soundwich.title)")
         if let data = soundwich.audioData {
             soundwichPlayerController?.playNSData(data)
         }

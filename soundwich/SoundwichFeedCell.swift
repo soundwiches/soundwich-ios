@@ -28,7 +28,7 @@ class SoundwichFeedCell: UITableViewCell {
     }
     
     @IBAction func onPlayTapped(sender: AnyObject) {
-        delegate?.onEditTapped(soundwich, sender: sender)
+        delegate?.onPlayTapped(soundwich, sender: sender)
     }
     
     override func awakeFromNib() {
