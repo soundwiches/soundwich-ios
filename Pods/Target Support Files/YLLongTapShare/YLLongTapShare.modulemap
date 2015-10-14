@@ -1,0 +1,6 @@
+framework module YLLongTapShare {
+  umbrella header "YLLongTapShare-umbrella.h"
+
+  export *
+  module * { export * }
+}
