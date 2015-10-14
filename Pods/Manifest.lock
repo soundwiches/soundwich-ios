@@ -2,12 +2,15 @@ PODS:
   - Bolts/Tasks (1.3.0)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
+  - YLLongTapShare (0.1)
 
 DEPENDENCIES:
   - Parse
+  - YLLongTapShare
 
 SPEC CHECKSUMS:
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
+  YLLongTapShare: 0acee098fcfc20050a7deb018b0630c1246def5a
 
 COCOAPODS: 0.38.2

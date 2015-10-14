@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View_SoundBite" customModule="soundwich" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundForLeftClippedout" destination="rSf-lA-24o" id="9mt-o0-vhu"/>
+                <outlet property="backgroundForRightClippedout" destination="de8-29-sk0" id="tPF-qM-2ab"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Se9-Gc-gks"/>
+                <outlet property="handleClippingLeft" destination="y12-DF-Ff2" id="Bx0-Sr-XiY"/>
+                <outlet property="handleClippingRight" destination="R5O-lV-3Xi" id="Oeb-dO-bMV"/>
+                <outlet property="label_Name" destination="uWJ-bf-Ho8" id="F2Y-FF-HfI"/>
+                <outlet property="leftConstraintForHandleClippingLeft" destination="1eP-8B-scs" id="az3-j1-vG0"/>
+                <outlet property="leftConstraintForHandleClippingRight" destination="BDv-Dr-xbW" id="x9y-zR-IGC"/>
+                <outlet property="nameEditorTextField" destination="aaC-AM-mhF" id="dsr-id-WqV"/>
+                <outlet property="widthConstraintForLeftClippedoutBackground" destination="zrq-gO-mAu" id="cUF-n4-cDw"/>
+                <outlet property="widthConstraintForRightClippedoutBackground" destination="S1M-td-7Y2" id="cD7-VV-5mA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="SoundBiteView" customModule="soundwich" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="36"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Clip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWJ-bf-Ho8">
+                    <rect key="frame" x="227" y="10" width="24" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="de8-29-sk0" userLabel="BG Clipped Right">
+                    <rect key="frame" x="476" y="0.0" width="0.0" height="36"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" id="S1M-td-7Y2"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSf-lA-24o" userLabel="BG Clipped Left">
+                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" id="zrq-gO-mAu"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y12-DF-Ff2">
+                    <rect key="frame" x="0.0" y="0.0" width="6" height="36"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="6" id="ba6-Yo-kz7"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-lV-3Xi">
+                    <rect key="frame" x="0.0" y="0.0" width="6" height="36"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="6" id="Dox-ad-dZg"/>
+                    </constraints>
+                </view>
+                <textField hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Name this clip!" borderStyle="roundedRect" placeholder="Name this clip!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-AM-mhF">
+                    <rect key="frame" x="5" y="2" width="466" height="32"/>
+                    <color key="backgroundColor" red="0.90980398654937744" green="0.86666673421859741" blue="0.48235297203063965" alpha="0.41000000000000003" colorSpace="deviceRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <action selector="handleEditingOfNameDidEnd:" destination="-1" eventType="editingDidEnd" id="M6W-O7-oHQ"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.88363137160000005" blue="0.84308403099999996" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="y12-DF-Ff2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1eP-8B-scs"/>
+                <constraint firstItem="y12-DF-Ff2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6yj-fr-p4f"/>
+                <constraint firstItem="aaC-AM-mhF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="9y8-u4-OaJ"/>
+                <constraint firstItem="R5O-lV-3Xi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BDv-Dr-xbW"/>
+                <constraint firstAttribute="trailing" secondItem="aaC-AM-mhF" secondAttribute="trailing" constant="5" id="CTh-EY-ScG"/>
+                <constraint firstAttribute="bottom" secondItem="rSf-lA-24o" secondAttribute="bottom" id="GZ7-lc-ec0"/>
+                <constraint firstAttribute="bottom" secondItem="y12-DF-Ff2" secondAttribute="bottom" id="IzX-1N-KUu"/>
+                <constraint firstAttribute="bottom" secondItem="aaC-AM-mhF" secondAttribute="bottom" constant="2" id="JeQ-i6-Tml"/>
+                <constraint firstAttribute="bottom" secondItem="R5O-lV-3Xi" secondAttribute="bottom" id="NHc-Ah-Ofr"/>
+                <constraint firstAttribute="trailing" secondItem="de8-29-sk0" secondAttribute="trailing" id="R17-2h-jdP"/>
+                <constraint firstItem="uWJ-bf-Ho8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xss-Xe-Sqz"/>
+                <constraint firstItem="aaC-AM-mhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Yu6-8v-nFc"/>
+                <constraint firstItem="rSf-lA-24o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZwT-rL-Thg"/>
+                <constraint firstItem="de8-29-sk0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eM1-78-u8O"/>
+                <constraint firstItem="uWJ-bf-Ho8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="iiR-Gi-rhy"/>
+                <constraint firstItem="rSf-lA-24o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kH0-58-QaS"/>
+                <constraint firstAttribute="bottom" secondItem="de8-29-sk0" secondAttribute="bottom" id="p0W-Xn-Sor"/>
+                <constraint firstItem="R5O-lV-3Xi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xmj-rI-8YK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="410" y="183"/>
+        </view>
+    </objects>
+</document>

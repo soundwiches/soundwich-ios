@@ -10,6 +10,12 @@
 		17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FDA1BB98D0800CE1914 /* Soundwich.swift */; settings = {ASSET_TAGS = (); }; };
 		17A45FDF1BB9922C00CE1914 /* SoundwichFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */; settings = {ASSET_TAGS = (); }; };
 		17A45FE11BB994A900CE1914 /* SoundwichFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */; settings = {ASSET_TAGS = (); }; };
+		1A85731F1BCE3C5A0089C67A /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A85731E1BCE3C5A0089C67A /* KxMenu.m */; settings = {ASSET_TAGS = (); }; };
+		1AEAD1941BCE3A0600C5A95C /* Timespec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAD1931BCE3A0600C5A95C /* Timespec.swift */; settings = {ASSET_TAGS = (); }; };
+		1AEAD1971BCE3A7700C5A95C /* SoundBite.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAD1951BCE3A7700C5A95C /* SoundBite.xib */; settings = {ASSET_TAGS = (); }; };
+		1AEAD1981BCE3A7700C5A95C /* Timeline.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEAD1961BCE3A7700C5A95C /* Timeline.xib */; settings = {ASSET_TAGS = (); }; };
+		1AEAD19B1BCE3AB400C5A95C /* SoundBiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */; settings = {ASSET_TAGS = (); }; };
+		1AEAD19C1BCE3AB400C5A95C /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */; settings = {ASSET_TAGS = (); }; };
 		568840ADED6CB2BECC705E88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C52F13C7A42B4E619FA8C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */; };
 		65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */; };
@@ -47,7 +53,15 @@
 		17A45FDA1BB98D0800CE1914 /* Soundwich.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soundwich.swift; sourceTree = "<group>"; };
 		17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundwichFeedCell.xib; sourceTree = "<group>"; };
 		17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichFeedCell.swift; sourceTree = "<group>"; };
+		1A85731C1BCE3C5A0089C67A /* soundwich-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "soundwich-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A85731D1BCE3C5A0089C67A /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		1A85731E1BCE3C5A0089C67A /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		1A9C52F13C7A42B4E619FA8C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AEAD1931BCE3A0600C5A95C /* Timespec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timespec.swift; sourceTree = "<group>"; };
+		1AEAD1951BCE3A7700C5A95C /* SoundBite.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundBite.xib; sourceTree = "<group>"; };
+		1AEAD1961BCE3A7700C5A95C /* Timeline.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Timeline.xib; sourceTree = "<group>"; };
+		1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBiteView.swift; sourceTree = "<group>"; };
+		1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		65464D8D1BB5ECCF00FB4B55 /* soundwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 		17A45FD71BB98CBF00CE1914 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1AEAD1931BCE3A0600C5A95C /* Timespec.swift */,
 				17A45FDA1BB98D0800CE1914 /* Soundwich.swift */,
 				65DEE0691BBAF849004B3B7E /* Soundbite.swift */,
 			);
@@ -127,6 +142,10 @@
 		17A45FD91BB98CF100CE1914 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */,
+				1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */,
+				1AEAD1951BCE3A7700C5A95C /* SoundBite.xib */,
+				1AEAD1961BCE3A7700C5A95C /* Timeline.xib */,
 				17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */,
 				17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */,
 			);
@@ -165,6 +184,8 @@
 		65464D8F1BB5ECCF00FB4B55 /* soundwich */ = {
 			isa = PBXGroup;
 			children = (
+				1A85731D1BCE3C5A0089C67A /* KxMenu.h */,
+				1A85731E1BCE3C5A0089C67A /* KxMenu.m */,
 				17DE6A861BCC2F40009A20B7 /* MockData */,
 				17A45FD61BB98CB800CE1914 /* ViewControllers */,
 				17A45FD81BB98CDB00CE1914 /* Controllers */,
@@ -176,6 +197,7 @@
 				65464D991BB5ECCF00FB4B55 /* Assets.xcassets */,
 				65464D9B1BB5ECCF00FB4B55 /* LaunchScreen.storyboard */,
 				65464D9E1BB5ECCF00FB4B55 /* Info.plist */,
+				1A85731C1BCE3C5A0089C67A /* soundwich-Bridging-Header.h */,
 			);
 			path = soundwich;
 			sourceTree = "<group>";
@@ -289,6 +311,7 @@
 		65464D851BB5ECCF00FB4B55 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Tommy Chheng";
 				TargetAttributes = {
@@ -334,6 +357,8 @@
 				65464D9A1BB5ECCF00FB4B55 /* Assets.xcassets in Resources */,
 				17A45FDF1BB9922C00CE1914 /* SoundwichFeedCell.xib in Resources */,
 				65464D981BB5ECCF00FB4B55 /* Main.storyboard in Resources */,
+				1AEAD1981BCE3A7700C5A95C /* Timeline.xib in Resources */,
+				1AEAD1971BCE3A7700C5A95C /* SoundBite.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,13 +433,17 @@
 			files = (
 				65DEE06D1BBAFADB004B3B7E /* SoundwichStore.swift in Sources */,
 				6550112B1BBCA4C700140719 /* SoundwichPlayerController.swift in Sources */,
+				1AEAD19B1BCE3AB400C5A95C /* SoundBiteView.swift in Sources */,
 				65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */,
 				65DEE06A1BBAF849004B3B7E /* Soundbite.swift in Sources */,
 				65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */,
 				17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */,
+				1AEAD19C1BCE3AB400C5A95C /* TimelineView.swift in Sources */,
 				17A45FE11BB994A900CE1914 /* SoundwichFeedCell.swift in Sources */,
+				1AEAD1941BCE3A0600C5A95C /* Timespec.swift in Sources */,
 				6550112D1BBCA4D100140719 /* SoundwichRecorderController.swift in Sources */,
 				65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */,
+				1A85731F1BCE3C5A0089C67A /* KxMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,10 +587,13 @@
 			baseConfigurationReference = 3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = soundwich/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwich;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "soundwich/soundwich-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -570,10 +602,12 @@
 			baseConfigurationReference = A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = soundwich/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soundwich.soundwich;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "soundwich/soundwich-Bridging-Header.h";
 			};
 			name = Release;
 		};
