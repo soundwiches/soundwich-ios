@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View_SoundBite" customModule="soundwich" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SoundBiteView" customModule="soundwich" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundForLeftClippedout" destination="rSf-lA-24o" id="9mt-o0-vhu"/>
                 <outlet property="backgroundForRightClippedout" destination="de8-29-sk0" id="tPF-qM-2ab"/>
@@ -20,7 +20,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="SoundBiteView" customModule="soundwich" customModuleProvider="target">
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="476" height="36"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>

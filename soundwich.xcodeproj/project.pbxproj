@@ -142,10 +142,10 @@
 		17A45FD91BB98CF100CE1914 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */,
+				1AEAD1961BCE3A7700C5A95C /* Timeline.xib */,
 				1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */,
 				1AEAD1951BCE3A7700C5A95C /* SoundBite.xib */,
-				1AEAD1961BCE3A7700C5A95C /* Timeline.xib */,
+				1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */,
 				17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */,
 				17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */,
 			);

@@ -28,7 +28,6 @@ enum TimelineError: ErrorType {
 class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var scrubberHairline: UIView!
 
     // The user should register a delegate callback func to receive
     // messages from the instance of this view:
@@ -153,7 +152,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     // TODO: Animate this!
     func moveScrubberHairline(timeInSeconds: Float) {
-        scrubberHairline.frame.origin.x = CGFloat(secWidthInPx * timeInSeconds)
+        /*
+        scrubberHairline.frame.origin.x = CGFloat(secWidthInPx * timeInSeconds)*/
     }
     
     
