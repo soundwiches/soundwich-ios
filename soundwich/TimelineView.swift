@@ -67,25 +67,23 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         super.layoutSubviews()
         
-        for _sb in dictSoundbites.values {
-            if let sb = _sb as? SoundBiteView {
-                if let spec = sb.timespec {
-                    let frameRect = CGRectMake(
-                        CGFloat(spec.start * secWidthInPx),
-                        CGFloat(((Float(sb.channelIndex!)*channelHeight)+channelPadding)),
-                        CGFloat(spec.duration()*secWidthInPx),
-                        CGFloat(channelHeight-2*channelPadding))
-                    sb.frame = frameRect
-                    sb.moveClippingHandle(sb.handleClippingLeft,
-                        deltaX: CGFloat(spec.clipStart * secWidthInPx), relative:false)
-                    sb.moveClippingHandle(sb.handleClippingRight,
-                        deltaX: CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width, relative:false)
-                    
-                    /*
-                    sb.leftConstraintForHandleClippingLeft.constant = CGFloat(spec.clipStart * secWidthInPx)
-                    sb.leftConstraintForHandleClippingRight.constant = CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width
-*/
-                }
+        for sb in dictSoundbites.values {
+            if let spec = sb.timespec {
+                let frameRect = CGRectMake(
+                    CGFloat(spec.start * secWidthInPx),
+                    CGFloat(((Float(sb.channelIndex!)*channelHeight)+channelPadding)),
+                    CGFloat(spec.duration()*secWidthInPx),
+                    CGFloat(channelHeight-2*channelPadding))
+                sb.frame = frameRect
+                sb.moveClippingHandle(sb.handleClippingLeft,
+                    deltaX: CGFloat(spec.clipStart * secWidthInPx), relative:false)
+                sb.moveClippingHandle(sb.handleClippingRight,
+                    deltaX: CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width, relative:false)
+                
+                /*
+                sb.leftConstraintForHandleClippingLeft.constant = CGFloat(spec.clipStart * secWidthInPx)
+                sb.leftConstraintForHandleClippingRight.constant = CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width
+                */
             }
         }
     }
