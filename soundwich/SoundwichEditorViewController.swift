@@ -21,7 +21,8 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         timelineView.registerDelegate(self)
         
         // Sklar's testing of the timeline soundbites
-        try! timelineView.createSoundbite("1", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
+        try! timelineView.createSoundbite("0", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
+        try! timelineView.createSoundbite("1", channelIndex:1, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
     }
 
     override func didReceiveMemoryWarning() {
