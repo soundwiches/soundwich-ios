@@ -78,12 +78,6 @@ class SoundBiteView: UIView {
     }
     
     
-    // I wanted to name this "setName" but that is reserved apparently.
-    func updateName(name: String) {
-        self.name = name
-        label_Name.text = name
-    }
-    
     func positionOfLeftClip() -> CGFloat {
         // this is normalized so the position being reported is the LEFT edge of the LEFT clipping handle
         return leftConstraintForHandleClippingLeft.constant

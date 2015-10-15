@@ -137,7 +137,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         let soundbite = SoundBiteView(frame: frameRect, colorRGB: colorPalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
         soundbite.timespec = spec
         soundbite.channelIndex = channelIndex
-        soundbite.label_Name.text = name
+        soundbite.label_Name.text = "III"
         dictSoundbites[name] = soundbite
         addSubview(soundbite)
         
