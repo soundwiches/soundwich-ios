@@ -38,16 +38,28 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     let channelPadding : Float = 2
     let timelineWidthInSec = 8 //seconds
     
+    
+    /*
+    Track 1 - Red:                  #EA321A,    rgb(234, 50, 26)
+    Track 2 - Magenta:              #D81F93,    rgb(216, 31, 147)
+    Track 3 - Violet:               #C333FF,    rgb(195, 51, 255)
+    Track 4 - Indigo:               #9E91FF,    rgb(158, 145, 255)
+    Track 5 - Ocean:                #40BED2,    rgb(64 , 190, 210)
+    Track 6 - Parakeet:             #05D667,    rgb(5 G,214, 103)
+    Track 7 - Unrippened Banana:    #B1DB1F,    rgb(177, 219, 31)
+    Track 8 - Dreamsicle:           #F8AB18,    rgb(248, 171, 24)
+*/
+    
     // Colors assigned to each channel
     let colorPalette : [ [CGFloat] ] = [
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.5, 0.2, 0.1, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0],
-        [ 0.3, 0.5, 0.8, 1.0]
+        [ 234, 50, 26 ],
+        [ 216, 31, 147 ],
+        [ 195, 51, 255 ],
+        [ 158, 145, 255 ],
+        [ 64, 190, 210 ],
+        [ 5, 214, 103 ],
+        [ 177, 219, 31 ],
+        [ 248, 171, 24 ]
     ]
 
     
@@ -122,7 +134,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
             CGFloat(channelHeight-2*channelPadding))
         
         
-        let soundbite = SoundBiteView(frame: frameRect, colorRGBA: colorPalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
+        let soundbite = SoundBiteView(frame: frameRect, colorRGB: colorPalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
         soundbite.timespec = spec
         soundbite.channelIndex = channelIndex
         soundbite.label_Name.text = name

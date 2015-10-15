@@ -53,14 +53,14 @@ class SoundBiteView: UIView {
         initSubviews()
     }
     
-    init(frame: CGRect, colorRGBA: [CGFloat], _imageForClippedOutPatterning: UIImage) {
+    init(frame: CGRect, colorRGB: [CGFloat], _imageForClippedOutPatterning: UIImage) {
         super.init(frame: frame)
         self.imageForClippedOutPatterning = _imageForClippedOutPatterning
         initSubviews()
         contentView.backgroundColor = UIColor(
-            red: colorRGBA[0],
-            green: colorRGBA[1],
-            blue: colorRGBA[2], alpha: 1.0)
+            red: colorRGB[0]/255,
+            green: colorRGB[1]/255,
+            blue: colorRGB[2]/255, alpha: 1.0)
     }
     
     
