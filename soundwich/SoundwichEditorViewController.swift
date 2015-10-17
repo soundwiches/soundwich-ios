@@ -16,6 +16,9 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.clipsToBounds = true
+        
         // Do any additional setup after loading the view, typically from a nib.        
         self.title = soundwich?.title
         timelineView.registerDelegate(self)

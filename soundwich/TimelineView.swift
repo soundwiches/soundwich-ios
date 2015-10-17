@@ -208,8 +208,9 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
                 // This is the start of a drag operation
                 self.curFrameOrigin = sbite.frame.origin
                 // Determine the limits to the user's ability to drag this left/right
-                maxAllowedNegativeTranslation = -1.0 * curFrameOrigin!.x
+                maxAllowedNegativeTranslation = -1.0 * (curFrameOrigin!.x + sbite.handleClippingLeft.frame.origin.x)
                 maxAllowedPositiveTranslation = self.frame.width - (curFrameOrigin!.x + sbite.frame.width)
+                    + (sbite.backgroundForRightClippedout.bounds.width/* - sbite.handleClippingRight.bounds.width*/)
             }
             let translation = sender.translationInView(self)
             let currentOrig = curFrameOrigin!
@@ -266,12 +267,14 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     var sbiteContextOfPopupMenu : SoundBiteView?
     
     func handleSoundbiteLongPress(sender: UILongPressGestureRecognizer) {
-        if let sbite = sender.view as? SoundBiteView {
-            sbiteContextOfPopupMenu = sbite
-            KxMenu.showMenuInView(self, fromRect: sbite.frame, menuItems: [
-                // KxMenuItem("Rename", image: nil, target: self, action: "pushMenuItem:"),
-                KxMenuItem("Duplicate", image: nil, target: self, action: "pushMenuItem:"),
-                KxMenuItem("Delete", image: nil, target: self, action: "pushMenuItem:")])
+        if (sender.state == .Began) {
+            if let sbite = sender.view as? SoundBiteView {
+                sbiteContextOfPopupMenu = sbite
+                KxMenu.showMenuInView(self, fromRect: sbite.frame, menuItems: [
+                    // KxMenuItem("Rename", image: nil, target: self, action: "pushMenuItem:"),
+                    KxMenuItem("Duplicate", image: nil, target: self, action: "pushMenuItem:"),
+                    KxMenuItem("Delete", image: nil, target: self, action: "pushMenuItem:")])
+            }
         }
     }
     
@@ -279,11 +282,13 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     func pushMenuItem(sender: KxMenuItem) {
         let commandChosen = sender.title
         switch commandChosen {
-        case "Rename":
-            sbiteContextOfPopupMenu?.startEditingProcess()
         case "Delete":
             if let delegate = delegate {
                 delegate.soundbiteDeleteRequested(sbiteContextOfPopupMenu!.name)
+            }
+        case "Duplicate":
+            if let delegate = delegate {
+                delegate.soundbiteDuplicateRequested(sbiteContextOfPopupMenu!.name)
             }
         default:
             return
@@ -300,10 +305,12 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     var clippedoutPatternImage : UIImage?
     
     override func drawRect(rect: CGRect) {
+
+        self.clipsToBounds = true
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, 1.0)
+        CGContextSetLineWidth(context, 4)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
@@ -323,7 +330,6 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
             CGContextAddLineToPoint(context, 30000, CGFloat(yCoord))
             CGContextStrokePath(context)
         }
-        
         
         // We now want to create an off-screen-image pattern for repeating to use as the background for clipped-out areas of soundbites.
         let diagBandWidth = Double(5)

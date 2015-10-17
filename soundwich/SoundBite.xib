@@ -46,14 +46,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y12-DF-Ff2">
-                    <rect key="frame" x="0.0" y="0.0" width="6" height="36"/>
+                    <rect key="frame" x="0.0" y="-2" width="6" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="6" id="ba6-Yo-kz7"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-lV-3Xi">
-                    <rect key="frame" x="0.0" y="0.0" width="6" height="36"/>
+                    <rect key="frame" x="0.0" y="-2" width="6" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="6" id="Dox-ad-dZg"/>
@@ -72,14 +72,14 @@
             <color key="backgroundColor" red="1" green="0.88363137160000005" blue="0.84308403099999996" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="y12-DF-Ff2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1eP-8B-scs"/>
-                <constraint firstItem="y12-DF-Ff2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6yj-fr-p4f"/>
+                <constraint firstItem="y12-DF-Ff2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-2" id="6yj-fr-p4f"/>
                 <constraint firstItem="aaC-AM-mhF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="9y8-u4-OaJ"/>
                 <constraint firstItem="R5O-lV-3Xi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BDv-Dr-xbW"/>
                 <constraint firstAttribute="trailing" secondItem="aaC-AM-mhF" secondAttribute="trailing" constant="5" id="CTh-EY-ScG"/>
                 <constraint firstAttribute="bottom" secondItem="rSf-lA-24o" secondAttribute="bottom" id="GZ7-lc-ec0"/>
-                <constraint firstAttribute="bottom" secondItem="y12-DF-Ff2" secondAttribute="bottom" id="IzX-1N-KUu"/>
+                <constraint firstAttribute="bottom" secondItem="y12-DF-Ff2" secondAttribute="bottom" constant="-2" id="IzX-1N-KUu"/>
                 <constraint firstAttribute="bottom" secondItem="aaC-AM-mhF" secondAttribute="bottom" constant="2" id="JeQ-i6-Tml"/>
-                <constraint firstAttribute="bottom" secondItem="R5O-lV-3Xi" secondAttribute="bottom" id="NHc-Ah-Ofr"/>
+                <constraint firstAttribute="bottom" secondItem="R5O-lV-3Xi" secondAttribute="bottom" constant="-2" id="NHc-Ah-Ofr"/>
                 <constraint firstAttribute="trailing" secondItem="de8-29-sk0" secondAttribute="trailing" id="R17-2h-jdP"/>
                 <constraint firstItem="uWJ-bf-Ho8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xss-Xe-Sqz"/>
                 <constraint firstItem="aaC-AM-mhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Yu6-8v-nFc"/>
@@ -88,7 +88,7 @@
                 <constraint firstItem="uWJ-bf-Ho8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="iiR-Gi-rhy"/>
                 <constraint firstItem="rSf-lA-24o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kH0-58-QaS"/>
                 <constraint firstAttribute="bottom" secondItem="de8-29-sk0" secondAttribute="bottom" id="p0W-Xn-Sor"/>
-                <constraint firstItem="R5O-lV-3Xi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xmj-rI-8YK"/>
+                <constraint firstItem="R5O-lV-3Xi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-2" id="xmj-rI-8YK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="410" y="183"/>
