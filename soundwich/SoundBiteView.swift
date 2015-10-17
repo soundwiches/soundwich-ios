@@ -53,14 +53,20 @@ class SoundBiteView: UIView {
         initSubviews()
     }
     
-    init(frame: CGRect, colorRGB: [CGFloat], _imageForClippedOutPatterning: UIImage) {
+    init(frame: CGRect, colorRectRGB: [CGFloat], colorHandleRGB: [CGFloat], _imageForClippedOutPatterning: UIImage) {
         super.init(frame: frame)
         self.imageForClippedOutPatterning = _imageForClippedOutPatterning
         initSubviews()
         contentView.backgroundColor = UIColor(
-            red: colorRGB[0]/255,
-            green: colorRGB[1]/255,
-            blue: colorRGB[2]/255, alpha: 1.0)
+            red: colorRectRGB[0]/255,
+            green: colorRectRGB[1]/255,
+            blue: colorRectRGB[2]/255, alpha: 1.0)
+        let bgcolorHandle = UIColor(
+            red: colorHandleRGB[0]/255,
+            green: colorHandleRGB[1]/255,
+            blue: colorHandleRGB[2]/255, alpha: 1.0)
+        handleClippingLeft.backgroundColor = bgcolorHandle
+        handleClippingRight.backgroundColor = bgcolorHandle
     }
     
     
@@ -75,6 +81,12 @@ class SoundBiteView: UIView {
         
         backgroundForLeftClippedout.backgroundColor = UIColor(patternImage: imageForClippedOutPatterning!)
         backgroundForRightClippedout.backgroundColor = UIColor(patternImage: imageForClippedOutPatterning!)
+        
+        handleClippingLeft.layer.borderWidth = 1.5
+        handleClippingLeft.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3).CGColor
+        
+        handleClippingRight.layer.borderWidth = handleClippingLeft.layer.borderWidth
+        handleClippingRight.layer.borderColor = handleClippingLeft.layer.borderColor
     }
     
     

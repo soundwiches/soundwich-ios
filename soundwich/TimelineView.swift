@@ -51,7 +51,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
 */
     
     // Colors assigned to each channel
-    let colorPalette : [ [CGFloat] ] = [
+    let colorRectPalette : [ [CGFloat] ] = [
         [ 234, 50, 26 ],
         [ 216, 31, 147 ],
         [ 195, 51, 255 ],
@@ -61,8 +61,21 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         [ 177, 219, 31 ],
         [ 248, 171, 24 ]
     ]
-
     
+    let colorHandlePalette: [ [CGFloat] ] = [
+        [ 239, 121, 63],
+        [ 243, 133, 154],
+        [ 237, 153, 255],
+        [ 229, 216, 255],
+        [ 173, 229, 212],
+        [ 115, 239, 113],
+        [ 232, 241, 36],
+        [ 253, 222, 33]
+    ]
+    
+    
+
+
     // Derived from the fixed characteristics and the geometry
     var secWidthInPx : Float = 0   //width of a second's worth of duration's representation, in pixels
     var channelHeight : Float = 0  //pixels
@@ -134,7 +147,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
             CGFloat(channelHeight-2*channelPadding))
         
         
-        let soundbite = SoundBiteView(frame: frameRect, colorRGB: colorPalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
+        let soundbite = SoundBiteView(frame: frameRect, colorRectRGB: colorRectPalette[channelIndex], colorHandleRGB: colorHandlePalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
         soundbite.timespec = spec
         soundbite.channelIndex = channelIndex
         soundbite.label_Name.text = "III"
