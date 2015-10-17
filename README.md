@@ -37,3 +37,31 @@ table view, think Vine.
 
 ![Wireframes](wireframes/record.jpg)
 
+
+
+### Public APIs of Key Modules
+
+#### TimelineView
+
+protocol MessagesFromTimelineDelegate {
+    func soundbiteTimespecDidChange(name:String, newSpec:Timespec)
+    func soundbiteDeleteRequested(name:String)
+    func soundbiteDuplicateRequested(name:String)
+    func soundbiteRenameRequested(nameCurrent:String, nameNew:String)
+}
+
+
+enum TimelineError: ErrorType {
+    case SoundbiteNameInUse
+    case SoundbiteNameNotFound
+}
+
+
+func registerDelegate(delegate: MessagesFromTimelineDelegate)
+
+func createSoundbite(name:String, channelIndex:Int, spec:Timespec) throws
+
+func deleteSoundbite(name:String) throws
+
+func moveScrubberHairline(timeInSeconds: Float) {
+
