@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aYk-Ed-Msy">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -52,16 +51,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-FB-8Kg" customClass="TimelineView" customModule="soundwich" customModuleProvider="target">
-                                <rect key="frame" x="2" y="22" width="596" height="458"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ill-ZJ-MU5" customClass="ButtonTrayView" customModule="soundwich" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="480" width="600" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="d2Y-xV-Jeb"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ill-ZJ-MU5" secondAttribute="trailing" id="0ay-xc-SrL"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="ill-ZJ-MU5" secondAttribute="bottom" id="DdU-EX-rZa"/>
                             <constraint firstItem="8Gb-FB-8Kg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="2" id="HtH-By-MRt"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="8Gb-FB-8Kg" secondAttribute="bottom" constant="120" id="Tsv-RR-V5L"/>
-                            <constraint firstItem="8Gb-FB-8Kg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="2" id="bQn-1a-rgb"/>
-                            <constraint firstAttribute="trailing" secondItem="8Gb-FB-8Kg" secondAttribute="trailing" constant="2" id="geO-nV-LFR"/>
+                            <constraint firstItem="ill-ZJ-MU5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="II7-kn-ePC"/>
+                            <constraint firstItem="8Gb-FB-8Kg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="bQn-1a-rgb"/>
+                            <constraint firstAttribute="trailing" secondItem="8Gb-FB-8Kg" secondAttribute="trailing" id="geO-nV-LFR"/>
+                            <constraint firstItem="ill-ZJ-MU5" firstAttribute="top" secondItem="8Gb-FB-8Kg" secondAttribute="bottom" id="hKV-mK-bDd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mz0-l2-fc7"/>
