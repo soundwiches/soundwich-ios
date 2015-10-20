@@ -12,7 +12,7 @@ import AVFoundation
 class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     let loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
-    let recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
+    let recordButton = RecordButton(frame: CGRect(x: 110, y: 10, width: 100, height: 100))
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
     // Where we're going to put the soundbites.
