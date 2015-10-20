@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>YLLongTapShare.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -48,6 +53,26 @@
 			<true/>
 		</dict>
 		<key>10845198053E6B4C1CB0DB2377D456CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6A21B2551F01DE4E98CB14BDF4FA11DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B399DC4144E2537E7D6076E7A5D8ED1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>923485DB86AFA62104FF2FCABD39A785</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>934A5BBE23E315C495F3043CF65A14FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
