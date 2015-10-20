@@ -10,13 +10,13 @@ import UIKit
 
 class PlayPauseButton: UIView {
 
-    var pauseButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
-    var pauseButtonImage = UIImage(named: "Pause Button Light")
-    var pauseButtonDisabledImage = UIImage(named: "Pause Button Light Disabled")
+    let pauseButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
+    let pauseButtonImage = UIImage(named: "Pause Button Light")
+    let pauseButtonDisabledImage = UIImage(named: "Pause Button Light Disabled")
 
-    var playButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
-    var playButtonImage = UIImage(named: "Play Button Light")
-    var playButtonDisabledImage = UIImage(named: "Play Button Light Disabled")
+    let playButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
+    let playButtonImage = UIImage(named: "Play Button Light")
+    let playButtonDisabledImage = UIImage(named: "Play Button Light Disabled")
 
     var enabled = true {
         didSet {

@@ -10,8 +10,8 @@ import UIKit
 
 class LoopButton: UIButton {
 
-    var loopButtonImage = UIImage(named: "Loop Button Light")
-    var loopButtonDisabledImage = UIImage(named: "Loop Button Light Disabled")
+    let loopButtonImage = UIImage(named: "Loop Button Light")
+    let loopButtonDisabledImage = UIImage(named: "Loop Button Light Disabled")
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,6 +23,11 @@ class LoopButton: UIButton {
         setImage(
             loopButtonDisabledImage,
             forState: .Normal
+        )
+
+        setImage(
+            loopButtonDisabledImage,
+            forState: .Disabled
         )
 
         setImage(
