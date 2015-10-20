@@ -109,7 +109,7 @@ class SoundBiteView: UIView {
         let handleWidth = whichHandle.bounds.width
         var curX = CGFloat(0)
         var minX = CGFloat(-99999)
-        var maxX = CGFloat(self.frame.width)
+        var maxX = CGFloat(self.bounds.width - handleWidth)
         var newX = CGFloat(0)
         var newBgWidth = CGFloat(0)
         
@@ -135,7 +135,7 @@ class SoundBiteView: UIView {
                 maxX = self.bounds.width - handleWidth
             }
             newX = min(max(curX+deltaX, minX), maxX)
-            newBgWidth = maxX - newX
+            newBgWidth = (maxX - newX)
         }
         
         if (newX != curX) {
