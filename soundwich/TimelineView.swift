@@ -182,6 +182,9 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         soundbite.addGestureRecognizer(grHold)
         
         soundbite.userInteractionEnabled = true
+        
+        contentView.bringSubviewToFront(scrubber)
+        contentView.bringSubviewToFront(scrubberHandle)
     }
     
     
@@ -218,7 +221,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         scrubberHandle.addGestureRecognizer(gestureRecogPan)
         scrubberHandle.userInteractionEnabled = true
         
-        self.drawRect(self.bounds)
+        self.setNeedsDisplay()
         
         scrubberHandle.backgroundColor = UIColor(patternImage: UIImage(named: "Scrubber")!)
     }
@@ -347,11 +350,11 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     override func drawRect(rect: CGRect) {
 
-        self.clipsToBounds = true
-        
         let context = UIGraphicsGetCurrentContext()
         
         CGContextSetLineWidth(context, 5)
+
+        self.clipsToBounds = true
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
