@@ -15,6 +15,15 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     let recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
+    let recorderSettings = [
+        AVFormatIDKey: kAudioFormatAppleLossless,
+        AVSampleRateKey: 44100.0,
+        AVNumberOfChannelsKey: 2,
+        AVEncoderAudioQualityKey: AVAudioQuality.Max.rawValue,
+        AVEncoderBitRateKey: 128000
+    ]
+    var recorder: AVAudioRecorder?
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -39,13 +48,13 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 
         recordButton.addTarget(
             self,
-            action: "onTouchDown:",
+            action: "onTouchDownRecord:",
             forControlEvents: .TouchDown
         )
 
         recordButton.addTarget(
             self,
-            action: "onTouchUp:",
+            action: "onTouchUpRecord:",
             forControlEvents: [
                 .TouchUpInside,
                 .TouchUpOutside
@@ -73,14 +82,39 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         }
     }
 
-    func onTouchDown(sender: UIButton) {
+    // MARK: - Touch Handlers
+    func onTouchDownRecord(sender: UIButton) {
         loopButton.enabled = false
         playPauseButton.enabled = false
+
+        let directories = NSSearchPathForDirectoriesInDomains(
+            .DocumentDirectory,
+            domainMask: .UserDomainMask,
+            expandTilde: true
+        )
+        let documentDirectory = directories[0]
+        let path = documentDirectory.stringByAppendingPathComponent("track1.m4a")
+
+        recorder = try? AVAudioRecorder(URL: NSURL(fileURLWithPath: path), settings: recorderSettings)
+        if let recorder = recorder {
+            recorder.delegate = self
+            recorder.meteringEnabled = true
+            recorder.prepareToRecord()
+        }
     }
 
-    func onTouchUp(sender: UIButton) {
+    func onTouchUpRecord(sender: UIButton) {
         loopButton.enabled = true
         playPauseButton.enabled = true
+    }
+
+    // MARK: - AVAudioRecorderDelegate
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("\n\n\n", "audioRecorderDidFinishRecording:", flag)
+    }
+
+    func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?) {
+        print("\n\n\n", "audioRecorderEncodeErrorDidOccur:", error)
     }
 
     /*
