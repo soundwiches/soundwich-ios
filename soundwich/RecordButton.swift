@@ -11,6 +11,7 @@ import UIKit
 class RecordButton: UIButton {
 
     let recordButtonImage = UIImage(named: "Record Button")
+    let recordButtonSelectedImage = UIImage(named: "Record Button Selected")
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,10 +25,18 @@ class RecordButton: UIButton {
             forState: .Normal
         )
 
+        setImage(
+            recordButtonSelectedImage,
+            forState: .Highlighted
+        )
+
         addTarget(
             self,
-            action: "onTouchUpInside:",
-            forControlEvents: .TouchUpInside
+            action: "onTouchUp:",
+            forControlEvents: [
+                .TouchUpInside,
+                .TouchUpOutside
+            ]
         )
 
         addTarget(
@@ -38,11 +47,11 @@ class RecordButton: UIButton {
     }
 
     func onTouchDown(sender: UIButton) {
-        sender.highlighted = false
+        // sender.highlighted = false
     }
 
-    func onTouchUpInside(sender: UIButton) {
-        sender.highlighted = false
+    func onTouchUp(sender: UIButton) {
+        // sender.highlighted = false
     }
 
     /*
