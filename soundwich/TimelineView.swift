@@ -31,7 +31,10 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
 
     
     @IBOutlet weak var scrubber: UIView!
+    @IBOutlet weak var scrubberHandle: UIView!
+    
     @IBOutlet weak var constraintScrubberX: NSLayoutConstraint!
+    
     
     // The user should register a delegate callback func to receive
     // messages from the instance of this view:
@@ -128,6 +131,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         }
         
         contentView.bringSubviewToFront(scrubber)
+        contentView.bringSubviewToFront(scrubberHandle)
     }
     
     
@@ -159,6 +163,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         dictSoundbites[name] = soundbite
         contentView.addSubview(soundbite)
         bringSubviewToFront(scrubber)
+        bringSubviewToFront(scrubberHandle)
         
         // Gesture recognizer: drag the soundbite as a whole
         let gestureRecogPan = UIPanGestureRecognizer()
@@ -210,8 +215,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         // Gesture recognizer: drag the soundbite as a whole
         let gestureRecogPan = UIPanGestureRecognizer()
         gestureRecogPan.addTarget(self, action: "handleScrubberDrag:")
-        scrubber.addGestureRecognizer(gestureRecogPan)
-        scrubber.userInteractionEnabled = true
+        scrubberHandle.addGestureRecognizer(gestureRecogPan)
+        scrubberHandle.userInteractionEnabled = true
         
         self.drawRect(self.bounds)
     }
@@ -220,10 +225,12 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     func handleScrubberDrag(sender: UIPanGestureRecognizer) {
         let translation = sender.translationInView(self)
-        constraintScrubberX.constant += translation.x
+        let newX = min(Float(self.bounds.width - 2),
+            Float(constraintScrubberX.constant+translation.x))
+        constraintScrubberX.constant = CGFloat(newX)
         sender.setTranslation(CGPointZero, inView: self)
         if let delegate = delegate {
-            delegate.userMovedScrubber( Float(constraintScrubberX.constant) / secWidthInPx,
+            delegate.userMovedScrubber(newX / secWidthInPx,
                 interactionHasEnded: (sender.state == .Ended))
         }
     }
