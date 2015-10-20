@@ -30,7 +30,7 @@ class SoundBiteView: UIView {
     
     var name = "Clip"
     var channelIndex : Int?
-    var timespec : Timespec?
+    var soundbite : Soundbite?
     var imageForClippedOutPatterning : UIImage?
     
     @IBOutlet weak var label_Name: UILabel!
