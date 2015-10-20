@@ -219,6 +219,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         scrubberHandle.userInteractionEnabled = true
         
         self.drawRect(self.bounds)
+        
+        scrubberHandle.backgroundColor = UIColor(patternImage: UIImage(named: "Scrubber")!)
     }
     
 
