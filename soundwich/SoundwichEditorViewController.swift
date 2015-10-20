@@ -26,6 +26,8 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         // Sklar's testing of the timeline soundbites
         try! timelineView.createSoundbite("0", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
         try! timelineView.createSoundbite("1", channelIndex:1, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
+        
+        timelineView.moveScrubberHairline(3.5)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,10 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     // Required protocol "MessagesFromTimelineDelegate"
     
     func soundbiteTimespecDidChange(name:String, newSpec:Timespec) {
+        
+    }
+    
+    func soundbiteScrubberDidChange(newTimeInSeconds: Float) {
         
     }
     

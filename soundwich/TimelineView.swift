@@ -14,6 +14,7 @@ protocol MessagesFromTimelineDelegate {
     func soundbiteDeleteRequested(name:String)
     func soundbiteDuplicateRequested(name:String)
     func soundbiteRenameRequested(nameCurrent:String, nameNew:String)
+    func soundbiteScrubberDidChange(newTimeInSeconds:Float)
 }
 
 
@@ -29,6 +30,10 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     @IBOutlet var contentView: UIView!
 
+    
+    @IBOutlet weak var scrubber: UIView!
+    @IBOutlet weak var constraintScrubberX: NSLayoutConstraint!
+    
     // The user should register a delegate callback func to receive
     // messages from the instance of this view:
     var delegate: MessagesFromTimelineDelegate?
@@ -83,6 +88,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     // Database of soundbites in this timeline
     var dictSoundbites = [String: SoundBiteView]()
     
+    var scrubberLocation : Float = 0   // in seconds
     
     
     
@@ -104,6 +110,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         super.layoutSubviews()
         
+        constraintScrubberX.constant = CGFloat(secWidthInPx * scrubberLocation)
+        
         for sb in dictSoundbites.values {
             if let spec = sb.timespec {
                 let frameRect = CGRectMake(
@@ -116,13 +124,10 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
                     deltaX: CGFloat(spec.clipStart * secWidthInPx), relative:false)
                 sb.moveClippingHandle(sb.handleClippingRight,
                     deltaX: CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width, relative:false)
-                
-                /*
-                sb.leftConstraintForHandleClippingLeft.constant = CGFloat(spec.clipStart * secWidthInPx)
-                sb.leftConstraintForHandleClippingRight.constant = CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width
-                */
             }
         }
+        
+        contentView.bringSubviewToFront(scrubber)
     }
     
     
@@ -152,7 +157,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         soundbite.channelIndex = channelIndex
         soundbite.label_Name.text = "III"
         dictSoundbites[name] = soundbite
-        addSubview(soundbite)
+        contentView.addSubview(soundbite)
+        bringSubviewToFront(scrubber)
         
         // Gesture recognizer: drag the soundbite as a whole
         let gestureRecogPan = UIPanGestureRecognizer()
@@ -187,8 +193,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     // TODO: Animate this!
     func moveScrubberHairline(timeInSeconds: Float) {
-        /*
-        scrubberHairline.frame.origin.x = CGFloat(secWidthInPx * timeInSeconds)*/
+        scrubberLocation = timeInSeconds
+        constraintScrubberX.constant = CGFloat(secWidthInPx * timeInSeconds)
     }
     
     
@@ -323,12 +329,12 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, 2)
+        CGContextSetLineWidth(context, 5)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
-        let componentsWhite : [CGFloat] = [1.0, 1.0, 1.0, 1.0]
-        let componentsDarkGrey : [CGFloat] = [0.2, 0.2, 0.2, 1.0]
+        let componentsWhite : [CGFloat] = [1.0, 1.0, 1.0, 0.2]
+        let componentsDarkGrey : [CGFloat] = [0.1, 0.1, 0.1, 1.0]
 
         var color = CGColorCreate(colorSpace, componentsDarkGrey)
         CGContextSetFillColorWithColor(context, color)
