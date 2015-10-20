@@ -79,23 +79,21 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     func setupSession() {
         // print("setupRecording")
         let session = AVAudioSession.sharedInstance()
-        if session.respondsToSelector("requestRecordPermission:") {
-            session.requestRecordPermission({ (granted) -> Void in
-                if granted {
-                    // print("granted")
+        session.requestRecordPermission({ (granted) -> Void in
+            if granted {
+                // print("granted")
 
-                    // Ignore errors by piping them to _.
-                    _ = try? session.setCategory(
-                        AVAudioSessionCategoryPlayAndRecord,
-                        withOptions: [.DefaultToSpeaker]
-                    )
+                // Ignore errors by piping them to _.
+                _ = try? session.setCategory(
+                    AVAudioSessionCategoryPlayAndRecord,
+                    withOptions: [.DefaultToSpeaker]
+                )
 
-                    self.setupRecorder()
-                } else {
-                    // print("not granted")
-                }
-            })
-        }
+                self.setupRecorder()
+            } else {
+                // print("not granted")
+            }
+        })
     }
 
     func setupRecorder() {
