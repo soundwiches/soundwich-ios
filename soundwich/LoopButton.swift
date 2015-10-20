@@ -44,12 +44,12 @@ class LoopButton: UIButton {
     }
 
     func onTouchDown(sender: UIButton) {
-        sender.highlighted = false;
+        sender.highlighted = false
     }
 
     func onTouchUpInside(sender: UIButton) {
+        sender.highlighted = false
         sender.selected = !sender.selected
-        sender.highlighted = false;
     }
 
     /*

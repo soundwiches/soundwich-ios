@@ -23,6 +23,26 @@ class RecordButton: UIButton {
             recordButtonImage,
             forState: .Normal
         )
+
+        addTarget(
+            self,
+            action: "onTouchUpInside:",
+            forControlEvents: .TouchUpInside
+        )
+
+        addTarget(
+            self,
+            action: "onTouchDown:",
+            forControlEvents: .TouchDown
+        )
+    }
+
+    func onTouchDown(sender: UIButton) {
+        sender.highlighted = false
+    }
+
+    func onTouchUpInside(sender: UIButton) {
+        sender.highlighted = false
     }
 
     /*
