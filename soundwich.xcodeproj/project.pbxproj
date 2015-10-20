@@ -30,6 +30,10 @@
 		655132FD1BC5802A00AA56C0 /* SoundwichStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655132FC1BC5802A00AA56C0 /* SoundwichStoreTests.swift */; settings = {ASSET_TAGS = (); }; };
 		65DEE06A1BBAF849004B3B7E /* Soundbite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEE0691BBAF849004B3B7E /* Soundbite.swift */; settings = {ASSET_TAGS = (); }; };
 		65DEE06D1BBAFADB004B3B7E /* SoundwichStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEE06C1BBAFADB004B3B7E /* SoundwichStore.swift */; settings = {ASSET_TAGS = (); }; };
+		848F34641BD5ED1700B6C613 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F34631BD5ED1700B6C613 /* RecordButton.swift */; settings = {ASSET_TAGS = (); }; };
+		848F34661BD5EE2F00B6C613 /* LoopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F34651BD5EE2F00B6C613 /* LoopButton.swift */; settings = {ASSET_TAGS = (); }; };
+		848F34691BD5EE6500B6C613 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F34681BD5EE6500B6C613 /* PlayPauseButton.swift */; settings = {ASSET_TAGS = (); }; };
+		84FDB2951BD5A3BB006C532E /* ButtonTrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FDB2941BD5A3BB006C532E /* ButtonTrayView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,10 @@
 		655132FC1BC5802A00AA56C0 /* SoundwichStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichStoreTests.swift; sourceTree = "<group>"; };
 		65DEE0691BBAF849004B3B7E /* Soundbite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soundbite.swift; sourceTree = "<group>"; };
 		65DEE06C1BBAFADB004B3B7E /* SoundwichStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundwichStore.swift; sourceTree = "<group>"; };
+		848F34631BD5ED1700B6C613 /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		848F34651BD5EE2F00B6C613 /* LoopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopButton.swift; sourceTree = "<group>"; };
+		848F34681BD5EE6500B6C613 /* PlayPauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
+		84FDB2941BD5A3BB006C532E /* ButtonTrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTrayView.swift; sourceTree = "<group>"; };
 		A29A91E9000573A332E39DD1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +156,10 @@
 				1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */,
 				17A45FDE1BB9922C00CE1914 /* SoundwichFeedCell.xib */,
 				17A45FE01BB994A900CE1914 /* SoundwichFeedCell.swift */,
+				84FDB2941BD5A3BB006C532E /* ButtonTrayView.swift */,
+				848F34631BD5ED1700B6C613 /* RecordButton.swift */,
+				848F34651BD5EE2F00B6C613 /* LoopButton.swift */,
+				848F34681BD5EE6500B6C613 /* PlayPauseButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -432,18 +444,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DEE06D1BBAFADB004B3B7E /* SoundwichStore.swift in Sources */,
+				848F34661BD5EE2F00B6C613 /* LoopButton.swift in Sources */,
 				6550112B1BBCA4C700140719 /* SoundwichPlayerController.swift in Sources */,
 				1AEAD19B1BCE3AB400C5A95C /* SoundBiteView.swift in Sources */,
 				65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */,
 				65DEE06A1BBAF849004B3B7E /* Soundbite.swift in Sources */,
 				65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */,
+				84FDB2951BD5A3BB006C532E /* ButtonTrayView.swift in Sources */,
 				17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */,
 				1AEAD19C1BCE3AB400C5A95C /* TimelineView.swift in Sources */,
 				17A45FE11BB994A900CE1914 /* SoundwichFeedCell.swift in Sources */,
 				1AEAD1941BCE3A0600C5A95C /* Timespec.swift in Sources */,
 				6550112D1BBCA4D100140719 /* SoundwichRecorderController.swift in Sources */,
+				848F34691BD5EE6500B6C613 /* PlayPauseButton.swift in Sources */,
 				65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */,
 				1A85731F1BCE3C5A0089C67A /* KxMenu.m in Sources */,
+				848F34641BD5ED1700B6C613 /* RecordButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
