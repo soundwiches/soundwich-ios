@@ -45,8 +45,11 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 
         recordButton.addTarget(
             self,
-            action: "onTouchUpInside:",
-            forControlEvents: .TouchUpInside
+            action: "onTouchUp:",
+            forControlEvents: [
+                .TouchUpInside,
+                .TouchUpOutside
+            ]
         )
     }
 
@@ -71,10 +74,12 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     }
 
     func onTouchDown(sender: UIButton) {
+        loopButton.enabled = false
         playPauseButton.enabled = false
     }
 
-    func onTouchUpInside(sender: UIButton) {
+    func onTouchUp(sender: UIButton) {
+        loopButton.enabled = true
         playPauseButton.enabled = true
     }
 
