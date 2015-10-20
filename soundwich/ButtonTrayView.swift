@@ -15,6 +15,13 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     let recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
+    // Where we're going to put the soundbites.
+    let documentDirectory = NSSearchPathForDirectoriesInDomains(
+        .DocumentDirectory,
+        .UserDomainMask,
+        true
+    )[0]
+
     let recorderSettings = [
         AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatAppleLossless),
         AVSampleRateKey: 44100.0,
@@ -85,13 +92,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     }
 
     func setupRecorder() {
-        let directories = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask,
-            true
-        )
-        let documentDirectory = directories[0]
-        let path = documentDirectory.stringByAppendingString("track1.m4a")
+        let path = documentDirectory.stringByAppendingString("soundbite-01.m4a")
 
         recorder = try? AVAudioRecorder(URL: NSURL(fileURLWithPath: path), settings: recorderSettings)
         if let recorder = recorder {

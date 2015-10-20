@@ -25,6 +25,25 @@ class PlayPauseButton: UIView {
         }
     }
 
+    var isPlaying: Bool {
+        get {
+            return playButton.superview == nil
+        }
+        set(newValue) {
+            if newValue {
+                addSubview(pauseButton)
+                if playButton.superview != nil {
+                    playButton.removeFromSuperview()
+                }
+            } else {
+                addSubview(playButton)
+                if pauseButton.superview != nil {
+                    pauseButton.removeFromSuperview()
+                }
+            }
+        }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -35,7 +54,7 @@ class PlayPauseButton: UIView {
         setupPauseButton()
         setupPlayButton()
 
-        addSubview(playButton)
+        isPlaying = false
     }
 
     func setupPauseButton() {
@@ -92,18 +111,7 @@ class PlayPauseButton: UIView {
 
     func onTouchUpInside(sender: UIButton) {
         sender.highlighted = false
-        sender.removeFromSuperview()
-        switch (sender) {
-        case pauseButton:
-            addSubview(playButton)
-            break
-        case playButton:
-            addSubview(pauseButton)
-            break
-        default:
-            // Do nothing.
-            return
-        }
+        isPlaying = sender == playButton
     }
 
     /*
