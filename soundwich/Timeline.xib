@@ -26,6 +26,14 @@
                                 <constraint firstAttribute="width" constant="1" id="rXT-IL-aex"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-3Q-bFr" userLabel="ScrubberHandle">
+                            <rect key="frame" x="-300" y="-252" width="600" height="600"/>
+                            <color key="backgroundColor" red="0.98823535439999999" green="0.15294118230000001" blue="0.1098039299" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="1Aj-bK-kKq"/>
+                                <constraint firstAttribute="height" constant="15" id="kp4-WK-T7r"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
@@ -33,6 +41,8 @@
                         <constraint firstItem="K7S-0B-CXe" firstAttribute="top" secondItem="leI-6f-BN6" secondAttribute="top" constant="1" id="6ZA-0l-2vc"/>
                         <constraint firstAttribute="width" constant="1" id="GGh-Oe-8dM"/>
                         <constraint firstItem="K7S-0B-CXe" firstAttribute="leading" secondItem="leI-6f-BN6" secondAttribute="leading" constant="1" id="Jd2-lW-Go5"/>
+                        <constraint firstAttribute="bottom" secondItem="KMR-3Q-bFr" secondAttribute="bottom" id="Ngz-pH-Squ"/>
+                        <constraint firstItem="KMR-3Q-bFr" firstAttribute="centerX" secondItem="leI-6f-BN6" secondAttribute="centerX" id="Osn-RR-b2S"/>
                     </constraints>
                 </view>
             </subviews>

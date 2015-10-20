@@ -42,6 +42,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     let channelCount = 8
     let channelPadding : Float = 2
     let timelineWidthInSec = 8 //seconds
+    let heightReservedScrubberHandle : CGFloat = 10
     
     
     /*
@@ -106,7 +107,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     override func layoutSubviews() {
         // Calculate derived values based on the incoming geometry
         secWidthInPx = Float(bounds.width / CGFloat(timelineWidthInSec))
-        channelHeight = Float(Int(bounds.height) / channelCount)
+        channelHeight = Float(Int(bounds.height-heightReservedScrubberHandle) / channelCount)
         
         super.layoutSubviews()
         
