@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDelegate
+class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDelegate, MessagesFromButtonTrayDelegate
 {
     var soundwich:Soundwich?
     
     @IBOutlet weak var timelineView: TimelineView!
+    @IBOutlet weak var buttonTrayView: ButtonTrayView!
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -23,6 +25,8 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         self.title = soundwich?.title
         timelineView.registerDelegate(self)
         
+        buttonTrayView.receiverOfButtonTrayEvents = self
+        
         /*
         // Sklar's testing of the timeline soundbites
         try! timelineView.createSoundbite("0", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
@@ -31,7 +35,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         try! timelineView.createSoundbite("3", channelIndex:3, spec: Timespec(start:0, end:8, clipStart:1, clipEnd:7))
         
         timelineView.moveScrubberHairline(4)
-*/
+        */
         
         timelineView.setNeedsLayout()
 
@@ -52,7 +56,18 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
             })
         }
     }
+
     
+    
+    
+    
+    // Required protocol "MessagesFromButtonTrayDelegate"
+
+    func recordingDidComplete(url: NSURL, duration: Double) {
+        let newSoundbite = Soundbite(url: String(url), channel: 0, duration: Float(duration))
+        soundwich.addSoundbite
+        try! timelineView.createSoundbiteView(newSoundbite)
+    }
     
     
     // Required protocol "MessagesFromTimelineDelegate"

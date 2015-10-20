@@ -9,11 +9,19 @@
 import UIKit
 import AVFoundation
 
+
+protocol MessagesFromButtonTrayDelegate {
+    func recordingDidComplete(url:NSURL, duration:Double)
+}
+
+
 class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     let loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
     let recordButton = RecordButton(frame: CGRect(x: 110, y: 10, width: 100, height: 100))
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
+    
+    var receiverOfButtonTrayEvents : MessagesFromButtonTrayDelegate?
 
     // Where we're going to put the soundbites.
     let documentDirectory = NSSearchPathForDirectoriesInDomains(
@@ -137,6 +145,9 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             recorder.stop()
             // print("recorder.stopped", !recorder.recording)
             setupPlayer()
+            if let receiverOfButtonTrayEvents = receiverOfButtonTrayEvents {
+                receiverOfButtonTrayEvents.recordingDidComplete(recorder.url, duration: Double(player!.duration))
+            }
         }
     }
 
