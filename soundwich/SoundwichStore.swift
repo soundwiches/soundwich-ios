@@ -106,7 +106,7 @@ class SoundwichStore {
                         o.setObject(a, forKey: "audioUrl")
                     }
                     
-                    if let ad = soundwich.audioUrl {
+                    if let ad = soundwich.audioData {
                         o.setObject(ad, forKey: "audioData")
                     }
 
