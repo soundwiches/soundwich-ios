@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="537" height="103"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leI-6f-BN6" userLabel="ScrubberHairline">
-                    <rect key="frame" x="7" y="8" width="1" height="95"/>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leI-6f-BN6" userLabel="ScrubberHairline">
+                    <rect key="frame" x="0.0" y="8" width="1" height="95"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7S-0B-CXe" userLabel="shadow">
                             <rect key="frame" x="1" y="1" width="1" height="94"/>
@@ -36,8 +36,8 @@
                         <constraint firstItem="K7S-0B-CXe" firstAttribute="leading" secondItem="leI-6f-BN6" secondAttribute="leading" constant="1" id="Jd2-lW-Go5"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-3Q-bFr" userLabel="ScrubberHandle">
-                    <rect key="frame" x="0.0" y="88" width="15" height="15"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-3Q-bFr" userLabel="ScrubberHandle">
+                    <rect key="frame" x="-7" y="88" width="15" height="15"/>
                     <color key="backgroundColor" red="0.98823535439999999" green="0.15294118230000001" blue="0.1098039299" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="1Aj-bK-kKq"/>

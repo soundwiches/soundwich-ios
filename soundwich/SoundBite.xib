@@ -15,6 +15,8 @@
                 <outlet property="leftConstraintForHandleClippingLeft" destination="1eP-8B-scs" id="az3-j1-vG0"/>
                 <outlet property="leftConstraintForHandleClippingRight" destination="BDv-Dr-xbW" id="x9y-zR-IGC"/>
                 <outlet property="nameEditorTextField" destination="aaC-AM-mhF" id="dsr-id-WqV"/>
+                <outlet property="visiblePortionOfLeftHandle" destination="Pxc-kh-Sez" id="ltf-tb-iQB"/>
+                <outlet property="visiblePortionOfRightHandle" destination="kHD-kP-Iag" id="q2D-ht-dQv"/>
                 <outlet property="widthConstraintForLeftClippedoutBackground" destination="zrq-gO-mAu" id="cUF-n4-cDw"/>
                 <outlet property="widthConstraintForRightClippedoutBackground" destination="S1M-td-7Y2" id="cD7-VV-5mA"/>
             </connections>
@@ -25,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWJ-bf-Ho8">
-                    <rect key="frame" x="227" y="10" width="24" height="16"/>
+                    <rect key="frame" x="226.5" y="10" width="23.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -46,16 +48,38 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y12-DF-Ff2">
                     <rect key="frame" x="0.0" y="-2" width="14" height="40"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxc-kh-Sez" userLabel="visible portion">
+                            <rect key="frame" x="0.0" y="0.0" width="7" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="7" id="wdV-Js-7kg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <constraints>
+                        <constraint firstItem="Pxc-kh-Sez" firstAttribute="top" secondItem="y12-DF-Ff2" secondAttribute="top" id="5fI-l3-IMA"/>
+                        <constraint firstItem="Pxc-kh-Sez" firstAttribute="leading" secondItem="y12-DF-Ff2" secondAttribute="leading" id="BU7-nn-dn2"/>
+                        <constraint firstAttribute="bottom" secondItem="Pxc-kh-Sez" secondAttribute="bottom" id="TTA-EP-oco"/>
                         <constraint firstAttribute="width" constant="14" id="ba6-Yo-kz7"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5O-lV-3Xi">
                     <rect key="frame" x="0.0" y="-2" width="14" height="40"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHD-kP-Iag" userLabel="visible portion">
+                            <rect key="frame" x="7" y="0.0" width="7" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="7" id="Pmh-BB-CaD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kHD-kP-Iag" secondAttribute="trailing" id="3Qv-0p-Z14"/>
                         <constraint firstAttribute="width" constant="14" id="Dox-ad-dZg"/>
+                        <constraint firstAttribute="bottom" secondItem="kHD-kP-Iag" secondAttribute="bottom" id="Y6o-a7-bhe"/>
+                        <constraint firstItem="kHD-kP-Iag" firstAttribute="top" secondItem="R5O-lV-3Xi" secondAttribute="top" id="pmi-uH-I9Q"/>
                     </constraints>
                 </view>
                 <textField hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Name this clip!" borderStyle="roundedRect" placeholder="Name this clip!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-AM-mhF">
