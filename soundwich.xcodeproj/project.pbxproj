@@ -17,6 +17,7 @@
 		1AEAD19B1BCE3AB400C5A95C /* SoundBiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */; settings = {ASSET_TAGS = (); }; };
 		1AEAD19C1BCE3AB400C5A95C /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */; settings = {ASSET_TAGS = (); }; };
 		568840ADED6CB2BECC705E88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9C52F13C7A42B4E619FA8C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		654639751BD6CFBC00E0E903 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654639741BD6CFBC00E0E903 /* ColorTheme.swift */; settings = {ASSET_TAGS = (); }; };
 		65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */; };
 		65464D931BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */; };
 		65464D951BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65464D941BB5ECCF00FB4B55 /* SoundwichEditorViewController.swift */; };
@@ -67,6 +68,7 @@
 		1AEAD1991BCE3AB400C5A95C /* SoundBiteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBiteView.swift; sourceTree = "<group>"; };
 		1AEAD19A1BCE3AB400C5A95C /* TimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		3150AC3694374CCCAD3103CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		654639741BD6CFBC00E0E903 /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		65464D8D1BB5ECCF00FB4B55 /* soundwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soundwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65464D901BB5ECCF00FB4B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65464D921BB5ECCF00FB4B55 /* SoundwichFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundwichFeedViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				848F34631BD5ED1700B6C613 /* RecordButton.swift */,
 				848F34651BD5EE2F00B6C613 /* LoopButton.swift */,
 				848F34681BD5EE6500B6C613 /* PlayPauseButton.swift */,
+				654639741BD6CFBC00E0E903 /* ColorTheme.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				65464D911BB5ECCF00FB4B55 /* AppDelegate.swift in Sources */,
 				84FDB2951BD5A3BB006C532E /* ButtonTrayView.swift in Sources */,
 				17A45FDB1BB98D0800CE1914 /* Soundwich.swift in Sources */,
+				654639751BD6CFBC00E0E903 /* ColorTheme.swift in Sources */,
 				1AEAD19C1BCE3AB400C5A95C /* TimelineView.swift in Sources */,
 				17A45FE11BB994A900CE1914 /* SoundwichFeedCell.swift in Sources */,
 				1AEAD1941BCE3A0600C5A95C /* Timespec.swift in Sources */,

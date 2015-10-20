@@ -14,8 +14,8 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     
     @IBOutlet weak var timelineView: TimelineView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.view.clipsToBounds = true
         
@@ -30,6 +30,9 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         try! timelineView.createSoundbite("3", channelIndex:3, spec: Timespec(start:0, end:8, clipStart:1, clipEnd:7))
         
         timelineView.moveScrubberHairline(4)
+        
+        timelineView.setNeedsLayout()
+
     }
 
     override func didReceiveMemoryWarning() {
