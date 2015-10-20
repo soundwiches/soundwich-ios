@@ -127,7 +127,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if let recorder = recorder {
             recorder.record()
-            print("recorder.recording", recorder.recording)
+            // print("recorder.recording", recorder.recording)
         }
     }
 
@@ -137,7 +137,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if let recorder = recorder {
             recorder.stop()
-            print("recorder.stopped", !recorder.recording)
+            // print("recorder.stopped", !recorder.recording)
             setupPlayer()
         }
     }
@@ -157,6 +157,8 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     // MARK: - AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("audioPlayerDidFinishPlaying:", flag)
+        playPauseButton.setupPlayButton()
+        playPauseButton.selected = false
     }
 
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
