@@ -10,23 +10,22 @@ import UIKit
 
 class ButtonTrayView: UIView {
 
-    var recordButton = UIButton()
-    var recordButtonImage = UIImage(named: "Record Button")
+    var loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
+    var recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
 
     override func didMoveToSuperview() {
         backgroundColor = UIColor(white: 44.0/255.0, alpha: 1.0)
-        print("\n", frame, "\n")
 
-        recordButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        recordButton.setImage(
-            recordButtonImage,
-            forState: UIControlState.Normal
-        )
-
+        addSubview(loopButton)
         addSubview(recordButton)
     }
 
-//    override func drawRect(rect: CGRect) {
-//    }
+    /*
+    // Only override drawRect: if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+    }
+    */
 
 }
