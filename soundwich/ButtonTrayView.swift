@@ -9,11 +9,11 @@
 import UIKit
 import AVFoundation
 
-class ButtonTrayView: UIView {
+class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 
-    var loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
-    var recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
-    var playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
+    let loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
+    let recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
+    let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -57,6 +57,12 @@ class ButtonTrayView: UIView {
             session.requestRecordPermission({ (granted) -> Void in
                 if granted {
                     // print("\n\n\n", "granted")
+
+                    // Ignore errors by piping them to _.
+                    _ = try? session.setCategory(
+                        AVAudioSessionCategoryPlayAndRecord,
+                        withOptions: [.DefaultToSpeaker]
+                    )
                 } else {
                     // print("\n\n\n", "not granted")
                 }
