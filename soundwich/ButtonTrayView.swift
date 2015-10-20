@@ -47,7 +47,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     }
 
     func setupButtons() {
-        // print("\n\n\n", "setupButtons")
+        // print("setupButtons")
         backgroundColor = UIColor(white: 44.0/255.0, alpha: 1.0)
 
         addSubview(loopButton)
@@ -147,10 +147,10 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if sender.state == UIControlState.Selected {
             player.play()
-            print("player.playing", player.playing)
+            // print("player.playing", player.playing)
         } else {
             player.stop()
-            print("player.stopped", !player.playing)
+            // print("player.stopped", !player.playing)
         }
     }
 
