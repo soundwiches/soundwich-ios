@@ -16,7 +16,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
     let recorderSettings = [
-        AVFormatIDKey: kAudioFormatAppleLossless,
+        AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatAppleLossless),
         AVSampleRateKey: 44100.0,
         AVNumberOfChannelsKey: 2,
         AVEncoderAudioQualityKey: AVAudioQuality.Max.rawValue,
@@ -28,14 +28,14 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         super.init(coder: aDecoder)
 
         setupButtons()
-        setupRecording()
+        setupSession()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         setupButtons()
-        setupRecording()
+        setupSession()
     }
 
     func setupButtons() {
@@ -62,7 +62,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         )
     }
 
-    func setupRecording() {
+    func setupSession() {
         // print("\n\n\n", "setupRecording")
         let session = AVAudioSession.sharedInstance()
         if session.respondsToSelector("requestRecordPermission:") {
@@ -75,6 +75,8 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
                         AVAudioSessionCategoryPlayAndRecord,
                         withOptions: [.DefaultToSpeaker]
                     )
+
+                    self.setupRecorder()
                 } else {
                     // print("\n\n\n", "not granted")
                 }
@@ -82,18 +84,14 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         }
     }
 
-    // MARK: - Touch Handlers
-    func onTouchDownRecord(sender: UIButton) {
-        loopButton.enabled = false
-        playPauseButton.enabled = false
-
+    func setupRecorder() {
         let directories = NSSearchPathForDirectoriesInDomains(
             .DocumentDirectory,
-            domainMask: .UserDomainMask,
-            expandTilde: true
+            .UserDomainMask,
+            true
         )
         let documentDirectory = directories[0]
-        let path = documentDirectory.stringByAppendingPathComponent("track1.m4a")
+        let path = documentDirectory.stringByAppendingString("track1.m4a")
 
         recorder = try? AVAudioRecorder(URL: NSURL(fileURLWithPath: path), settings: recorderSettings)
         if let recorder = recorder {
@@ -103,9 +101,23 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         }
     }
 
+    // MARK: - Touch Handlers
+    func onTouchDownRecord(sender: UIButton) {
+        loopButton.enabled = false
+        playPauseButton.enabled = false
+
+        if let recorder = recorder {
+            recorder.record()
+        }
+    }
+
     func onTouchUpRecord(sender: UIButton) {
         loopButton.enabled = true
         playPauseButton.enabled = true
+
+        if let recorder = recorder {
+            recorder.stop()
+        }
     }
 
     // MARK: - AVAudioRecorderDelegate
