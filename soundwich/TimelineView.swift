@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol MessagesFromTimelineDelegate {
-    func soundbiteTimespecDidChange(name:String, newSpec:Timespec)
+    func soundbiteTimespecDidChange(name:String, newSpec:Soundbite)
     func soundbiteDeleteRequested(name:String)
     func soundbiteDuplicateRequested(name:String)
     func userMovedScrubber(newPositionInSeconds:Float, interactionHasEnded:Bool)
@@ -78,18 +78,18 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         constraintScrubberX.constant = CGFloat(secWidthInPx * scrubberLocation)
         
-        for sb in dictSoundbites.values {
-            if let spec = sb.timespec {
+        for sbv in dictSoundbites.values {
+            if let spec = sbv.soundbite {
                 let frameRect = CGRectMake(
                     CGFloat(spec.start * secWidthInPx),
-                    CGFloat(((Float(sb.channelIndex!)*channelHeight)+channelPadding)),
+                    CGFloat(((Float(spec.channel)*channelHeight)+channelPadding)),
                     CGFloat(spec.duration()*secWidthInPx),
                     CGFloat(channelHeight-2*channelPadding))
-                sb.frame = frameRect
-                sb.moveClippingHandle(sb.handleClippingLeft,
+                sbv.frame = frameRect
+                sbv.moveClippingHandle(sbv.handleClippingLeft,
                     deltaX: CGFloat(spec.clipStart * secWidthInPx), relative:false)
-                sb.moveClippingHandle(sb.handleClippingRight,
-                    deltaX: CGFloat(spec.clipEnd * secWidthInPx) - sb.handleClippingRight.bounds.width, relative:false)
+                sbv.moveClippingHandle(sbv.handleClippingRight,
+                    deltaX: CGFloat(spec.clipEnd * secWidthInPx) - sbv.handleClippingRight.bounds.width, relative:false)
             }
         }
         
@@ -106,7 +106,10 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         self.delegate = delegate    
     }
     
-    func createSoundbite(name:String, channelIndex:Int, spec:Timespec) throws {
+    func createSoundbiteView(spec:Soundbite) throws {
+        
+        let name = spec.url
+        let channelIndex = spec.channel
         
         if let _ = dictSoundbites[name] {
             throw TimelineError.SoundbiteNameInUse
@@ -119,32 +122,32 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
             CGFloat(channelHeight-2*channelPadding))
         
         
-        let soundbite = SoundBiteView(frame: frameRect, colorRectRGB: ColorTheme.colorRectPalette[channelIndex], colorHandleRGB: ColorTheme.colorHandlePalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
-        soundbite.timespec = spec
-        soundbite.channelIndex = channelIndex
-        soundbite.label_Name.text = "III"
-        dictSoundbites[name] = soundbite
-        contentView.addSubview(soundbite)
+        let sbv = SoundBiteView(frame: frameRect, colorRectRGB: ColorTheme.colorRectPalette[channelIndex], colorHandleRGB: ColorTheme.colorHandlePalette[channelIndex], _imageForClippedOutPatterning: self.clippedoutPatternImage!)
+        sbv.soundbite = spec
+        sbv.channelIndex = channelIndex
+        sbv.label_Name.text = "III"
+        dictSoundbites[name] = sbv
+        contentView.addSubview(sbv)
         bringSubviewToFront(scrubber)
         bringSubviewToFront(scrubberHandle)
         
         // Gesture recognizer: drag the soundbite as a whole
         let gestureRecogPan = UIPanGestureRecognizer()
         gestureRecogPan.addTarget(self, action: "handleSoundbiteDrag:")
-        soundbite.addGestureRecognizer(gestureRecogPan)
+        sbv.addGestureRecognizer(gestureRecogPan)
         
         // Gesture recognizer: drag the soundbite clipping handles (L and R)
         let gestureRecogPanHandleLeft = UIPanGestureRecognizer()
         let gestureRecogPanHandleRight = UIPanGestureRecognizer()
-        setUpHandleMovementSupport(gestureRecogPanHandleLeft, handle: soundbite.handleClippingLeft)
-        setUpHandleMovementSupport(gestureRecogPanHandleRight, handle: soundbite.handleClippingRight)
+        setUpHandleMovementSupport(gestureRecogPanHandleLeft, handle: sbv.handleClippingLeft)
+        setUpHandleMovementSupport(gestureRecogPanHandleRight, handle: sbv.handleClippingRight)
         
         // Gesture: long-press on soundbite to bring up menu
         let grHold = UILongPressGestureRecognizer()
         grHold.addTarget(self, action: "handleSoundbiteLongPress:")
-        soundbite.addGestureRecognizer(grHold)
+        sbv.addGestureRecognizer(grHold)
         
-        soundbite.userInteractionEnabled = true
+        sbv.userInteractionEnabled = true
         
         contentView.bringSubviewToFront(scrubber)
         contentView.bringSubviewToFront(scrubberHandle)
@@ -249,16 +252,14 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
 
 
     
-    func reportTimespecChange(sb: SoundBiteView) {
-        let newTimespec = Timespec(
-            start: Float(sb.frame.origin.x) / secWidthInPx,
-            end: Float(sb.frame.origin.x + sb.frame.width) / secWidthInPx,
-            clipStart: Float(sb.positionOfLeftClip()) / secWidthInPx,
-            clipEnd: Float(sb.positionOfRightClip()) / secWidthInPx
-        )
-        sb.timespec = newTimespec
+    func reportTimespecChange(sbv: SoundBiteView) {
+        let sb = sbv.soundbite!
+        sb.start = Float(sbv.frame.origin.x) / secWidthInPx
+        sb.end = Float(sbv.frame.origin.x + sbv.frame.width) / secWidthInPx
+        sb.clipStart = Float(sbv.positionOfLeftClip()) / secWidthInPx
+        sb.clipEnd = Float(sbv.positionOfRightClip()) / secWidthInPx
         if let delegate = delegate {
-            delegate.soundbiteTimespecDidChange(sb.name, newSpec: newTimespec)
+            delegate.soundbiteTimespecDidChange(sb.url, newSpec: sb)
         }
     }
     

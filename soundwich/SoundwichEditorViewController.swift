@@ -23,6 +23,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         self.title = soundwich?.title
         timelineView.registerDelegate(self)
         
+        /*
         // Sklar's testing of the timeline soundbites
         try! timelineView.createSoundbite("0", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
         try! timelineView.createSoundbite("1", channelIndex:1, spec: Timespec(start:0, end:4, clipStart:0, clipEnd:4))
@@ -30,6 +31,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         try! timelineView.createSoundbite("3", channelIndex:3, spec: Timespec(start:0, end:8, clipStart:1, clipEnd:7))
         
         timelineView.moveScrubberHairline(4)
+*/
         
         timelineView.setNeedsLayout()
 
@@ -55,7 +57,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     
     // Required protocol "MessagesFromTimelineDelegate"
     
-    func soundbiteTimespecDidChange(name:String, newSpec:Timespec) {
+    func soundbiteTimespecDidChange(name:String, newSpec:Soundbite) {
         
     }
 
