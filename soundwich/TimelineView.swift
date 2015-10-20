@@ -323,7 +323,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, 4)
+        CGContextSetLineWidth(context, 2)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
 
@@ -345,8 +345,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         }
         
         // We now want to create an off-screen-image pattern for repeating to use as the background for clipped-out areas of soundbites.
-        let diagBandWidth = Double(5)
-        let spacingFactor = 2.8
+        let diagBandWidth = Double(2)
+        let spacingFactor = Double(2)
 
         let patternSize = 28
         let drawSize = CGSize(width: patternSize, height: patternSize)
@@ -358,7 +358,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         CGContextSetStrokeColorWithColor(patContext, CGColorCreate(colorSpace, componentsTransluc))
         
         CGContextSetLineWidth(patContext, CGFloat(diagBandWidth))
-        for _i in -5...5 {
+        for _i in -8...8 {
             let i = Double(_i)
             CGContextMoveToPoint(patContext, -50, CGFloat(-50 + i*spacingFactor*diagBandWidth))
             CGContextAddLineToPoint(patContext, 300, CGFloat(300 + i*spacingFactor*diagBandWidth))
