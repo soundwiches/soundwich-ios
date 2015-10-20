@@ -65,7 +65,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
 
     func recordingDidComplete(url: NSURL, duration: Double) {
         let newSoundbite = Soundbite(url: String(url), channel: 0, duration: Float(duration))
-        soundwich.addSoundbite
+        // soundwich.addSoundbite
         try! timelineView.createSoundbiteView(newSoundbite)
     }
     
