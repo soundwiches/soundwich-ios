@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ButtonTrayView: UIView, AVAudioRecorderDelegate {
+class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     let loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
     let recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
@@ -30,6 +30,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         AVEncoderBitRateKey: 128000
     ]
     var recorder: AVAudioRecorder?
+    var player: AVAudioPlayer?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -67,15 +68,21 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
                 .TouchUpOutside
             ]
         )
+
+        playPauseButton.addTarget(
+            self,
+            action: "onTouchUpPlayPause:",
+            forControlEvents: .TouchUpInside
+        )
     }
 
     func setupSession() {
-        // print("\n\n\n", "setupRecording")
+        // print("setupRecording")
         let session = AVAudioSession.sharedInstance()
         if session.respondsToSelector("requestRecordPermission:") {
             session.requestRecordPermission({ (granted) -> Void in
                 if granted {
-                    // print("\n\n\n", "granted")
+                    // print("granted")
 
                     // Ignore errors by piping them to _.
                     _ = try? session.setCategory(
@@ -84,21 +91,31 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
                     )
 
                     self.setupRecorder()
+                    self.setupPlayer()
                 } else {
-                    // print("\n\n\n", "not granted")
+                    // print("not granted")
                 }
             })
         }
     }
 
     func setupRecorder() {
-        let path = documentDirectory.stringByAppendingString("soundbite-01.m4a")
+        let path = documentDirectory.stringByAppendingString("/soundbite-01.m4a")
 
         recorder = try? AVAudioRecorder(URL: NSURL(fileURLWithPath: path), settings: recorderSettings)
         if let recorder = recorder {
             recorder.delegate = self
             recorder.meteringEnabled = true
             recorder.prepareToRecord()
+        }
+    }
+
+    func setupPlayer() {
+        guard let recorder = recorder else { return }
+
+        player = try? AVAudioPlayer(contentsOfURL: recorder.url)
+        if let player = player {
+            player.delegate = self
         }
     }
 
@@ -121,13 +138,32 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         }
     }
 
+    func onTouchUpPlayPause(sender: UIButton) {
+        guard let player = player else { return }
+
+        if sender.state == UIControlState.Selected {
+            player.play()
+        } else {
+            player.stop()
+        }
+    }
+
+    // MARK: - AVAudioPlayerDelegate
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("audioPlayerDidFinishPlaying:", flag)
+    }
+
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        print("audioPlayerDecodeErrorDidOccur:", error)
+    }
+
     // MARK: - AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("\n\n\n", "audioRecorderDidFinishRecording:", flag)
+        print("audioRecorderDidFinishRecording:", flag)
     }
 
     func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?) {
-        print("\n\n\n", "audioRecorderEncodeErrorDidOccur:", error)
+        print("audioRecorderEncodeErrorDidOccur:", error)
     }
 
     /*
