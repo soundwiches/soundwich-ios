@@ -14,11 +14,13 @@ protocol SoundwichFeedCellDelegate {
 
 class SoundwichFeedCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var starttTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+
     var delegate: SoundwichFeedCellDelegate?
     var isPlaying = false
-    
-    @IBOutlet weak var playButton: UIButton!
-    
+
     var soundwich: Soundwich! {
         didSet {
             self.titleLabel.text = soundwich.title
