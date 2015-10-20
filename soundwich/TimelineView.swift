@@ -380,7 +380,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         UIGraphicsBeginImageContextWithOptions(drawSize, false, 0.0)
         let patContext = UIGraphicsGetCurrentContext()
 
-        let componentsTransluc : [CGFloat] = [1, 1, 1, 0.5]
+        let x : CGFloat = 0.2
+        let componentsTransluc : [CGFloat] = [x, x, x, 0.5]
         CGContextSetStrokeColorWithColor(patContext, CGColorCreate(colorSpace, componentsTransluc))
         
         CGContextSetLineWidth(patContext, CGFloat(diagBandWidth))
