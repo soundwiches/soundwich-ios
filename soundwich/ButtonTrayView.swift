@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ButtonTrayView: UIView {
 
@@ -14,7 +15,22 @@ class ButtonTrayView: UIView {
     var recordButton = RecordButton(frame: CGRect(x: 113, y: 13, width: 96, height: 96))
     var playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
 
-    override func didMoveToSuperview() {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        setupButtons()
+        setupRecording()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupButtons()
+        setupRecording()
+    }
+
+    func setupButtons() {
+        // print("\n\n\n", "setupButtons")
         backgroundColor = UIColor(white: 44.0/255.0, alpha: 1.0)
 
         addSubview(loopButton)
@@ -32,6 +48,20 @@ class ButtonTrayView: UIView {
             action: "onTouchUpInside:",
             forControlEvents: .TouchUpInside
         )
+    }
+
+    func setupRecording() {
+        // print("\n\n\n", "setupRecording")
+        let session = AVAudioSession.sharedInstance()
+        if session.respondsToSelector("requestRecordPermission:") {
+            session.requestRecordPermission({ (granted) -> Void in
+                if granted {
+                    // print("\n\n\n", "granted")
+                } else {
+                    // print("\n\n\n", "not granted")
+                }
+            })
+        }
     }
 
     func onTouchDown(sender: UIButton) {
