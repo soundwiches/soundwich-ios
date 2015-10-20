@@ -11,8 +11,6 @@ import Foundation
 class Soundwich {
     var id:String?
     var title:String!
-    var audioUrl:String?
-    var audioData:NSData?
     var duration:Float?
     var soundbites:[Soundbite]?
     
