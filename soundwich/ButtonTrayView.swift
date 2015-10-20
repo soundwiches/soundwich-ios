@@ -30,7 +30,7 @@ class ButtonTrayView: UIView {
     }
 
     func setupButtons() {
-        print("\n\n\n", "setupButtons")
+        // print("\n\n\n", "setupButtons")
         backgroundColor = UIColor(white: 44.0/255.0, alpha: 1.0)
 
         addSubview(loopButton)
@@ -51,14 +51,14 @@ class ButtonTrayView: UIView {
     }
 
     func setupRecording() {
-        print("\n\n\n", "setupRecording")
+        // print("\n\n\n", "setupRecording")
         let session = AVAudioSession.sharedInstance()
         if session.respondsToSelector("requestRecordPermission:") {
             session.requestRecordPermission({ (granted) -> Void in
                 if granted {
-                    print("\n\n\n", "granted")
+                    // print("\n\n\n", "granted")
                 } else {
-                    print("\n\n\n", "not granted")
+                    // print("\n\n\n", "not granted")
                 }
             })
         }
