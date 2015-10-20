@@ -53,8 +53,8 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     func soundbiteTimespecDidChange(name:String, newSpec:Timespec) {
         
     }
-    
-    func soundbiteScrubberDidChange(newTimeInSeconds: Float) {
+
+    func userMovedScrubber(newPositionInSeconds:Float, interactionHasEnded:Bool) {
         
     }
     
@@ -65,8 +65,5 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     func soundbiteDuplicateRequested(name:String) {
         
     }
-    
-    func soundbiteRenameRequested(nameCurrent:String, nameNew:String) {
-        
-    }
+
 }

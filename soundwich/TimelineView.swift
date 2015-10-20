@@ -13,8 +13,7 @@ protocol MessagesFromTimelineDelegate {
     func soundbiteTimespecDidChange(name:String, newSpec:Timespec)
     func soundbiteDeleteRequested(name:String)
     func soundbiteDuplicateRequested(name:String)
-    func soundbiteRenameRequested(nameCurrent:String, nameNew:String)
-    func soundbiteScrubberDidChange(newTimeInSeconds:Float)
+    func userMovedScrubber(newPositionInSeconds:Float, interactionHasEnded:Bool)
 }
 
 
@@ -200,9 +199,6 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     
     
-    // @ TODO
-    // Re-derive geometry when the geometry of this (the timeline) changes, e.g. rotate phone.
-    
     func initSubviews() {
         // Instantiate from XIB file
         let nib = UINib(nibName: "Timeline", bundle: nil)
@@ -211,11 +207,27 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         contentView.frame = bounds
         addSubview(contentView)
         
+        // Gesture recognizer: drag the soundbite as a whole
+        let gestureRecogPan = UIPanGestureRecognizer()
+        gestureRecogPan.addTarget(self, action: "handleScrubberDrag:")
+        scrubber.addGestureRecognizer(gestureRecogPan)
+        scrubber.userInteractionEnabled = true
+        
         self.drawRect(self.bounds)
-
     }
     
+
     
+    func handleScrubberDrag(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(self)
+        constraintScrubberX.constant += translation.x
+        sender.setTranslation(CGPointZero, inView: self)
+        if let delegate = delegate {
+            delegate.userMovedScrubber( Float(constraintScrubberX.constant) / secWidthInPx,
+                interactionHasEnded: (sender.state == .Ended))
+        }
+    }
+
     
     // This is non-nil only when a drag is in process:
     var curFrameOrigin : CGPoint?
