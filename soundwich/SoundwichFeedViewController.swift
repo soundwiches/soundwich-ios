@@ -104,6 +104,9 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.delegate = self
         cell.soundwich = self.soundwiches[indexPath.row]
+
+        let color = ColorTheme.colorRectPalette[indexPath.row % 7]
+        cell.backgroundColor = UIColor(red: color[0]/255, green: color[1]/255, blue: color[2]/255, alpha: 0.8)
         cell.layoutIfNeeded()
         return cell
     }
