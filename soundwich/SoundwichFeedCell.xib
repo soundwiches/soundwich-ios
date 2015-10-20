@@ -42,18 +42,10 @@
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="74b-X5-EfQ">
                         <rect key="frame" x="120" y="55" width="433" height="2"/>
                     </progressView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccF-po-UGv">
-                        <rect key="frame" x="557" y="5" width="30" height="30"/>
-                        <state key="normal" title="Edit"/>
-                        <connections>
-                            <action selector="onEditTapped:" destination="Kce-O2-r9h" eventType="touchUpInside" id="RmB-Z8-srb"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Lj6-tG-HuY" secondAttribute="bottom" constant="13" id="7Ks-KY-0mB"/>
                     <constraint firstItem="74b-X5-EfQ" firstAttribute="leading" secondItem="Lhq-vK-Cc6" secondAttribute="trailing" constant="13" id="Hpt-7k-awp"/>
-                    <constraint firstItem="ccF-po-UGv" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="5" id="HwT-NH-zfz"/>
                     <constraint firstItem="RNz-Fa-pB7" firstAttribute="top" secondItem="ukR-IC-T6c" secondAttribute="top" constant="8" id="IhW-jq-y7b"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Lhq-vK-Cc6" secondAttribute="bottom" constant="5" id="LJx-8d-Gqw"/>
                     <constraint firstItem="74b-X5-EfQ" firstAttribute="top" secondItem="RNz-Fa-pB7" secondAttribute="bottom" constant="18" id="NFY-sK-VMj"/>
@@ -63,12 +55,12 @@
                     <constraint firstAttribute="trailing" secondItem="Lj6-tG-HuY" secondAttribute="trailing" constant="8" id="WoH-vn-Kog"/>
                     <constraint firstItem="Lhq-vK-Cc6" firstAttribute="leading" secondItem="dJw-HJ-jnh" secondAttribute="trailing" constant="8" id="dRN-yV-SL3"/>
                     <constraint firstItem="Lhq-vK-Cc6" firstAttribute="top" secondItem="RNz-Fa-pB7" secondAttribute="bottom" constant="8" id="kz1-U3-4CU"/>
-                    <constraint firstAttribute="trailing" secondItem="ccF-po-UGv" secondAttribute="trailing" constant="13" id="ma6-9g-Sgn"/>
                     <constraint firstItem="RNz-Fa-pB7" firstAttribute="leading" secondItem="dJw-HJ-jnh" secondAttribute="trailing" constant="8" id="qzc-8z-e4X"/>
                     <constraint firstAttribute="bottom" secondItem="74b-X5-EfQ" secondAttribute="bottom" constant="22" id="xl8-EU-YMc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="playButton" destination="dJw-HJ-jnh" id="fir-tT-ZT0"/>
                 <outlet property="titleLabel" destination="RNz-Fa-pB7" id="VST-0u-VMw"/>
             </connections>
             <point key="canvasLocation" x="245" y="-7"/>

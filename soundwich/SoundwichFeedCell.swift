@@ -9,26 +9,32 @@
 import UIKit
 
 protocol SoundwichFeedCellDelegate {
-    func onEditTapped(soundwich:Soundwich, sender: AnyObject);
     func onPlayTapped(soundwich:Soundwich, sender: AnyObject);
 }
 
 class SoundwichFeedCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     var delegate: SoundwichFeedCellDelegate?
-
+    var isPlaying = false
+    
+    @IBOutlet weak var playButton: UIButton!
+    
     var soundwich: Soundwich! {
         didSet {
             self.titleLabel.text = soundwich.title
         }
     }
     
-    @IBAction func onEditTapped(sender: AnyObject) {
-        delegate?.onEditTapped(soundwich, sender: sender)
-    }
-    
     @IBAction func onPlayTapped(sender: AnyObject) {
         delegate?.onPlayTapped(soundwich, sender: sender)
+        
+        if (isPlaying) {
+            isPlaying = false
+            playButton.setImage(UIImage(named: "Play Button Dark"), forState: UIControlState.Normal)
+        } else {
+            isPlaying = true
+            playButton.setImage(UIImage(named: "Pause Button Dark"), forState: UIControlState.Normal)
+        }
     }
     
     override func awakeFromNib() {

@@ -70,10 +70,6 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         })
     }
     
-    func onEditTapped(soundwich:Soundwich, sender: AnyObject) {
-        pushEditor(soundwich)
-    }
-
     func onPlayTapped(soundwich:Soundwich, sender: AnyObject) {
         NSLog("Playing \(soundwich.title)")
         if let data = soundwich.audioData {
@@ -95,6 +91,8 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     // MARK: - Table Delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let soundwich = self.soundwiches[indexPath.row]
+        pushEditor(soundwich)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
