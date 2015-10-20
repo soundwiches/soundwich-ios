@@ -8,22 +8,13 @@
 
 import UIKit
 
-class PlayPauseButton: UIView {
+class PlayPauseButton: UIButton {
 
-    var pauseButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
-    var pauseButtonImage = UIImage(named: "Pause Button Light")
-    var pauseButtonDisabledImage = UIImage(named: "Pause Button Light Disabled")
+    let pauseButtonImage = UIImage(named: "Pause Button Light")
+    let pauseButtonDisabledImage = UIImage(named: "Pause Button Light Disabled")
 
-    var playButton = UIButton(frame: CGRect(x: 0, y: 0, width: 68, height: 68))
-    var playButtonImage = UIImage(named: "Play Button Light")
-    var playButtonDisabledImage = UIImage(named: "Play Button Light Disabled")
-
-    var enabled = true {
-        didSet {
-            pauseButton.enabled = self.enabled
-            playButton.enabled = self.enabled
-        }
-    }
+    let playButtonImage = UIImage(named: "Play Button Light")
+    let playButtonDisabledImage = UIImage(named: "Play Button Light Disabled")
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -32,78 +23,68 @@ class PlayPauseButton: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setupPauseButton()
+        addTarget(
+            self,
+            action: "onTouchDown:",
+            forControlEvents: .TouchDown
+        )
+
+        addTarget(
+            self,
+            action: "onTouchUp:",
+            forControlEvents: [
+                .TouchUpInside,
+                .TouchUpOutside
+            ]
+        )
+
         setupPlayButton()
-
-        addSubview(playButton)
-    }
-
-    func setupPauseButton() {
-        pauseButton.setImage(
-            pauseButtonImage,
-            forState: .Normal
-        )
-
-        pauseButton.setImage(
-            pauseButtonDisabledImage,
-            forState: .Disabled
-        )
-
-        pauseButton.addTarget(
-            self,
-            action: "onTouchUpInside:",
-            forControlEvents: .TouchUpInside
-        )
-
-        pauseButton.addTarget(
-            self,
-            action: "onTouchDown:",
-            forControlEvents: .TouchDown
-        )
-    }
-
-    func setupPlayButton() {
-        playButton.setImage(
-            playButtonImage,
-            forState: .Normal
-        )
-
-        playButton.setImage(
-            playButtonDisabledImage,
-            forState: .Disabled
-        )
-
-        playButton.addTarget(
-            self,
-            action: "onTouchUpInside:",
-            forControlEvents: .TouchUpInside
-        )
-
-        playButton.addTarget(
-            self,
-            action: "onTouchDown:",
-            forControlEvents: .TouchDown
-        )
     }
 
     func onTouchDown(sender: UIButton) {
         sender.highlighted = false
     }
 
-    func onTouchUpInside(sender: UIButton) {
+    func onTouchUp(sender: UIButton) {
         sender.highlighted = false
-        sender.removeFromSuperview()
-        switch (sender) {
-        case pauseButton:
-            addSubview(playButton)
-            break
-        case playButton:
-            addSubview(pauseButton)
-            break
-        default:
-            // Do nothing.
-            return
-        }
+        selected = !selected
+        selected
+            ? setupPauseButton()
+            : setupPlayButton()
+    }
+
+    func setupPauseButton() {
+        setImage(
+            pauseButtonImage,
+            forState: .Normal
+        )
+
+        setImage(
+            pauseButtonImage,
+            forState: .Selected
+        )
+
+        setImage(
+            pauseButtonDisabledImage,
+            forState: .Disabled
+        )
+    }
+
+    func setupPlayButton() {
+        setImage(
+            playButtonImage,
+            forState: .Normal
+        )
+
+        setImage(
+            playButtonImage,
+            forState: .Selected
+        )
+
+        setImage(
+            playButtonDisabledImage,
+            forState: .Disabled
+        )
     }
 
     /*

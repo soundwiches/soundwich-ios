@@ -10,7 +10,7 @@ import UIKit
 
 class RecordButton: UIButton {
 
-    var recordButtonImage = UIImage(named: "Record Button")
+    let recordButtonImage = UIImage(named: "Record Button")
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
