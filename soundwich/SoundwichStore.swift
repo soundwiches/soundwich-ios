@@ -110,6 +110,12 @@ class SoundwichStore {
                         o.setObject(ad, forKey: "audioData")
                     }
 
+                    if let xs = soundwich.soundbites {
+                        for (index, value) in xs.enumerate() {
+                            o.setObject(value, forKey: "audioData\(index)")
+                        }
+                    }
+                    
                     o.saveInBackground()
 
                     return callback(nil)
@@ -132,7 +138,7 @@ class SoundwichStore {
         soundwich.duration = duration
         soundwich.audioUrl = audioUrl
         soundwich.audioData = audioData
-
+        
         return soundwich
     }
 
@@ -149,10 +155,14 @@ class SoundwichStore {
             obj.setObject(a, forKey: "audioUrl")
         }
         
-        if let data = soundwich.audioData {
-            let filename = "audioFile"
-            let file = PFFile(name:filename, data:data)
-            obj.setObject(file, forKey: "audioData")
+        if let xs = soundwich.soundbites {
+            for (index, value) in xs.enumerate() {
+                if let v = value.audioData {
+                    let filename = "audioFile\(index)"
+                    let file = PFFile(name:filename, data:v)
+                    obj.setObject(file, forKey: "audioData\(index)")
+                }
+            }
         }
         
         return obj
