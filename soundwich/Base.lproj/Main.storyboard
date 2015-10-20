@@ -75,6 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mz0-l2-fc7"/>
                     <connections>
+                        <outlet property="buttonTrayView" destination="ill-ZJ-MU5" id="sis-Me-Rya"/>
                         <outlet property="timelineView" destination="8Gb-FB-8Kg" id="Z6O-pZ-dUh"/>
                     </connections>
                 </viewController>
