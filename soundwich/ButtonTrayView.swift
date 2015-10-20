@@ -91,7 +91,6 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     )
 
                     self.setupRecorder()
-                    self.setupPlayer()
                 } else {
                     // print("not granted")
                 }
@@ -116,6 +115,8 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         player = try? AVAudioPlayer(contentsOfURL: recorder.url)
         if let player = player {
             player.delegate = self
+            player.meteringEnabled = true
+            player.prepareToPlay()
         }
     }
 
@@ -126,6 +127,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if let recorder = recorder {
             recorder.record()
+            print("recorder.recording", recorder.recording)
         }
     }
 
@@ -135,6 +137,8 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if let recorder = recorder {
             recorder.stop()
+            print("recorder.stopped", !recorder.recording)
+            setupPlayer()
         }
     }
 
@@ -143,8 +147,10 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
         if sender.state == UIControlState.Selected {
             player.play()
+            print("player.playing", player.playing)
         } else {
             player.stop()
+            print("player.stopped", !player.playing)
         }
     }
 
