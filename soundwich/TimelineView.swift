@@ -165,10 +165,30 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     }
     
     
-    // TODO: Animate this!
-    func moveScrubberHairline(timeInSeconds: Float) {
+    func moveScrubberHairline(timeInSeconds: Float, animationDuration: Float) {
+        print("starting an animation of duration " + String(animationDuration))
+        CATransaction.begin()
+        self.layer.presentationLayer()?.removeAllAnimations()
+        self.layer.removeAllAnimations()
+        for lay in self.layer.sublayers! {
+            lay.removeAllAnimations()
+        }
+        self.scrubber.layer.removeAllAnimations()
+        for lay in self.scrubber.layer.sublayers! {
+            lay.removeAllAnimations()
+        }
+        self.scrubberHandle.layer.removeAllAnimations()
+//        for lay in self.scrubberHandle.layer.sublayers? {
+  //          lay.removeAllAnimations()
+    //    }
+        CATransaction.commit()
         scrubberLocation = timeInSeconds
-        constraintScrubberX.constant = CGFloat(secWidthInPx * timeInSeconds)
+        self.constraintScrubberX.constant = CGFloat(self.secWidthInPx * timeInSeconds)
+        UIView.animateWithDuration(Double(animationDuration), delay: NSTimeInterval(0),
+            options: [UIViewAnimationOptions.CurveLinear, UIViewAnimationOptions.BeginFromCurrentState, .OverrideInheritedDuration],
+            animations: {
+                self.layoutIfNeeded()
+            }, completion: { (finished:Bool) -> Void in print("done") } )
     }
     
     

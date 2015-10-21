@@ -36,6 +36,8 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
             action: "onTouchUpInsidePlayPause:",
             forControlEvents: .TouchUpInside
         )
+        
+        buttonTrayView.timelineView = timelineView
     }
 
     override func didReceiveMemoryWarning() {

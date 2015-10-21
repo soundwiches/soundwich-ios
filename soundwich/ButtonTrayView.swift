@@ -22,6 +22,8 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
     
     var receiverOfButtonTrayEvents : MessagesFromButtonTrayDelegate?
+    
+    var timelineView : TimelineView?
 
     // Where we're going to put the soundbites.
     let documentDirectory = NSSearchPathForDirectoriesInDomains(
@@ -130,6 +132,12 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 
         setupRecorder()
         if let recorder = recorder {
+            if let timelineView = timelineView {
+                // Immediate hard-reset to LHS
+                timelineView.moveScrubberHairline(0, animationDuration: 0)
+                // ... followed by a long slow ride to RHS
+                timelineView.moveScrubberHairline(8, animationDuration: 8)
+            }
             recorder.record()
             // print("recorder.recording", recorder.recording)
         }
@@ -141,6 +149,9 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         
         if let recorder = recorder {
             recorder.stop()
+            if let timelineView = timelineView {
+                timelineView.moveScrubberHairline(0, animationDuration: 0)
+            }
             // print("recorder.stopped", !recorder.recording)
             setupPlayer()
             if (player!.duration < 0.75) {
