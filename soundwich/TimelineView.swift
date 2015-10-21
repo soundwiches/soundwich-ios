@@ -106,7 +106,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         self.delegate = delegate    
     }
     
-    func createSoundbiteView(spec:Soundbite) throws {
+    func createSoundbiteView(spec:Soundbite) throws -> SoundBiteView{
         
         let name = spec.url
         let channelIndex = spec.channel
@@ -151,6 +151,8 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         
         contentView.bringSubviewToFront(scrubber)
         contentView.bringSubviewToFront(scrubberHandle)
+        
+        return sbv
     }
     
     

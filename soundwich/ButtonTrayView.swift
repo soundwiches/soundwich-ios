@@ -22,6 +22,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
     let playPauseButton = PlayPauseButton(frame: CGRect(x: 228, y: 26, width: 68, height: 68))
     
     var receiverOfButtonTrayEvents : MessagesFromButtonTrayDelegate?
+    var soundwich : Soundwich?
     
     var timelineView : TimelineView?
 
@@ -118,34 +119,80 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 //            player.prepareToPlay()
 //        }
     }
+    
+    
+    
+    var recordingFeedbackTempSoundbite : Soundbite?
+    var recordingFeedbackTempSoundbiteView : SoundBiteView?
+    var recordingInProgress = false
 
     // MARK: - Touch Handlers
     func onTouchDownRecord(sender: UIButton) {
-        loopButton.enabled = false
-        playPauseButton.enabled = false
-
         setupRecorder()
         if let recorder = recorder {
-            if let timelineView = timelineView {
-                // Immediate hard-reset to LHS
-                timelineView.moveScrubberHairline(0, animationDuration: 0)
-                // ... followed by a long slow ride to RHS
-                timelineView.moveScrubberHairline(8, animationDuration: 8)
+            if let soundwich = soundwich {
+                if let timelineView = timelineView {
+                    let channel = soundwich.nextAvailableChannel()
+                    if channel < 0 {
+                        return
+                    }
+                    
+                    // Create a temp disposable soundbite/soundbiteview
+                    recordingFeedbackTempSoundbite =
+                        Soundbite(url: "NOURL", channel: channel, duration: 0.0)
+                    recordingFeedbackTempSoundbiteView =
+                        try! timelineView.createSoundbiteView(recordingFeedbackTempSoundbite!)
+                    
+                    // Immediate hard-reset to LHS
+                    timelineView.moveScrubberHairline(0, animationDuration: 0)
+                    // ... followed by a long slow ride to RHS
+                    timelineView.moveScrubberHairline(8, animationDuration: 8)
+                    
+                    // Perform same type of animation for the temp soundbite
+                    UIView.animateWithDuration(Double(8), delay: NSTimeInterval(0),
+                        options: [
+                            .CurveLinear,
+                            .BeginFromCurrentState,
+                            .OverrideInheritedDuration
+                        ],
+                        animations: {
+                            self.recordingFeedbackTempSoundbiteView!.frame.size.width = 300
+                        },
+                        completion: { (finished: Bool) -> Void in
+                            // print("done")
+                        }
+                    )
+
+                    loopButton.enabled = false
+                    playPauseButton.enabled = false
+                    recordingInProgress = true
+                    
+                    recorder.record()
+                    // print("recorder.recording", recorder.recording)
+                }
             }
-            recorder.record()
-            // print("recorder.recording", recorder.recording)
         }
     }
     
+    
     func onTouchUpRecord(sender: UIButton) {
+        if  !recordingInProgress {
+            return   // We never actually started a record action
+        }
+        
+        recordingInProgress = false
         loopButton.enabled = true
         playPauseButton.enabled = true
         
         if let recorder = recorder {
             recorder.stop()
-            if let timelineView = timelineView {
-                timelineView.moveScrubberHairline(0, animationDuration: 0)
-            }
+                if let timelineView = timelineView {
+                    timelineView.moveScrubberHairline(0, animationDuration: 0)
+                    try! timelineView.deleteSoundbite("NOURL")
+                    recordingFeedbackTempSoundbite = nil
+                    recordingFeedbackTempSoundbiteView = nil
+                }
+            
             // print("recorder.stopped", !recorder.recording)
             setupPlayer()
             if (player!.duration < 0.75) {

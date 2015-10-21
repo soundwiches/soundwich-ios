@@ -32,6 +32,14 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         timelineView.registerDelegate(self)
         
         buttonTrayView.receiverOfButtonTrayEvents = self
+        buttonTrayView.soundwich = soundwich
+        
+        // Recreate the soundbiteview objects for any already-present soundbites
+        if let soundwich = soundwich {
+            for sb in soundwich.soundbites {
+                try! timelineView.createSoundbiteView(sb)
+            }
+        }
         
         timelineView.setNeedsLayout()
 
