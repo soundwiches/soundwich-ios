@@ -219,18 +219,15 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
             .UserDomainMask,
             true
             )[0]
-        let file = "/soundbite-\(NSDate().timeIntervalSince1970).m4a"
-        let path = documentDirectory.stringByAppendingString(file)
+        let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
 
-        let components = name.characters.split { $0 == "/" } .map { String($0) }
-        let last = "/" + components[components.count - 1]
-        print("attempting to copy:\n\tname: \(last)\n\tpath: \(file)\n")
+        let nameURL = NSURL(string: name)!
+        let pathURL = NSURL(fileURLWithPath: path)
 
         do {
-            try fileManager.copyItemAtPath(name, toPath: path)
-            print("success:\n\tname: \(last)\n\tpath: \(file)\n")
+            try fileManager.copyItemAtURL(nameURL, toURL: pathURL)
         } catch let error as NSError {
-            print("failure:\n\tname: \(last)\n\tpath: \(file)\n\terror: \(error)\n")
+            print("error: \(error)\n")
         }
     }
 
