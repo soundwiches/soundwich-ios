@@ -59,16 +59,23 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
 
     
     
-    
+    // =================================================
     
     // Required protocol "MessagesFromButtonTrayDelegate"
 
     func recordingDidComplete(url: NSURL, duration: Double) {
-        let newSoundbite = Soundbite(url: String(url), channel: 0, duration: Float(duration))
-        // soundwich.addSoundbite
-        try! timelineView.createSoundbiteView(newSoundbite)
+        let goodChannel = soundwich?.nextAvailableChannel()
+        if goodChannel >= 0 {
+            let newSoundbite = Soundbite(url: String(url), channel: goodChannel!, duration: Float(duration))
+            try! soundwich!.addSoundbite(newSoundbite)
+            try! timelineView.createSoundbiteView(newSoundbite)
+        }
     }
+
     
+    
+    
+    // =================================================
     
     // Required protocol "MessagesFromTimelineDelegate"
     
