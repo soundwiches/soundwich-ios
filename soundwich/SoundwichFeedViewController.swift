@@ -57,7 +57,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func onAdd(sender: AnyObject) {
-        let randomNum = Int(rand())
+        let randomNum = arc4random_uniform(1500)
         let soundwich = Soundwich(title: "New \(randomNum)")
 
         SoundwichStore.add(soundwich, callback:{(soundwich, error) in
@@ -81,6 +81,8 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
             if let ad = soundbite.audioData {
                 soundwichPlayerController?.playNSData(ad)
             }
+            
+            //soundwichPlayerController?.playURL(NSURL(string:soundbite.url)!)
         }
     }
     

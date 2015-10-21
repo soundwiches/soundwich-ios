@@ -14,6 +14,24 @@ class SoundwichPlayerController : NSObject {
     
     /// The player.
     var avPlayer:AVAudioPlayer?
+
+    func playURL(url:NSURL) {
+        
+        do {
+            try self.avPlayer = AVAudioPlayer(contentsOfURL: url)
+        } catch {
+            print("Error creating av audio player")
+        }
+        
+        if avPlayer == nil {
+            print("Error playing")
+        }
+        
+        avPlayer?.delegate = self
+        avPlayer?.prepareToPlay()
+        avPlayer?.volume = 1.0
+        avPlayer?.play()
+    }
     
     /**
     Uses AvAudioPlayer to play a sound file.
