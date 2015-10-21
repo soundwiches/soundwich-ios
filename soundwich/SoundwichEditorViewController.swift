@@ -29,16 +29,6 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         
         buttonTrayView.receiverOfButtonTrayEvents = self
         
-        /*
-        // Sklar's testing of the timeline soundbites
-        try! timelineView.createSoundbite("0", channelIndex:0, spec: Timespec(start:0, end:3, clipStart:0, clipEnd:3))
-        try! timelineView.createSoundbite("1", channelIndex:1, spec: Timespec(start:0, end:4, clipStart:0, clipEnd:4))
-        try! timelineView.createSoundbite("2", channelIndex:2, spec: Timespec(start:0, end:7, clipStart:1, clipEnd:6))
-        try! timelineView.createSoundbite("3", channelIndex:3, spec: Timespec(start:0, end:8, clipStart:1, clipEnd:7))
-        
-        timelineView.moveScrubberHairline(4)
-        */
-        
         timelineView.setNeedsLayout()
 
         buttonTrayView.playPauseButton.addTarget(
@@ -111,14 +101,16 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     // Required protocol "MessagesFromButtonTrayDelegate"
 
     func recordingDidComplete(url: NSURL, duration: Double) {
-        let goodChannel = soundwich?.nextAvailableChannel()
-        if goodChannel >= 0 {
-            let newSoundbite = Soundbite(url: String(url), channel: goodChannel!, duration: Float(duration))
-            try! soundwich!.addSoundbite(newSoundbite)
-            try! timelineView.createSoundbiteView(newSoundbite)
+        if (duration > 0.75) {
+            let goodChannel = soundwich?.nextAvailableChannel()
+            if goodChannel >= 0 {
+                let newSoundbite = Soundbite(url: String(url), channel: goodChannel!, duration: Float(duration))
+                try! soundwich!.addSoundbite(newSoundbite)
+                try! timelineView.createSoundbiteView(newSoundbite)
+            }
         }
     }
-
+    
     
     
     
@@ -127,7 +119,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     // Required protocol "MessagesFromTimelineDelegate"
     
     func soundbiteTimespecDidChange(name:String, newSpec:Soundbite) {
-        
+        try! soundwich!.registerTimespecChange(newSpec)
     }
 
     func userMovedScrubber(newPositionInSeconds:Float, interactionHasEnded:Bool) {
@@ -135,10 +127,18 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     }
     
     func soundbiteDeleteRequested(name:String) {
-        
+        do {
+            try soundwich!.deleteSoundbite(name)
+            try timelineView.deleteSoundbite(name)
+        }
+        catch {
+            // Absurdity!!!  We really don't expect this!!  The databases have become insane/outofsync!  Help!!!
+        }
     }
     
+    
     func soundbiteDuplicateRequested(name:String) {
+        
         
     }
 
