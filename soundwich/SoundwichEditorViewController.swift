@@ -127,7 +127,8 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
 
     func pauseAll() {
         players?.forEach({ (player) -> () in
-            player!.pause()
+            guard let player = player else { return }
+            player.stop()
         })
 
         if let timer = timer {

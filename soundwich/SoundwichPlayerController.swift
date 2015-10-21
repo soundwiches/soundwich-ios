@@ -10,6 +10,7 @@ import Foundation
 import AVFoundation
 
 protocol SoundwichPlayerControllerDelegate {
+    var shouldPlayerLoop: Bool? { get set }
     func onUpdate(time: Double)
     func onFinished()
 }
@@ -18,6 +19,7 @@ protocol SoundwichPlayerControllerDelegate {
 class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
     var delegate:SoundwichPlayerControllerDelegate?
 
+    var soundbites: [Soundbite]?
     var players: [AVAudioPlayer?]?
 
     var timer: NSTimer?
@@ -85,12 +87,14 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
         currentTime = 0.0
         totalTime = 0.0
 
+        self.soundbites = soundbites
         players = soundbites.map({ (bite) -> AVAudioPlayer? in
             let url = NSURL(string: bite.url)
 
             if let player = try? AVAudioPlayer(contentsOfURL: url!) {
                 player.delegate = self
 
+                print("bite:", bite.start)
                 player.playAtTime(player.deviceCurrentTime + Double(bite.start))
 
                 totalTime = max(totalTime, Double(bite.end))
@@ -118,10 +122,16 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
             guard let player = player else { return }
             player.stop()
         })
+        finishAll()
+    }
 
+    func finishAll() {
+        print("finishAll")
         if let timer = timer {
             timer.invalidate()
         }
+        self.soundbites = []
+        delegate?.onFinished()
     }
 
     func onTimer(timer: NSTimer) {
@@ -131,14 +141,14 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
 
         delegate?.onUpdate(currentTime)
         if currentTime >= totalTime {
-            timer.invalidate()
-            delegate?.onFinished()
+            print("onTimer:")
+            loopOrDont()
         }
     }
 
     // MARK: - AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        // print("audioPlayerDidFinishPlaying:", flag)
+        print("audioPlayerDidFinishPlaying:", flag)
         guard let players = players else { return }
 
         let done = players.reduce(true) { (done, player) -> Bool in
@@ -147,12 +157,24 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
         }
 
         if done {
-//            if buttonTrayView.loopButton.selected {
-//                playAll((soundbites)!)
-//            } else {
-//                buttonTrayView.playPauseButton.setupPlayButton()
-//                buttonTrayView.playPauseButton.selected = false
-//            }
+            loopOrDont()
+        }
+    }
+
+    func loopOrDont() {
+        print("loopOrDont", delegate)
+        if let delegate = delegate {
+            print("shouldPlayerLoop", delegate.shouldPlayerLoop)
+            if let shouldPlayerLoop = delegate.shouldPlayerLoop {
+                print("shouldPlayerLoop", shouldPlayerLoop)
+                if shouldPlayerLoop {
+                    playAll(soundbites!)
+                } else {
+                    finishAll()
+                }
+            } else {
+                finishAll()
+            }
         }
     }
 

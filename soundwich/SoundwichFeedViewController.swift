@@ -17,6 +17,11 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     var soundwichPlayerController:SoundwichPlayerController?
     
     var soundwiches:[Soundwich] = []
+
+    var shouldPlayerLoop: Bool? {
+        get { return true }
+        set(newValue) {}
+    }
     
     override func viewDidLoad() {
         //SoundwichStore.removeAll()
@@ -29,6 +34,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "onAdd:")
         
         soundwichPlayerController = SoundwichPlayerController()
+        soundwichPlayerController?.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Soundwich"
@@ -82,6 +88,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func onPlaying(soundwich:Soundwich, sender: AnyObject) {
+        print(soundwich.soundbites)
         soundwichPlayerController?.playAll(soundwich.soundbites)
     }
 
@@ -93,7 +100,6 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     // MARK: - Data
     func loadData() {
-        
         SoundwichStore.getAll({ (soundwiches, error) in
             if let s = soundwiches {
                 self.soundwiches = s
