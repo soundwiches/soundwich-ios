@@ -58,17 +58,25 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         guard let soundwich = soundwich else { return }
     }
     
+    
+    
+    
+
+    // =================================================
+    
     // Required protocol "MessagesFromButtonTrayDelegate"
 
     func recordingDidComplete(url: NSURL, duration: Double) {
-        let goodChannel = soundwich?.nextAvailableChannel()
-        if goodChannel >= 0 {
-            let newSoundbite = Soundbite(url: String(url), channel: goodChannel!, duration: Float(duration))
-            try! soundwich!.addSoundbite(newSoundbite)
-            try! timelineView.createSoundbiteView(newSoundbite)
+        if (duration > 0.75) {
+            let goodChannel = soundwich?.nextAvailableChannel()
+            if goodChannel >= 0 {
+                let newSoundbite = Soundbite(url: String(url), channel: goodChannel!, duration: Float(duration))
+                try! soundwich!.addSoundbite(newSoundbite)
+                try! timelineView.createSoundbiteView(newSoundbite)
+            }
         }
     }
-
+    
     
     
     
@@ -90,12 +98,13 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
             try timelineView.deleteSoundbite(name)
         }
         catch {
-            // Absurdity!!!  We really don't expect this!!
+            // Absurdity!!!  We really don't expect this!!  The databases have become insane/outofsync!  Help!!!
         }
     }
     
     
     func soundbiteDuplicateRequested(name:String) {
+        
         
     }
 
