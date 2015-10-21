@@ -292,11 +292,11 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         switch commandChosen {
         case "Delete":
             if let delegate = delegate {
-                delegate.soundbiteDeleteRequested(sbiteContextOfPopupMenu!.name)
+                delegate.soundbiteDeleteRequested(sbiteContextOfPopupMenu!.soundbite!.url)
             }
         case "Duplicate":
             if let delegate = delegate {
-                delegate.soundbiteDuplicateRequested(sbiteContextOfPopupMenu!.name)
+                delegate.soundbiteDuplicateRequested(sbiteContextOfPopupMenu!.soundbite!.url)
             }
         default:
             return

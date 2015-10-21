@@ -11,6 +11,7 @@ import Foundation
 
 enum SoundwichError: ErrorType {
     case ChannelAlreadyInUse
+    case NameUnknown
 }
 
     
@@ -63,6 +64,36 @@ class Soundwich {
         } else {
             throw SoundwichError.ChannelAlreadyInUse
         }
+    }
+    
+    
+    func getSoundbiteIndexByURL(url: String) throws -> Int {
+        var retval = 0
+        for sb in soundbites {
+            if sb.url == url {
+                return retval
+            } else {
+                retval += 1
+            }
+        }
+        throw SoundwichError.NameUnknown
+    }
+    
+    
+    func deleteSoundbite(url: String) throws {
+        let idx = try? self.getSoundbiteIndexByURL(url)
+        if let idx = idx {
+            self.soundbites.removeAtIndex(idx)
+        }
+        else {
+            throw SoundwichError.NameUnknown
+        }
+    }
+    
+    
+    
+    func registerTimespecChange(new : Soundbite) throws {
+        
     }
     
 }

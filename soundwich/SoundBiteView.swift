@@ -27,8 +27,6 @@ class SoundBiteView: UIView {
     @IBOutlet weak var visiblePortionOfLeftHandle: UIView!
     @IBOutlet weak var visiblePortionOfRightHandle: UIView!
     
-    
-    var name = "Clip"
     var channelIndex : Int?
     var soundbite : Soundbite?
     var imageForClippedOutPatterning : UIImage?
