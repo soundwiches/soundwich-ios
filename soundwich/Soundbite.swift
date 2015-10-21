@@ -12,7 +12,8 @@ import Foundation
 
 
 class Soundbite {
-    
+    var audioData:NSData?
+
     var url: String
     var channel: Int
     
