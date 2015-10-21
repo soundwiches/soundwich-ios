@@ -87,11 +87,11 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
 
     // MARK: - AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("audioPlayerDidFinishPlaying:", flag)
+        // print("audioPlayerDidFinishPlaying:", flag)
         guard let players = players else { return }
 
         let done = players.reduce(true) { (done, player) -> Bool in
-            print("done: \(done)\nplaying: \((player?.playing)!)\nurl: \(player?.url)\n")
+            print("done: \(done)\nplaying: \((player?.playing)!)\nurl: \((player?.url)!.lastPathComponent)\n")
             return done && !(player?.playing)!
         }
 
@@ -102,7 +102,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     }
 
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
-        print("audioPlayerDecodeErrorDidOccur:", error)
+        // print("audioPlayerDecodeErrorDidOccur:", error)
     }
 
     // Required protocol "MessagesFromButtonTrayDelegate"

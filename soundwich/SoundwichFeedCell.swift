@@ -16,7 +16,7 @@ protocol SoundwichFeedCellDelegate {
 class SoundwichFeedCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var starttTimeLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
 
     var delegate: SoundwichFeedCellDelegate?
