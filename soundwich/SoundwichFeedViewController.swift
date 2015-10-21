@@ -78,18 +78,17 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func onPause(soundwich:Soundwich, sender: AnyObject) {
-        soundwichPlayerController?.toggleAVPlayer()
+        soundwichPlayerController?.pauseAll()
     }
 
     func onPlaying(soundwich:Soundwich, sender: AnyObject) {
-        NSLog("Playing \(soundwich.title)")
-        for soundbite in (soundwich.soundbites ?? []) {
-            soundwichPlayerController?.playURL(NSURL(string:soundbite.url)!)
-        }
+        soundwichPlayerController?.playAll(soundwich.soundbites)
+    }
+
+    func onUpdate(time: Double) {
     }
     
     func onFinished() {
-        // TODO set cell back to pause
     }
     
     // MARK: - Data
