@@ -79,10 +79,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func onPlaying(soundwich:Soundwich, sender: AnyObject) {
         NSLog("Playing \(soundwich.title)")
         for soundbite in (soundwich.soundbites ?? []) {
-            
-            if let ad = soundbite.audioData {
-                soundwichPlayerController?.playNSData(ad)
-            }
+            soundwichPlayerController?.playURL(NSURL(string:soundbite.url)!)
         }
     }
     
