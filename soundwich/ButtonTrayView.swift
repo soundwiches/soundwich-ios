@@ -15,7 +15,7 @@ protocol MessagesFromButtonTrayDelegate {
 }
 
 
-class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class ButtonTrayView: UIView, AVAudioRecorderDelegate {
 
     let loopButton = LoopButton(frame: CGRect(x: 24, y: 26, width: 68, height: 68))
     let recordButton = RecordButton(frame: CGRect(x: 110, y: 10, width: 100, height: 100))
@@ -77,11 +77,11 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             ]
         )
 
-        playPauseButton.addTarget(
-            self,
-            action: "onTouchUpPlayPause:",
-            forControlEvents: .TouchUpInside
-        )
+//        playPauseButton.addTarget(
+//            self,
+//            action: "onTouchUpPlayPause:",
+//            forControlEvents: .TouchUpInside
+//        )
     }
 
     func setupSession() {
@@ -96,8 +96,6 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     AVAudioSessionCategoryPlayAndRecord,
                     withOptions: [.DefaultToSpeaker]
                 )
-
-                self.setupRecorder()
             } else {
                 // print("not granted")
             }
@@ -117,13 +115,12 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     func setupPlayer() {
         guard let recorder = recorder else { return }
-
         player = try? AVAudioPlayer(contentsOfURL: recorder.url)
-        if let player = player {
-            player.delegate = self
-            player.meteringEnabled = true
-            player.prepareToPlay()
-        }
+//        if let player = player {
+//            player.delegate = self
+//            player.meteringEnabled = true
+//            player.prepareToPlay()
+//        }
     }
 
     // MARK: - Touch Handlers
@@ -131,6 +128,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         loopButton.enabled = false
         playPauseButton.enabled = false
 
+        setupRecorder()
         if let recorder = recorder {
             recorder.record()
             // print("recorder.recording", recorder.recording)
@@ -151,28 +149,28 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
 
-    func onTouchUpPlayPause(sender: UIButton) {
-        guard let player = player else { return }
+//    func onTouchUpPlayPause(sender: UIButton) {
+//        guard let player = player else { return }
+//
+//        if sender.state == UIControlState.Selected {
+//            player.play()
+//            // print("player.playing", player.playing)
+//        } else {
+//            player.stop()
+//            // print("player.stopped", !player.playing)
+//        }
+//    }
 
-        if sender.state == UIControlState.Selected {
-            player.play()
-            // print("player.playing", player.playing)
-        } else {
-            player.stop()
-            // print("player.stopped", !player.playing)
-        }
-    }
-
-    // MARK: - AVAudioPlayerDelegate
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("audioPlayerDidFinishPlaying:", flag)
-        playPauseButton.setupPlayButton()
-        playPauseButton.selected = false
-    }
-
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
-        print("audioPlayerDecodeErrorDidOccur:", error)
-    }
+//    // MARK: - AVAudioPlayerDelegate
+//    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+//        print("audioPlayerDidFinishPlaying:", flag)
+//        playPauseButton.setupPlayButton()
+//        playPauseButton.selected = false
+//    }
+//
+//    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+//        print("audioPlayerDecodeErrorDidOccur:", error)
+//    }
 
     // MARK: - AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
