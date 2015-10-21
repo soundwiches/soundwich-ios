@@ -101,15 +101,22 @@ class SoundwichStore {
                     if let d = soundwich.duration {
                         o.setObject(d, forKey: "duration")
                     }
-                    
-                    if let a = soundwich.audioUrl {
-                        o.setObject(a, forKey: "audioUrl")
-                    }
-                    
-                    if let ad = soundwich.audioData {
-                        o.setObject(ad, forKey: "audioData")
-                    }
 
+                    if let xs = soundwich.soundbites {
+                        for (index, value) in xs.enumerate() {
+                            if let ad = value.audioData {
+                                o.setObject(ad, forKey: "audioData\(index)")
+                            }
+                            
+                            o.setObject(value.channel, forKey: "channel\(index)")
+                            o.setObject(value.start, forKey: "start\(index)")
+                            o.setObject(value.end, forKey: "end\(index)")
+                            
+                            o.setObject(value.clipStart, forKey: "clipStart\(index)")
+                            o.setObject(value.clipEnd, forKey: "clipEnd\(index)")
+                        }
+                    }
+                    
                     o.saveInBackground()
 
                     return callback(nil)
@@ -124,15 +131,38 @@ class SoundwichStore {
         let id = obj.objectId
         let title = obj.objectForKey("title") as! String
         let duration = obj.objectForKey("duration") as? Float
-        let audioUrl = obj.objectForKey("audioUrl") as? String
-        let audioData = obj.objectForKey("audioData") as? NSData
 
         let soundwich = Soundwich(title: title)
         soundwich.id = id
         soundwich.duration = duration
-        soundwich.audioUrl = audioUrl
-        soundwich.audioData = audioData
-
+        
+        for index in 0...7 {
+            let channel = obj.objectForKey("channel\(index)") as? Int
+            let start = obj.objectForKey("start\(index)") as? Float
+            let end = obj.objectForKey("end\(index)") as? Float
+            let clipStart = obj.objectForKey("clipStart\(index)") as? Float
+            let clipEnd = obj.objectForKey("clipEnd\(index)") as? Float
+            let audioData = obj.objectForKey("audioData\(index)") as? NSData
+            
+            let soundbite = Soundbite(url: "", channel: channel ?? 0, duration: 1)
+            
+            soundbite.audioData = audioData
+            soundbite.channel = channel ?? 0
+            soundbite.start = start ?? 0
+            soundbite.end = end ?? 0
+            soundbite.clipStart = clipStart ?? 0
+            soundbite.clipEnd = clipEnd ?? 0
+            
+            if (end != nil) {
+                if let _ = soundwich.soundbites {
+                    soundwich.soundbites!.append(soundbite)
+                } else {
+                    soundwich.soundbites = [soundbite]
+                }
+            }
+        }
+        
+        
         return soundwich
     }
 
@@ -144,15 +174,21 @@ class SoundwichStore {
         if let d = soundwich.duration {
             obj.setObject(d, forKey: "duration")
         }
-
-        if let a = soundwich.audioUrl {
-            obj.setObject(a, forKey: "audioUrl")
-        }
         
-        if let data = soundwich.audioData {
-            let filename = "audioFile"
-            let file = PFFile(name:filename, data:data)
-            obj.setObject(file, forKey: "audioData")
+        if let xs = soundwich.soundbites {
+            for (index, value) in xs.enumerate() {
+                if let v = value.audioData {
+                    let filename = "audioFile\(index)"
+                    let file = PFFile(name:filename, data:v)
+                    obj.setObject(file, forKey: "audioData\(index)")
+                    obj.setObject(value.channel, forKey: "channel\(index)")
+                    obj.setObject(value.start, forKey: "start\(index)")
+                    obj.setObject(value.end, forKey: "end\(index)")
+                    
+                    obj.setObject(value.clipStart, forKey: "clipStart\(index)")
+                    obj.setObject(value.clipEnd, forKey: "clipEnd\(index)")
+                }
+            }
         }
         
         return obj
