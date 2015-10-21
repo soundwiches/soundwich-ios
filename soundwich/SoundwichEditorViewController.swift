@@ -62,10 +62,14 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         }
     }
 
-    
+
     // MARK: - Touch Handlers
     func onTouchUpInsidePlayPause(sender: UIButton) {
-        guard let soundwich = soundwich else { return }
+        guard let soundbites = soundwich?.soundbites else { return }
+
+        soundbites.forEach { (bite) -> () in
+            print(bite.url)
+        }
     }
     
     // Required protocol "MessagesFromButtonTrayDelegate"
