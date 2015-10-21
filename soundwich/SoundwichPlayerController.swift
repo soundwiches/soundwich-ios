@@ -9,9 +9,13 @@
 import Foundation
 import AVFoundation
 
+protocol SoundwichPlayerControllerDelegate {
+    func onFinished();
+}
+
 // from http://www.rockhoppertech.com/blog/swift-avfoundation/#audiofile
 class SoundwichPlayerController : NSObject {
-    
+    var delegate:SoundwichPlayerControllerDelegate?
     /// The player.
     var avPlayer:AVAudioPlayer?
 
@@ -74,6 +78,7 @@ class SoundwichPlayerController : NSObject {
 extension SoundwichPlayerController : AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("finished playing \(flag)")
+        delegate?.onFinished()
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {

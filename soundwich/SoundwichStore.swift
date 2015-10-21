@@ -116,6 +116,8 @@ class SoundwichStore {
                     
                     let xs = soundwich.soundbites
                     for (index, value) in xs.enumerate() {
+                        NSLog("setting soundbite for soundwich")
+
                         if let ad = value.audioData {
                             o.setObject(ad, forKey: "audioData\(index)")
                         }

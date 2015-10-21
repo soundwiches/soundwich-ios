@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate {
+class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate, SoundwichPlayerControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     var soundwichPlayerController:SoundwichPlayerController?
@@ -16,6 +16,8 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     var soundwiches:[Soundwich] = []
     
     override func viewDidLoad() {
+        //SoundwichStore.removeAll()
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -81,9 +83,11 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
             if let ad = soundbite.audioData {
                 soundwichPlayerController?.playNSData(ad)
             }
-            
-            //soundwichPlayerController?.playURL(NSURL(string:soundbite.url)!)
         }
+    }
+    
+    func onFinished() {
+        // TODO set cell back to pause
     }
     
     // MARK: - Data

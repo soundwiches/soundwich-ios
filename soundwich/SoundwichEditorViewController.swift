@@ -55,7 +55,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     }
     
     // MARK: - Data
-    func update() {
+    func updateDB() {
         if let s = soundwich {
             SoundwichStore.update(s, callback:{(error) in
                 if (error != nil) {
@@ -65,6 +65,14 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         }
     }
 
+    func loadSoundwich() {
+        if let s = soundwich {
+            for soundbite in s.soundbites {
+                NSLog("Loading soundbite for soundwich")
+                try! timelineView.createSoundbiteView(soundbite)
+            }
+        }
+    }
 
     // MARK: - Touch Handlers
     func onTouchUpInsidePlayPause(sender: UIButton) {
@@ -167,6 +175,8 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
                 
                 try! soundwich!.addSoundbite(newSoundbite)
                 try! timelineView.createSoundbiteView(newSoundbite)
+                
+                updateDB()
             }
         }
     }
