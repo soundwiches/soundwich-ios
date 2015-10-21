@@ -197,6 +197,10 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     }
     
     func soundbiteDeleteRequested(name:String) {
+        let components = name.characters.split { $0 == "/" } .map { String($0) }
+        let last = "/" + components[components.count - 1]
+        print("soundbiteDeleteRequested: \(last)")
+
         do {
             try soundwich!.deleteSoundbite(name)
             try timelineView.deleteSoundbite(name)
@@ -215,15 +219,18 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
             .UserDomainMask,
             true
             )[0]
-        let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
+        let file = "/soundbite-\(NSDate().timeIntervalSince1970).m4a"
+        let path = documentDirectory.stringByAppendingString(file)
 
-        print("attempting to copy:\n\tname: \(name)\n\tpath: \(path)\n")
+        let components = name.characters.split { $0 == "/" } .map { String($0) }
+        let last = "/" + components[components.count - 1]
+        print("attempting to copy:\n\tname: \(last)\n\tpath: \(file)\n")
 
         do {
             try fileManager.copyItemAtPath(name, toPath: path)
-            print("success:\n\tname: \(name)\n\tpath: \(path)\n")
+            print("success:\n\tname: \(last)\n\tpath: \(file)\n")
         } catch let error as NSError {
-            print("failure:\n\tname: \(name)\n\tpath: \(path)\n\terror: \(error)\n")
+            print("failure:\n\tname: \(last)\n\tpath: \(file)\n\terror: \(error)\n")
         }
     }
 

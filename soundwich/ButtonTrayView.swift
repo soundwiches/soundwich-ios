@@ -151,7 +151,13 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
             if (player!.duration < 0.75) {
                 recorder.deleteRecording()
             } else {
-                player!.data?.writeToFile(recorder.url.path!, atomically: true) 
+                // player!.data?.writeToFile(recorder.url.path!, atomically: true)
+                do {
+                    try player!.data?.writeToFile(recorder.url.path!, options: .DataWritingAtomic)
+                    print("file write success:\n\tpath: /\(recorder.url.lastPathComponent!)\n")
+                } catch let error as NSError {
+                    print("file write failure:\n\(error)\n")
+                }
                 if let receiverOfButtonTrayEvents = receiverOfButtonTrayEvents {
                     receiverOfButtonTrayEvents.recordingDidComplete(recorder.url, duration: Double(player!.duration))
                 }
