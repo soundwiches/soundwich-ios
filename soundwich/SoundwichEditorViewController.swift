@@ -17,6 +17,10 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     @IBOutlet weak var buttonTrayView: ButtonTrayView!
 
     var players: [AVAudioPlayer?]?
+
+    var timer: NSTimer?
+    var currentTime = 0.0
+    var totalTime = 0.0
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -74,23 +78,54 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     }
 
     func playAll(soundbites: [Soundbite]) {
+        currentTime = 0.0
+        totalTime = 0.0
+
         players = soundbites.map({ (bite) -> AVAudioPlayer? in
             let url = NSURL(string: bite.url)
-            let player = try? AVAudioPlayer(contentsOfURL: url!)
 
-            if player != nil {
-                player!.delegate = self
-                player!.playAtTime(player!.deviceCurrentTime + Double(bite.start))
+            if let player = try? AVAudioPlayer(contentsOfURL: url!) {
+                player.delegate = self
+
+                player.playAtTime(player.deviceCurrentTime + Double(bite.start))
+
+                totalTime = max(totalTime, Double(bite.end))
+                return player
             }
 
-            return player
+            return nil
         })
+
+        if let timer = timer {
+            timer.invalidate()
+        }
+
+        timer = NSTimer.scheduledTimerWithTimeInterval(
+            1 / 60,
+            target: self,
+            selector: "onTimer:",
+            userInfo: nil,
+            repeats: true
+        )
     }
 
     func pauseAll() {
         players?.forEach({ (player) -> () in
             player!.pause()
         })
+
+        if let timer = timer {
+            timer.invalidate()
+        }
+    }
+
+    func onTimer(timer: NSTimer) {
+        currentTime += timer.timeInterval
+        // print("currentTime: \(currentTime), totalTime: \(totalTime), percentage: \(currentTime / totalTime)")
+        timelineView.constraintScrubberX.constant = (timelineView.bounds.width / 8.0) * CGFloat(currentTime)
+        if currentTime >= totalTime {
+            timer.invalidate()
+        }
     }
 
     // MARK: - AVAudioPlayerDelegate

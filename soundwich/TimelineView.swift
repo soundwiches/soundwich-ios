@@ -185,10 +185,15 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
         scrubberLocation = timeInSeconds
         self.constraintScrubberX.constant = CGFloat(self.secWidthInPx * timeInSeconds)
         UIView.animateWithDuration(Double(animationDuration), delay: NSTimeInterval(0),
-            options: [UIViewAnimationOptions.CurveLinear, UIViewAnimationOptions.BeginFromCurrentState, .OverrideInheritedDuration],
+            options: [
+                .CurveLinear,
+                .BeginFromCurrentState,
+                .OverrideInheritedDuration
+            ],
             animations: {
                 self.layoutIfNeeded()
-            }, completion: { (finished:Bool) -> Void in print("done") } )
+            },
+            completion: { (finished:Bool) -> Void in print("done") } )
     }
     
     
