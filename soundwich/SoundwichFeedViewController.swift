@@ -17,7 +17,6 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -104,6 +103,22 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func tableView(tableView: UITableView!, indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let soundwich = self.soundwiches[indexPath.row]
+            
+            SoundwichStore.remove(soundwich, callback: { (error) -> () in
+                NSLog("\(error)")
+                NSLog("remove \(indexPath.row)")
+                self.soundwiches.removeAtIndex(indexPath.row)
+            })
+        }
+    }
+
     // MARK: - Table Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return soundwiches.count

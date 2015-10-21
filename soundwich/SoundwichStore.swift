@@ -85,6 +85,18 @@ class SoundwichStore {
             }
         }
     }
+    
+    static func removeAll() {
+        let query = PFQuery(className: CLASS_NAME)
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error) -> Void in
+            
+            objects?.forEach({ (object:PFObject) -> () in
+                object.deleteInBackground()
+            })
+        }
+    }
 
     static func update(soundwich:Soundwich, callback:(NSError?) -> ()) {
         let query = PFQuery(className: CLASS_NAME)
