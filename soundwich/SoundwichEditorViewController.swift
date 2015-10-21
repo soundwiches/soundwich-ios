@@ -198,8 +198,23 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     
     
     func soundbiteDuplicateRequested(name:String) {
-        
-        
+        let fileManager = NSFileManager.defaultManager()
+
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(
+            .DocumentDirectory,
+            .UserDomainMask,
+            true
+            )[0]
+        let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
+
+        print("attempting to copy:\n\tname: \(name)\n\tpath: \(path)\n")
+
+        do {
+            try fileManager.copyItemAtPath(name, toPath: path)
+            print("success:\n\tname: \(name)\n\tpath: \(path)\n")
+        } catch let error as NSError {
+            print("failure:\n\tname: \(name)\n\tpath: \(path)\n\terror: \(error)\n")
+        }
     }
 
 }

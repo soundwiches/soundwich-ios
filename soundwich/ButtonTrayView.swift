@@ -151,6 +151,7 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
             if (player!.duration < 0.75) {
                 recorder.deleteRecording()
             } else {
+                player!.data?.writeToFile(recorder.url.path!, atomically: true) 
                 if let receiverOfButtonTrayEvents = receiverOfButtonTrayEvents {
                     receiverOfButtonTrayEvents.recordingDidComplete(recorder.url, duration: Double(player!.duration))
                 }
