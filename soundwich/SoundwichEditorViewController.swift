@@ -32,6 +32,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         timelineView.registerDelegate(self)
         
         buttonTrayView.receiverOfButtonTrayEvents = self
+        buttonTrayView.soundwich = soundwich
         
         timelineView.setNeedsLayout()
 
