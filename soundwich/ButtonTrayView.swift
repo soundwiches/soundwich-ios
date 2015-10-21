@@ -78,12 +78,6 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
                 .TouchUpOutside
             ]
         )
-
-//        playPauseButton.addTarget(
-//            self,
-//            action: "onTouchUpPlayPause:",
-//            forControlEvents: .TouchUpInside
-//        )
     }
 
     func setupSession() {
@@ -164,36 +158,13 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
         }
     }
 
-//    func onTouchUpPlayPause(sender: UIButton) {
-//        guard let player = player else { return }
-//
-//        if sender.state == UIControlState.Selected {
-//            player.play()
-//            // print("player.playing", player.playing)
-//        } else {
-//            player.stop()
-//            // print("player.stopped", !player.playing)
-//        }
-//    }
-
-//    // MARK: - AVAudioPlayerDelegate
-//    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-//        print("audioPlayerDidFinishPlaying:", flag)
-//        playPauseButton.setupPlayButton()
-//        playPauseButton.selected = false
-//    }
-//
-//    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
-//        print("audioPlayerDecodeErrorDidOccur:", error)
-//    }
-
     // MARK: - AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("audioRecorderDidFinishRecording:", flag)
+        // print("audioRecorderDidFinishRecording:", flag)
     }
 
     func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?) {
-        print("audioRecorderEncodeErrorDidOccur:", error)
+        // print("audioRecorderEncodeErrorDidOccur:", error)
     }
 
     /*

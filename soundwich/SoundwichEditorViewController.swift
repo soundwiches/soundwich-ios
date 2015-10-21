@@ -121,7 +121,9 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
 
     func onTimer(timer: NSTimer) {
         currentTime += timer.timeInterval
+
         // print("currentTime: \(currentTime), totalTime: \(totalTime), percentage: \(currentTime / totalTime)")
+
         timelineView.constraintScrubberX.constant = (timelineView.bounds.width / 8.0) * CGFloat(currentTime)
         if currentTime >= totalTime {
             timer.invalidate()
@@ -134,7 +136,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         guard let players = players else { return }
 
         let done = players.reduce(true) { (done, player) -> Bool in
-            print("done: \(done)\nplaying: \((player?.playing)!)\nurl: \((player?.url)!.lastPathComponent)\n")
+            // print("done: \(done)\nplaying: \((player?.playing)!)\nurl: \((player?.url)!.lastPathComponent)\n")
             return done && !(player?.playing)!
         }
 

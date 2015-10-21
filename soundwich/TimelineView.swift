@@ -166,7 +166,7 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
     
     
     func moveScrubberHairline(timeInSeconds: Float, animationDuration: Float) {
-        print("starting an animation of duration " + String(animationDuration))
+        // print("starting an animation of duration " + String(animationDuration))
         CATransaction.begin()
         self.layer.presentationLayer()?.removeAllAnimations()
         self.layer.removeAllAnimations()
@@ -193,7 +193,10 @@ class TimelineView: UIView, UIGestureRecognizerDelegate {
             animations: {
                 self.layoutIfNeeded()
             },
-            completion: { (finished:Bool) -> Void in print("done") } )
+            completion: { (finished: Bool) -> Void in
+                // print("done")
+            }
+        )
     }
     
     
