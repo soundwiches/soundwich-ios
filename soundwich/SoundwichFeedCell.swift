@@ -9,7 +9,8 @@
 import UIKit
 
 protocol SoundwichFeedCellDelegate {
-    func onPlayTapped(soundwich:Soundwich, sender: AnyObject);
+    func onPlaying(soundwich:Soundwich, sender: AnyObject);
+    func onPause(soundwich:Soundwich, sender: AnyObject);
 }
 
 class SoundwichFeedCell: UITableViewCell {
@@ -28,14 +29,14 @@ class SoundwichFeedCell: UITableViewCell {
     }
     
     @IBAction func onPlayTapped(sender: AnyObject) {
-        delegate?.onPlayTapped(soundwich, sender: sender)
-        
         if (isPlaying) {
             isPlaying = false
             playButton.setImage(UIImage(named: "Play Button Dark"), forState: UIControlState.Normal)
+            delegate?.onPause(soundwich, sender: sender)
         } else {
             isPlaying = true
             playButton.setImage(UIImage(named: "Pause Button Dark"), forState: UIControlState.Normal)
+            delegate?.onPlaying(soundwich, sender: sender)
         }
     }
     
