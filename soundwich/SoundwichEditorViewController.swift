@@ -67,22 +67,30 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         guard let soundbites = soundwich?.soundbites else { return }
 
         if sender.state == UIControlState.Selected {
-            players = soundbites.map({ (bite) -> AVAudioPlayer? in
-                let url = NSURL(string: bite.url)
-                let player = try? AVAudioPlayer(contentsOfURL: url!)
-
-                if player != nil {
-                    player!.delegate = self
-                    player!.playAtTime(player!.deviceCurrentTime + Double(bite.start))
-                }
-
-                return player
-            })
+            playAll(soundbites)
         } else {
-            players?.forEach({ (player) -> () in
-                player!.pause()
-            })
+            pauseAll()
         }
+    }
+
+    func playAll(soundbites: [Soundbite]) {
+        players = soundbites.map({ (bite) -> AVAudioPlayer? in
+            let url = NSURL(string: bite.url)
+            let player = try? AVAudioPlayer(contentsOfURL: url!)
+
+            if player != nil {
+                player!.delegate = self
+                player!.playAtTime(player!.deviceCurrentTime + Double(bite.start))
+            }
+
+            return player
+        })
+    }
+
+    func pauseAll() {
+        players?.forEach({ (player) -> () in
+            player!.pause()
+        })
     }
 
     // MARK: - AVAudioPlayerDelegate
@@ -96,8 +104,12 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         }
 
         if done {
-            buttonTrayView.playPauseButton.setupPlayButton()
-            buttonTrayView.playPauseButton.selected = false
+            if buttonTrayView.loopButton.selected {
+                playAll((soundwich?.soundbites)!)
+            } else {
+                buttonTrayView.playPauseButton.setupPlayButton()
+                buttonTrayView.playPauseButton.selected = false
+            }
         }
     }
 
