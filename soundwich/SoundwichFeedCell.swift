@@ -14,6 +14,7 @@ protocol SoundwichFeedCellDelegate {
 }
 
 class SoundwichFeedCell: UITableViewCell {
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var startTimeLabel: UILabel!
@@ -25,6 +26,8 @@ class SoundwichFeedCell: UITableViewCell {
     var soundwich: Soundwich! {
         didSet {
             self.titleLabel.text = soundwich.title
+            self.startTimeLabel.text = "0.00"
+            self.endTimeLabel.text = String(format: "%.2f", soundwich.end)
         }
     }
     

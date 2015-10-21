@@ -22,6 +22,14 @@ class Soundwich {
     var soundbites:[Soundbite]
     
     let channelCount = 8
+
+    var end: Float {
+        get {
+            return soundbites.reduce(0.0) { (end, bite) -> Float in
+                return max(end, bite.end)
+            }
+        }
+    }
     
     init(title:String) {
         self.title = title
