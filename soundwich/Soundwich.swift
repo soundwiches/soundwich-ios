@@ -47,7 +47,7 @@ class Soundwich {
         let availableChannels = allAvailableChannels()
         
         // The only way to get the first item from a Swift Set is to iterate??  Really?
-        for item in availableChannels {
+        for item in availableChannels.sort() {
             return item
         }
         
