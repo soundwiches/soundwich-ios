@@ -105,7 +105,7 @@ class ButtonTrayView: UIView, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     }
 
     func setupRecorder() {
-        let path = documentDirectory.stringByAppendingString("/soundbite-01.m4a")
+        let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
 
         recorder = try? AVAudioRecorder(URL: NSURL(fileURLWithPath: path), settings: recorderSettings)
         if let recorder = recorder {
