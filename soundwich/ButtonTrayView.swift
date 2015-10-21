@@ -134,17 +134,21 @@ class ButtonTrayView: UIView, AVAudioRecorderDelegate {
             // print("recorder.recording", recorder.recording)
         }
     }
-
+    
     func onTouchUpRecord(sender: UIButton) {
         loopButton.enabled = true
         playPauseButton.enabled = true
-
+        
         if let recorder = recorder {
             recorder.stop()
             // print("recorder.stopped", !recorder.recording)
             setupPlayer()
-            if let receiverOfButtonTrayEvents = receiverOfButtonTrayEvents {
-                receiverOfButtonTrayEvents.recordingDidComplete(recorder.url, duration: Double(player!.duration))
+            if (player!.duration < 0.75) {
+                recorder.deleteRecording()
+            } else {
+                if let receiverOfButtonTrayEvents = receiverOfButtonTrayEvents {
+                    receiverOfButtonTrayEvents.recordingDidComplete(recorder.url, duration: Double(player!.duration))
+                }
             }
         }
     }
