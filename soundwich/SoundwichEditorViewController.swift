@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
-class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDelegate, MessagesFromButtonTrayDelegate
+class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, MessagesFromTimelineDelegate, MessagesFromButtonTrayDelegate
 {
     var soundwich:Soundwich?
     
     @IBOutlet weak var timelineView: TimelineView!
     @IBOutlet weak var buttonTrayView: ButtonTrayView!
-    
+
+    var players: [AVAudioPlayer?]?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -67,11 +69,45 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     func onTouchUpInsidePlayPause(sender: UIButton) {
         guard let soundbites = soundwich?.soundbites else { return }
 
-        soundbites.forEach { (bite) -> () in
-            print(bite.url)
+        if sender.state == UIControlState.Selected {
+            players = soundbites.map({ (bite) -> AVAudioPlayer? in
+                let url = NSURL(string: bite.url)
+                let player = try? AVAudioPlayer(contentsOfURL: url!)
+
+                if player != nil {
+                    player!.delegate = self
+                    player!.playAtTime(player!.deviceCurrentTime + Double(bite.start))
+                }
+
+                return player
+            })
+        } else {
+            players?.forEach({ (player) -> () in
+                player!.pause()
+            })
         }
     }
-    
+
+    // MARK: - AVAudioPlayerDelegate
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("audioPlayerDidFinishPlaying:", flag)
+        guard let players = players else { return }
+
+        let done = players.reduce(true) { (done, player) -> Bool in
+            print("done: \(done)\nplaying: \((player?.playing)!)\nurl: \(player?.url)\n")
+            return done && !(player?.playing)!
+        }
+
+        if done {
+            buttonTrayView.playPauseButton.setupPlayButton()
+            buttonTrayView.playPauseButton.selected = false
+        }
+    }
+
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        print("audioPlayerDecodeErrorDidOccur:", error)
+    }
+
     // Required protocol "MessagesFromButtonTrayDelegate"
 
     func recordingDidComplete(url: NSURL, duration: Double) {
