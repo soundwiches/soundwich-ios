@@ -58,7 +58,8 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func onAdd(sender: AnyObject) {
-        let soundwich = Soundwich(title: "New")
+        let randomNum = Int(rand())
+        let soundwich = Soundwich(title: "New \(randomNum)")
 
         SoundwichStore.add(soundwich, callback:{(soundwich, error) in
             NSLog("added")
