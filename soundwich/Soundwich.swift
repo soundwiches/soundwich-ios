@@ -85,9 +85,10 @@ class Soundwich {
         if let idx = idx {
             self.soundbites.removeAtIndex(idx)
             do {
-                try NSFileManager.defaultManager().removeItemAtPath(url)
-            }catch{
-                print("LEAK:  Unable to delete m4a file: " + url)
+                let nsurl = NSURL(string: url)
+                try NSFileManager.defaultManager().removeItemAtURL(nsurl!)
+            }catch {
+                print("LEAK:  Unable to delete m4a file: \(url)")
             }
         }
         else {
