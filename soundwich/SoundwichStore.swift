@@ -101,20 +101,19 @@ class SoundwichStore {
                     if let d = soundwich.duration {
                         o.setObject(d, forKey: "duration")
                     }
-
-                    if let xs = soundwich.soundbites {
-                        for (index, value) in xs.enumerate() {
-                            if let ad = value.audioData {
-                                o.setObject(ad, forKey: "audioData\(index)")
-                            }
-                            
-                            o.setObject(value.channel, forKey: "channel\(index)")
-                            o.setObject(value.start, forKey: "start\(index)")
-                            o.setObject(value.end, forKey: "end\(index)")
-                            
-                            o.setObject(value.clipStart, forKey: "clipStart\(index)")
-                            o.setObject(value.clipEnd, forKey: "clipEnd\(index)")
+                    
+                    let xs = soundwich.soundbites
+                    for (index, value) in xs.enumerate() {
+                        if let ad = value.audioData {
+                            o.setObject(ad, forKey: "audioData\(index)")
                         }
+                        
+                        o.setObject(value.channel, forKey: "channel\(index)")
+                        o.setObject(value.start, forKey: "start\(index)")
+                        o.setObject(value.end, forKey: "end\(index)")
+                        
+                        o.setObject(value.clipStart, forKey: "clipStart\(index)")
+                        o.setObject(value.clipEnd, forKey: "clipEnd\(index)")
                     }
                     
                     o.saveInBackground()
@@ -154,11 +153,7 @@ class SoundwichStore {
             soundbite.clipEnd = clipEnd ?? 0
             
             if (end != nil) {
-                if let _ = soundwich.soundbites {
-                    soundwich.soundbites!.append(soundbite)
-                } else {
-                    soundwich.soundbites = [soundbite]
-                }
+                soundwich.soundbites.append(soundbite)
             }
         }
         
@@ -175,22 +170,21 @@ class SoundwichStore {
             obj.setObject(d, forKey: "duration")
         }
         
-        if let xs = soundwich.soundbites {
-            for (index, value) in xs.enumerate() {
-                if let v = value.audioData {
-                    let filename = "audioFile\(index)"
-                    let file = PFFile(name:filename, data:v)
-                    obj.setObject(file, forKey: "audioData\(index)")
-                    obj.setObject(value.channel, forKey: "channel\(index)")
-                    obj.setObject(value.start, forKey: "start\(index)")
-                    obj.setObject(value.end, forKey: "end\(index)")
-                    
-                    obj.setObject(value.clipStart, forKey: "clipStart\(index)")
-                    obj.setObject(value.clipEnd, forKey: "clipEnd\(index)")
-                }
+        let xs = soundwich.soundbites
+        for (index, value) in xs.enumerate() {
+            if let v = value.audioData {
+                let filename = "audioFile\(index)"
+                let file = PFFile(name:filename, data:v)
+                obj.setObject(file, forKey: "audioData\(index)")
+                obj.setObject(value.channel, forKey: "channel\(index)")
+                obj.setObject(value.start, forKey: "start\(index)")
+                obj.setObject(value.end, forKey: "end\(index)")
+                
+                obj.setObject(value.clipStart, forKey: "clipStart\(index)")
+                obj.setObject(value.clipEnd, forKey: "clipEnd\(index)")
             }
         }
-        
+    
         return obj
     }
 }

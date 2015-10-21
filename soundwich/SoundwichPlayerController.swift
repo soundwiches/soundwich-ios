@@ -13,7 +13,7 @@ import AVFoundation
 class SoundwichPlayerController : NSObject {
     
     /// The player.
-    var avPlayer:AVAudioPlayer!
+    var avPlayer:AVAudioPlayer?
     
     /**
     Uses AvAudioPlayer to play a sound file.
@@ -31,23 +31,23 @@ class SoundwichPlayerController : NSObject {
             print("Error playing")
         }
         
-        avPlayer.delegate = self
-        avPlayer.prepareToPlay()
-        avPlayer.volume = 1.0
-        avPlayer.play()
+        avPlayer?.delegate = self
+        avPlayer?.prepareToPlay()
+        avPlayer?.volume = 1.0
+        avPlayer?.play()
     }
     
     func stopAVPLayer() {
-        if avPlayer.playing {
-            avPlayer.stop()
+        if (avPlayer?.playing ?? false) {
+            avPlayer?.stop()
         }
     }
     
     func toggleAVPlayer() {
-        if avPlayer.playing {
-            avPlayer.pause()
+        if (avPlayer?.playing ?? false) {
+            avPlayer?.pause()
         } else {
-            avPlayer.play()
+            avPlayer?.play()
         }
     }
 }
