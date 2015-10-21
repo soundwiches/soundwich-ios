@@ -39,6 +39,11 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
         
         timelineView.setNeedsLayout()
 
+        buttonTrayView.playPauseButton.addTarget(
+            self,
+            action: "onTouchUpInsidePlayPause:",
+            forControlEvents: .TouchUpInside
+        )
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,8 +63,10 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     }
 
     
-    
-    // =================================================
+    // MARK: - Touch Handlers
+    func onTouchUpInsidePlayPause(sender: UIButton) {
+        guard let soundwich = soundwich else { return }
+    }
     
     // Required protocol "MessagesFromButtonTrayDelegate"
 
