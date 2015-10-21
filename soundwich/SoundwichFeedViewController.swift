@@ -18,7 +18,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     var soundwiches:[Soundwich] = []
 
-    var shouldPlayerLoop: Bool? {
+    var shouldPlayerLoop: Bool {
         get { return true }
         set(newValue) {}
     }

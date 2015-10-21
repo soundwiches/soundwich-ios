@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 protocol SoundwichPlayerControllerDelegate {
-    var shouldPlayerLoop: Bool? { get set }
+    var shouldPlayerLoop: Bool { get set }
     func onUpdate(time: Double)
     func onFinished()
 }
@@ -126,7 +126,6 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
     }
 
     func finishAll() {
-        print("finishAll")
         if let timer = timer {
             timer.invalidate()
         }
@@ -141,14 +140,12 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
 
         delegate?.onUpdate(currentTime)
         if currentTime >= totalTime {
-            print("onTimer:")
             loopOrDont()
         }
     }
 
     // MARK: - AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("audioPlayerDidFinishPlaying:", flag)
         guard let players = players else { return }
 
         let done = players.reduce(true) { (done, player) -> Bool in
@@ -162,16 +159,9 @@ class SoundwichPlayerController: NSObject, AVAudioPlayerDelegate {
     }
 
     func loopOrDont() {
-        print("loopOrDont", delegate)
         if let delegate = delegate {
-            print("shouldPlayerLoop", delegate.shouldPlayerLoop)
-            if let shouldPlayerLoop = delegate.shouldPlayerLoop {
-                print("shouldPlayerLoop", shouldPlayerLoop)
-                if shouldPlayerLoop {
-                    playAll(soundbites!)
-                } else {
-                    finishAll()
-                }
+            if delegate.shouldPlayerLoop {
+                playAll(soundbites!)
             } else {
                 finishAll()
             }
