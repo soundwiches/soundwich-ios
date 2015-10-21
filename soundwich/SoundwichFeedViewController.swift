@@ -9,8 +9,11 @@
 import UIKit
 
 class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate, SoundwichPlayerControllerDelegate {
+
     @IBOutlet weak var tableView: UITableView!
+
     var refreshControl: UIRefreshControl!
+
     var soundwichPlayerController:SoundwichPlayerController?
     
     var soundwiches:[Soundwich] = []
@@ -19,6 +22,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
         //SoundwichStore.removeAll()
         
         super.viewDidLoad()
+
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -52,6 +56,7 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
     // MARK: - UI
     func buildRefreshControl() -> UIRefreshControl {
         let refreshControl = UIRefreshControl()
+
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh...", attributes: [NSForegroundColorAttributeName: UIColor.orangeColor()])
         refreshControl.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
 
