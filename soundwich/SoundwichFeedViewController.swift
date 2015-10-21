@@ -11,7 +11,7 @@ import UIKit
 class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SoundwichFeedCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
-    var soundwichPlayerController: SoundwichPlayerController?
+    var soundwichPlayerController:SoundwichPlayerController?
     
     var soundwiches:[Soundwich] = []
     
@@ -69,8 +69,12 @@ class SoundwichFeedViewController: UIViewController, UITableViewDelegate, UITabl
 
         })
     }
-    
-    func onPlayTapped(soundwich:Soundwich, sender: AnyObject) {
+
+    func onPause(soundwich:Soundwich, sender: AnyObject) {
+        soundwichPlayerController?.toggleAVPlayer()
+    }
+
+    func onPlaying(soundwich:Soundwich, sender: AnyObject) {
         NSLog("Playing \(soundwich.title)")
         for soundbite in (soundwich.soundbites ?? []) {
             
