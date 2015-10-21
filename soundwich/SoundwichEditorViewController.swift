@@ -27,7 +27,7 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
         
         self.view.clipsToBounds = true
         
-        // Do any additional setup after loading the view, typically from a nib.        
+        // Do any additional setup after loading the view, typically from a nib.
         self.title = soundwich?.title
         timelineView.registerDelegate(self)
         
@@ -212,23 +212,49 @@ class SoundwichEditorViewController: UIViewController, AVAudioPlayerDelegate, Me
     
     
     func soundbiteDuplicateRequested(name:String) {
-        let fileManager = NSFileManager.defaultManager()
-
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask,
-            true
-            )[0]
-        let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
-
-        let nameURL = NSURL(string: name)!
-        let pathURL = NSURL(fileURLWithPath: path)
-
-        do {
-            try fileManager.copyItemAtURL(nameURL, toURL: pathURL)
-        } catch let error as NSError {
-            print("error: \(error)\n")
+        if let soundwich = soundwich {
+            
+            let goodChannel = soundwich.nextAvailableChannel()
+            if goodChannel < 0 {
+                print("Error: cannot do duplicate because the tracks are all full.")
+                return
+            }
+            
+            
+            let idxOfSrc = soundwich.getSoundbiteIndexByURL(name)
+            if idxOfSrc >= 0 {
+                let srcOfCopy = soundwich.soundbites[idxOfSrc]
+                
+                let fileManager = NSFileManager.defaultManager()
+                
+                
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(
+                    .DocumentDirectory,
+                    .UserDomainMask,
+                    true
+                    )[0]
+                let path = documentDirectory.stringByAppendingString("/soundbite-\(NSDate().timeIntervalSince1970).m4a")
+                
+                let nameURL = NSURL(string: name)!
+                let pathURL = NSURL(fileURLWithPath: path)
+                
+                do {
+                    try fileManager.copyItemAtURL(nameURL, toURL: pathURL)
+                } catch let error as NSError {
+                    print("error: \(error)\n")
+                    return
+                }
+                
+                let newSoundbite = Soundbite(url: String(pathURL), channel: goodChannel, duration: srcOfCopy.duration())
+                newSoundbite.audioData = srcOfCopy.audioData
+                
+                try! soundwich.addSoundbite(newSoundbite)
+                try! timelineView.createSoundbiteView(newSoundbite)
+                
+                updateDB()
+            }
         }
     }
+
 
 }

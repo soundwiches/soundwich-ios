@@ -118,9 +118,7 @@ class SoundwichStore {
                     for (index, value) in xs.enumerate() {
                         NSLog("setting soundbite for soundwich")
 
-                        if let ad = value.audioData {
-                            o.setObject(ad, forKey: "audioData\(index)")
-                        }
+                        o.setObject(value.url, forKey: "url\(index)")
                         
                         o.setObject(value.channel, forKey: "channel\(index)")
                         o.setObject(value.start, forKey: "start\(index)")
@@ -155,11 +153,10 @@ class SoundwichStore {
             let end = obj.objectForKey("end\(index)") as? Float
             let clipStart = obj.objectForKey("clipStart\(index)") as? Float
             let clipEnd = obj.objectForKey("clipEnd\(index)") as? Float
-            let audioData = obj.objectForKey("audioData\(index)") as? NSData
+            let url = obj.objectForKey("url\(index)") as? String
             
-            let soundbite = Soundbite(url: "", channel: channel ?? 0, duration: 1)
+            let soundbite = Soundbite(url: url ?? "", channel: channel ?? 0, duration: 1)
             
-            soundbite.audioData = audioData
             soundbite.channel = channel ?? 0
             soundbite.start = start ?? 0
             soundbite.end = end ?? 0
@@ -186,17 +183,13 @@ class SoundwichStore {
         
         let xs = soundwich.soundbites
         for (index, value) in xs.enumerate() {
-            if let v = value.audioData {
-                let filename = "audioFile\(index)"
-                let file = PFFile(name:filename, data:v)
-                obj.setObject(file, forKey: "audioData\(index)")
-                obj.setObject(value.channel, forKey: "channel\(index)")
-                obj.setObject(value.start, forKey: "start\(index)")
-                obj.setObject(value.end, forKey: "end\(index)")
-                
-                obj.setObject(value.clipStart, forKey: "clipStart\(index)")
-                obj.setObject(value.clipEnd, forKey: "clipEnd\(index)")
-            }
+            obj.setObject(value.url, forKey: "url\(index)")
+            obj.setObject(value.channel, forKey: "channel\(index)")
+            obj.setObject(value.start, forKey: "start\(index)")
+            obj.setObject(value.end, forKey: "end\(index)")
+            
+            obj.setObject(value.clipStart, forKey: "clipStart\(index)")
+            obj.setObject(value.clipEnd, forKey: "clipEnd\(index)")
         }
     
         return obj

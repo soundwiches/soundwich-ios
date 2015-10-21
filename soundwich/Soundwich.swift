@@ -66,8 +66,8 @@ class Soundwich {
         }
     }
     
-    
-    func getSoundbiteIndexByURL(url: String) throws -> Int {
+    // Returns -1 if not found
+    func getSoundbiteIndexByURL(url: String) -> Int {
         var retval = 0
         for sb in soundbites {
             if sb.url == url {
@@ -76,13 +76,13 @@ class Soundwich {
                 retval += 1
             }
         }
-        throw SoundwichError.NameUnknown
+        return -1
     }
     
     
     func deleteSoundbite(url: String) throws {
-        let idx = try? self.getSoundbiteIndexByURL(url)
-        if let idx = idx {
+        let idx = self.getSoundbiteIndexByURL(url)
+        if idx >= 0 {
             self.soundbites.removeAtIndex(idx)
             do {
                 let nsurl = NSURL(string: url)
