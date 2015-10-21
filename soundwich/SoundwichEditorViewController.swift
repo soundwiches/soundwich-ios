@@ -138,6 +138,7 @@ class SoundwichEditorViewController: UIViewController, MessagesFromTimelineDeleg
     
     func soundbiteTimespecDidChange(name:String, newSpec:Soundbite) {
         try! soundwich!.registerTimespecChange(newSpec)
+        updateDB()
     }
 
     func userMovedScrubber(newPositionInSeconds:Float, interactionHasEnded:Bool) {
